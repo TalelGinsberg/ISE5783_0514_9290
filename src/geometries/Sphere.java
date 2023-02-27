@@ -8,18 +8,35 @@ import primitives.Vector;
 public class Sphere extends RadialGeometry{
 
     private Point center;
-
+    private double radius;
 
 
     /**
      * parameters construction
-     * @param center
-     * @param radius
+     * @param center  canter of sphere
+     * @param radius  radius of sphere
      */
     public Sphere(Point center, double radius) {
         this.center = center;
         this.radius = radius;
     }
+
+    /**
+     * getter function for center
+     * @return      center
+     */
+    public Point getCenter() {
+        return center;
+    }
+
+    /**
+     * getter function for radius
+     * @return      radius
+     */
+    public double getRadius() {
+        return radius;
+    }
+
     @Override
     public String toString() {
         return "Sphere{" +
@@ -29,31 +46,6 @@ public class Sphere extends RadialGeometry{
                 '}';
     }
 
-    private double radius;
-
-
-    /**
-     *
-     * @return
-     */
-    public Point getCenter() {
-        return center;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public double getRadius() {
-        return radius;
-    }
-
-
-    /**
-     *
-     * @param p
-     * @return
-     */
     @Override
     public Vector getNormal(Point p) {
         return null;
