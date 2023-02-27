@@ -3,10 +3,23 @@ package geometries;
 import primitives.Point;
 import primitives.Vector;
 
+/*** class that represents Sphere
+ * @author Noa Harel and Talel Ginsberg */
 public class Sphere extends RadialGeometry{
 
     private Point center;
 
+
+
+    /**
+     * parameters construction
+     * @param center
+     * @param radius
+     */
+    public Sphere(Point center, double radius) {
+        this.center = center;
+        this.radius = radius;
+    }
     @Override
     public String toString() {
         return "Sphere{" +
@@ -35,15 +48,6 @@ public class Sphere extends RadialGeometry{
         return radius;
     }
 
-    /**
-     *
-     * @param center
-     * @param radius
-     */
-    public Sphere(Point center, double radius) {
-        this.center = center;
-        this.radius = radius;
-    }
 
     /**
      *

@@ -1,31 +1,18 @@
-/**
- *
- */
-
 
 package geometries;
 
 import primitives.Point;
 import primitives.Vector;
 
+/*** class that represents Plane
+ * @author Noa Harel and Talel Ginsberg */
 public class Plane implements Geometry{
     private Point q0;
     private Vector normal;
 
-    @Override
-    public String toString() {
-        return "Plane{" +
-                "q0=" + q0 +
-                ", normal=" + normal +
-                '}';
-    }
-
-    public Point getQ0() {
-        return q0;
-    }
 
     /**
-     *
+     * parameters constructor
      * @param sentQ0
      * @param sentNormal
      */
@@ -34,10 +21,8 @@ public class Plane implements Geometry{
         this.normal = sentNormal.normalize();
     }
 
-
-
     /**
-     *
+     * parameters constructor
      * @param x
      * @param y
      * @param z
@@ -49,20 +34,29 @@ public class Plane implements Geometry{
 
 
     /**
-     *
-     * @param p
-     * @return
+     * getter function for q0
+     * @return      q0
      */
+    public Point getQ0() {
+        return q0;
+    }
+
+    @Override
+    public String toString() {
+        return "Plane{" +
+                "q0=" + q0 +
+                ", normal=" + normal +
+                '}';
+    }
+
     @Override
     public Vector getNormal(Point p) {
         return null;
     }
 
 
-
-
     /**
-     *
+     * getter function for normal
      * @return normal of the plane
      */
     public Vector getNormal(){
