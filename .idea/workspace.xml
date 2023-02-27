@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="mid doc">
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="first stage before doc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,21 +80,13 @@
       <option name="project" value="LOCAL‎" />
       <updated>1677525127901</updated>
     </task>
-    <task id="LOCAL‎-00004" summary="mid doc">
-      <created>1677526636345</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL‎-00004" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1677526636345</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="first stage before doc" />
-    <MESSAGE value="mid doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="mid doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="first stage before doc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
