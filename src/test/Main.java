@@ -45,9 +45,9 @@ public final class Main {
          out.println("ERROR: Vector + itself throws wrong exception");
       }
       if (!v1.add(v2).equals(new Vector(-1, -2, -3)))
-         out.println("ERROR: Point - Point does not work correctly");
+         out.println("ERROR: Point - Point does not work correctly - add");
       if (!v1.subtract(v2).equals(new Vector(3, 6, 9)))
-         out.println("ERROR: Point - Point does not work correctly");
+         out.println("ERROR: Point - Point does not work correctly - sub");
 
       // test Dot-Product
       if (!isZero(v1.dotProduct(v3)))
@@ -83,7 +83,7 @@ public final class Main {
       if (!(p1.add(new Vector(-1, -2, -3)).equals(new Point(0, 0, 0))))
          out.println("ERROR: Point + Vector does not work correctly");
       if (!new Vector(1, 1, 1).equals(new Point(2, 3, 4).subtract(p1)))
-         out.println("ERROR: Point - Point does not work correctly");
+         out.println("ERROR: Point - Point does not work correctly - sub2");
 
       out.println("If there were no any other outputs - all tests succeeded!");
    }
