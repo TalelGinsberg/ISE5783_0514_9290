@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="PRO1commit" />
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="push tag" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,8 +21,8 @@
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
       <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,7 +83,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1677525127901</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎-00004" summary="push tag">
+      <created>1677582205524</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1677582205524</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,7 +108,8 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="first stage before doc" />
     <MESSAGE value="mid doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="mid doc" />
+    <MESSAGE value="push tag" />
+    <option name="LAST_COMMIT_MESSAGE" value="push tag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
