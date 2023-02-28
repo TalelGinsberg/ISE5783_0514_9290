@@ -5,7 +5,7 @@ import primitives.Ray;
 import primitives.Vector;
 
 /*** class that represents Cylinder
- * @author Noa Harel and Talel Ginsberg */
+ * @author Noa Harel and Talel Ginsberg*/
 
 public class Cylinder extends Tube{
     private double height;
