@@ -10,6 +10,8 @@ public class Vector extends Point{
      * @param x
      * @param y
      * @param z
+     *
+     * @throws IllegalArgumentException if get the zero vector
      */
     public Vector(double x, double y, double z) {
         super(x,y,z);
@@ -20,6 +22,8 @@ public class Vector extends Point{
     /**
      * parameters constructor
      * @param sentXyz
+     *
+     * @throws IllegalArgumentException if get the zero vector
      */
     Vector(Double3 sentXyz) {
         super(sentXyz);
@@ -69,28 +73,40 @@ public class Vector extends Point{
     }
 
     /**
-     *
-     * @param u
-     * @return
+     * Vector multiplication
+     * @param u vector
+     * @return     the result
      */
     public Vector crossProduct(Vector u) {
         return new Vector(xyz.d2*u.xyz.d3-xyz.d3*u.xyz.d2,xyz.d3*u.xyz.d1-xyz.d1*u.xyz.d3,xyz.d1*u.xyz.d2-xyz.d2*u.xyz.d1);
     }
 
+    /**
+     * A function that calculates the length of the vector
+     * @return      the result
+     */
     public double length() {
         return Math.sqrt(lengthSquared());
 
     }
 
-    public Vector normalize() {
-        return scale(1/length());
+
+    /**
+     * A function that calculates the squared length of the vector
+     * @return      the result
+     */
+    public double lengthSquared() {
+        return xyz.d1 * xyz.d1 + xyz.d2 * xyz.d2 + xyz.d3 * xyz.d3;
 
     }
 
 
-
-    public double lengthSquared() {
-        return xyz.d1 * xyz.d1 + xyz.d2 * xyz.d2 + xyz.d3 * xyz.d3;
+    /**
+     * Normalize the vector - turning the vector into the unit vector
+     * @return      the unit vector
+     */
+    public Vector normalize() {
+        return scale(1/length());
 
     }
 }

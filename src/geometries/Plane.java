@@ -41,6 +41,13 @@ public class Plane implements Geometry{
         return q0;
     }
 
+    /**
+     * getter function for normal
+     * @return normal of the plane
+     */
+    public Vector getNormal(){
+        return normal;
+    }
     @Override
     public String toString() {
         return "Plane{" +
@@ -55,11 +62,5 @@ public class Plane implements Geometry{
     }
 
 
-    /**
-     * getter function for normal
-     * @return normal of the plane
-     */
-    public Vector getNormal(){
-        return normal;
-    }
+
 }

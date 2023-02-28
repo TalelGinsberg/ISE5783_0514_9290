@@ -6,6 +6,7 @@ import java.util.Objects;
  * This class will serve all primitive classes based on three numbers, making a Point
  * @author Noa Harel and Talel Ginsberg */
 public class Point {
+
     /** Numbers representing the point */
     Double3 xyz;
 
