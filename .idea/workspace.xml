@@ -4,25 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="final tag">
-      <change afterPath="$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/geometries/PolygonTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/geometries/TubeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/primitives/PointTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/primitives/VectorTest.java" afterDir="false" />
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="Stage2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ISE5783_0514_9290.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ISE5783_0514_9290.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PolygonTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TubeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/primitives/PointTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/primitives/PointTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/primitives/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/primitives/VectorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +31,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--tags" />
-        <option name="title" value="All" />
-      </GitPushTagMode>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -90,8 +76,8 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TubeTest">
-    <configuration name="PolygonTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CylinderTest.getNormal">
+    <configuration name="CylinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
@@ -100,13 +86,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.PolygonTests" />
+      <option name="MAIN_CLASS_NAME" value="geometries.CylinderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SphereTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CylinderTest.getNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
@@ -115,8 +101,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.SphereTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="geometries.CylinderTest" />
+      <option name="METHOD_NAME" value="getNormal" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -169,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CylinderTest.getNormal" />
+        <item itemvalue="JUnit.CylinderTest" />
         <item itemvalue="JUnit.TubeTest" />
         <item itemvalue="JUnit.TriangleTest" />
         <item itemvalue="JUnit.TriangleTest.testToString" />
-        <item itemvalue="JUnit.SphereTest" />
-        <item itemvalue="JUnit.PolygonTests" />
       </list>
     </recent_temporary>
   </component>
@@ -228,7 +215,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1677584033208</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎-00007" summary="Stage2">
+      <created>1679988193844</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1679988193844</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +243,7 @@
     <MESSAGE value="push tag" />
     <MESSAGE value="final changes" />
     <MESSAGE value="final tag" />
-    <option name="LAST_COMMIT_MESSAGE" value="final tag" />
+    <MESSAGE value="Stage2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stage2" />
   </component>
 </project>

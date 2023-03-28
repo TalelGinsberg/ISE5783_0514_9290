@@ -17,7 +17,11 @@ import primitives.Vector;
  * @author Dan */
 public class PolygonTests {
 
-   /** Test method for {@link Polygon#Polygon(Point...)}. */
+   /** Test method for
+    * {
+    * @link Polygon#Polygon(Point...)
+    * }.
+    * */
    @Test
    public void testConstructor() {
       // ============ Equivalence Partitions Tests ==============
