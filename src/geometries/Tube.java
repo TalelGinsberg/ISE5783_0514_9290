@@ -11,12 +11,16 @@ public class Tube extends RadialGeometry{
 
     Ray axisRay;
 
+
     /**
      * parameters constructor
      * @param axisRay
+     * @param r
      */
-    public Tube(Ray axisRay) {
+    public Tube(Ray axisRay, double r) {
+        this.radius=r;
         this.axisRay = axisRay;
+
     }
 
     /**
@@ -36,6 +40,17 @@ public class Tube extends RadialGeometry{
 
     @Override
     public Vector getNormal(Point p) {
-        return null;
+
+        //להבין!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Vector v=p.subtract(this.axisRay.getP0());
+
+        if(v.dotProduct(this.axisRay.getDrr())==0)
+        {
+            return v.normalize();
+        }
+        double t=this.axisRay.getDrr().dotProduct(v);
+        Point o=this.axisRay.getP0().add(this.axisRay.getDrr().scale(t));
+        Vector normal=(p.subtract(o)).normalize();
+        return normal;
     }
 }

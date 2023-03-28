@@ -6,6 +6,8 @@ import java.util.Objects;
  * This class will serve all primitive classes based on a point and vector
  * @author Noa Harel and Talel Ginsberg */
 public class Ray {
+
+
     /* point*/
     private Point p0;
     /* vector*/
@@ -21,6 +23,21 @@ public class Ray {
         this.drr = sentDrr.normalize();
     }
 
+    /**
+     * getter for the po
+     * @return
+     */
+    public Point getP0() {
+        return p0;
+    }
+
+    /**
+     * getter for drr
+     * @return
+     */
+    public Vector getDrr() {
+        return drr;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

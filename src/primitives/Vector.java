@@ -69,7 +69,10 @@ public class Vector extends Point{
      * @return  the result
      */
     public double dotProduct(Vector u) {
-        return xyz.d1*u.xyz.d1+ xyz.d2*u.xyz.d2+ xyz.d3*u.xyz.d3;
+        double result = xyz.d1*u.xyz.d1+ xyz.d2*u.xyz.d2+ xyz.d3*u.xyz.d3;
+        if (result == -0.0)
+            return 0;
+        return result;
     }
 
     /**
