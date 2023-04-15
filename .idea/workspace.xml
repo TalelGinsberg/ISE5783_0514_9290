@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="Stage2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PolygonTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TubeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/primitives/PointTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/primitives/PointTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/primitives/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/primitives/VectorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
-    </list>
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="final documentation stage2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,7 +211,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1679988193844</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL‎-00008" summary="final documentation stage2">
+      <created>1679999476058</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1679999476058</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,6 +240,7 @@
     <MESSAGE value="final changes" />
     <MESSAGE value="final tag" />
     <MESSAGE value="Stage2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stage2" />
+    <MESSAGE value="final documentation stage2" />
+    <option name="LAST_COMMIT_MESSAGE" value="final documentation stage2" />
   </component>
 </project>
