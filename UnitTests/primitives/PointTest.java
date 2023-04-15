@@ -38,6 +38,7 @@ class PointTest {
         assertTrue(v3.equals(p2.subtract(p1)),"ERROR: Point - Point does not work correctly - sub2");
     }
 
+
     /**
      * test function for add function in point
      */
