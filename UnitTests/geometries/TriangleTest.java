@@ -53,6 +53,5 @@ class TriangleTest {
         List<Point> result=triangle.findIntersections(new Ray(new Point(0,0,0),new Vector(0,0,1)));
         assertEquals(1,result.size(),"Wrong number of points");
         assertEquals(new Point(0,0,0),result.get(0),"Point inside triangle");
-
     }
 }

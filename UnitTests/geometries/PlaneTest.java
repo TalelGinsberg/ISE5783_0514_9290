@@ -2,7 +2,11 @@ package geometries;
 
 import org.junit.jupiter.api.Test;
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 /*** Testing Planes
@@ -64,4 +68,59 @@ class PlaneTest {
         assertEquals(0,v2.dotProduct(result),"Plane's normal is not orthogonal to one of the edges");
 
     }
+
+    /**
+     * Test method for Sphere #findIntersections
+     */
+    @Test
+    void findIntersections() {
+        Plane plane = new Plane(new Point(1,1,0), new Vector(0,0,1));
+        Ray ray1 = new Ray(new Point(0,0,0),new Vector(0,1,1));
+        Ray ray2 = new Ray(new Point(0,0,-1), new Vector(0,1,1));
+        Ray ray3 = new Ray(new Point(0,0,1), new Vector(0,1,1));
+        Ray ray4 = new Ray(new Point(0,-1,0),new Vector(0,1,0));
+        Ray ray5 = new Ray(new Point(0,0,1),new Vector(0,1,0));
+        Ray ray6 = new Ray(new Point(0,1,0), new Vector(0,0,1));
+        Ray ray7 = new Ray(new Point(0,0,3),new Vector(0,0,1));
+        Ray ray8 = new Ray(new Point(0,0,-2),new Vector(0,0,1));
+        Ray ray9 = new Ray(new Point(1,1,0),new Vector(0,1,1));
+
+
+                 // ============ Equivalence Partitions Tests ==============
+        // TC01: The ray cuts the plane at a sharp angle
+        List<Point> result1=plane.findIntersections(ray2);
+        assertEquals(1,result1.size(),"Wrong number of points");
+        assertEquals(new Point(0,1,0),result1.get(0),"ray cuts the plane at a sharp angle");
+
+        // TC02: The ray starts above the plane so there are no cutting points
+        List<Point> result2=plane.findIntersections(ray3);
+        assertNull(result2,"Ray starts above the plane");
+
+
+                  // =============== Boundary Values Tests ==================
+        // **** Group: A ray parallel to a plane
+        // TC03: The ray is inside the plane
+        assertNull(plane.findIntersections(ray4),"Ray parallel to the plane and inside");
+        // TC04: The ray is not inside the plane - no cutting points
+        assertNull(plane.findIntersections(ray5),"Ray parallel to the plane and not inside");
+
+        // **** Group: A ray is perpendicular to the plane
+        // TC05: The ray starts in the plane
+        assertNull(plane.findIntersections(ray6),"Ray orthogonal to the plane and starts inside");
+        // TC06: The ray starts above the plane
+        assertNull(plane.findIntersections(ray7),"Ray orthogonal to the plane and starts above");
+        // TC07: The ray starts under the plane
+        assertNull(plane.findIntersections(ray8),"Ray orthogonal to the plane and starts under");
+
+
+        // TC08: A ray that is neither parallel nor perpendicular to the plane but starts inside the plane
+        assertNull(plane.findIntersections(ray9),"ray make a sharp angle and starts inside the plane");
+
+
+        // TC09: A ray that is neither parallel nor perpendicular to the plane but starts inside
+        //       the plane when the ray starts exactly at the reference point of the plane
+        assertNull(plane.findIntersections(ray1),"ray make a sharp angle and starts on the reference point of the plane");
+
+    }
+
 }

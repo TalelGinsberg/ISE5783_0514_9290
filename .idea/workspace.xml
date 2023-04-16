@@ -7,7 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="start STAGE3" />
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="sync">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +82,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlaneTest">
+  <component name="RunManager" selected="JUnit.PlaneTest.findIntersections">
     <configuration name="CylinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
@@ -108,6 +113,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlaneTest.findIntersections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_0514_9290" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="geometries.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="geometries" />
+      <option name="MAIN_CLASS_NAME" value="geometries.PlaneTest" />
+      <option name="METHOD_NAME" value="findIntersections" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PointTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
@@ -118,21 +139,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="primitives" />
       <option name="MAIN_CLASS_NAME" value="primitives.PointTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TubeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_0514_9290" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="geometries.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.TubeTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,19 +160,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.PlaneTest.findIntersections" />
       <item itemvalue="JUnit.CylinderTest" />
       <item itemvalue="JUnit.PlaneTest" />
       <item itemvalue="JUnit.PointTest" />
       <item itemvalue="JUnit.VectorTest" />
-      <item itemvalue="JUnit.TubeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlaneTest.findIntersections" />
         <item itemvalue="JUnit.PlaneTest" />
         <item itemvalue="JUnit.CylinderTest" />
         <item itemvalue="JUnit.VectorTest" />
         <item itemvalue="JUnit.PointTest" />
-        <item itemvalue="JUnit.TubeTest" />
       </list>
     </recent_temporary>
   </component>
