@@ -7,7 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="start STAGE3" />
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="start STAGE3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +83,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlaneTest">
+  <component name="RunManager" selected="JUnit.SphereTest">
     <configuration name="CylinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
@@ -123,7 +129,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TubeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SphereTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
@@ -132,7 +138,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.TubeTest" />
+      <option name="MAIN_CLASS_NAME" value="geometries.SphereTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,16 +163,16 @@
       <item itemvalue="JUnit.CylinderTest" />
       <item itemvalue="JUnit.PlaneTest" />
       <item itemvalue="JUnit.PointTest" />
+      <item itemvalue="JUnit.SphereTest" />
       <item itemvalue="JUnit.VectorTest" />
-      <item itemvalue="JUnit.TubeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SphereTest" />
         <item itemvalue="JUnit.PlaneTest" />
         <item itemvalue="JUnit.CylinderTest" />
         <item itemvalue="JUnit.VectorTest" />
         <item itemvalue="JUnit.PointTest" />
-        <item itemvalue="JUnit.TubeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681661007942</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="start STAGE3">
+      <created>1681661101992</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681661101992</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

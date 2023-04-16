@@ -47,12 +47,37 @@ class TriangleTest {
         Point p3=new Point(-1,-1,0);
         Triangle triangle=new Triangle(p1,p2,p3);
         // ============ Equivalence Partitions Tests ==============
-        //TC01: Point is outside Triangle supposed to return null
+
+        // **** Group: Point is outside triangle
+        //TC01: Point is outside Triangle between continuation of two edges, supposed to return null
         assertNull(triangle.findIntersections(new Ray(new Point(2,0,0),new Vector(0,0,1))),"Ray's line outside triangle");
-        //TC02: Point is inside Triangle(1 point)
+        //TC02: Point is outside Triangle in front of edge, supposed to return null
+        assertNull(triangle.findIntersections(new Ray(new Point(2,2,0),new Vector(0,0,1))),"Ray's line outside triangle");
+
+        // **** Group: Point is inside triangle
+        //TC03: Point is inside Triangle(1 point)
         List<Point> result=triangle.findIntersections(new Ray(new Point(0,0,0),new Vector(0,0,1)));
         assertEquals(1,result.size(),"Wrong number of points");
         assertEquals(new Point(0,0,0),result.get(0),"Point inside triangle");
+
+        // =============== Boundary Values Tests ==================
+        //TC04: Point is on edge of Triangle(1 point)
+        Triangle t = new Triangle(new Point(0,0,0),new Point(2,0,0),new Point(0,2,0));
+        List<Point> other_result=t.findIntersections(new Ray(new Point(1,0,0),new Vector(0,0,1)));
+        assertEquals(1,other_result.size(),"Wrong number of points");
+        assertEquals(new Point(0,0,0),other_result.get(0),"Point on edge of triangle");
+        //TC05: Point is corner of Triangle(1 point)
+        other_result=t.findIntersections(new Ray(new Point(0,0,0),new Vector(0,0,1)));
+        assertEquals(1,other_result.size(),"Wrong number of points");
+        assertEquals(new Point(0,0,0),other_result.get(0),"Point on edge of triangle");
+        //TC06: Point is on continuation of edge of Triangle(1 point)
+        other_result=t.findIntersections(new Ray(new Point(3,0,0),new Vector(0,0,1)));
+        assertEquals(1,other_result.size(),"Wrong number of points");
+        assertEquals(new Point(0,0,0),other_result.get(0),"Point on edge of triangle");
+        //TC07: Point is on continuation of edge of Triangle(1 point)
+        other_result=t.findIntersections(new Ray(new Point(3,0,0),new Vector(0,0,1)));
+        assertEquals(1,other_result.size(),"Wrong number of points");
+        assertEquals(new Point(0,0,0),other_result.get(0),"Point on edge of triangle");
 
     }
 }
