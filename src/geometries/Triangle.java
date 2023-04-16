@@ -1,6 +1,9 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
+
+import java.util.List;
 
 /*** class that represents Triangle
  * @author Noa Harel and Talel Ginsberg */
@@ -24,5 +27,8 @@ public class Triangle extends Polygon{
                 ", plane=" + plane +
                 '}';
     }
-
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        return null;
+    }
 }

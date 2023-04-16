@@ -2,7 +2,10 @@ package geometries;
 
 import org.junit.jupiter.api.Test;
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 /*** Testing Triangles
@@ -35,5 +38,21 @@ class TriangleTest {
         assertEquals(0,v1.dotProduct(result),"Triangle's normal is not orthogonal to one of the edges");
         assertEquals(0,v3.dotProduct(result),"Triangle's normal is not orthogonal to one of the edges");
         assertEquals(0,v2.dotProduct(result),"Triangle's normal is not orthogonal to one of the edges");
+    }
+
+    @Test
+    void findIntersections() {
+        Point p1=new Point(1,0,0);
+        Point p2=new Point(0,1,0);
+        Point p3=new Point(-1,-1,0);
+        Triangle triangle=new Triangle(p1,p2,p3);
+        // ============ Equivalence Partitions Tests ==============
+        //TC01: Point is outside Triangle supposed to return null
+        assertNull(triangle.findIntersections(new Ray(new Point(2,0,0),new Vector(0,0,1))),"Ray's line outside triangle");
+        //TC02: Point is inside Triangle(1 point)
+        List<Point> result=triangle.findIntersections(new Ray(new Point(0,0,0),new Vector(0,0,1)));
+        assertEquals(1,result.size(),"Wrong number of points");
+        assertEquals(new Point(0,0,0),result.get(0),"Point inside triangle");
+
     }
 }

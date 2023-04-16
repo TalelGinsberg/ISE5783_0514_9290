@@ -4,7 +4,7 @@ import primitives.Point;
 
 /*** interface that will serve all geometries
  * @author Noa Harel and Talel Ginsberg */
-public interface Geometry {
+public interface Geometry extends Intersectable {
 
     /**
      * getter for normal
