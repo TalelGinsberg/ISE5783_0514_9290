@@ -11,7 +11,7 @@ import java.util.List;
 public class Sphere extends RadialGeometry{
 
     private Point center;
-    private double radius;
+    //private double radius;
 
 
     /**

@@ -80,4 +80,12 @@ public class Point {
                 (p.xyz.d2-this.xyz.d2)*(p.xyz.d2-this.xyz.d2)+
                 (p.xyz.d3-this.xyz.d3)*(p.xyz.d3-this.xyz.d3);
     }
+
+    /**
+     * getter for x of xyz
+     * @return
+     */
+    public double getX() {
+        return xyz.d1;
+    }
 }
