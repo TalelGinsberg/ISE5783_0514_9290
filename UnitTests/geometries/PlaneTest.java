@@ -70,12 +70,12 @@ class PlaneTest {
     }
 
     /**
-     * Test method for Sphere #findIntersections
+     * Test method for Plane #findIntersections
      */
     @Test
     void findIntersections() {
         Plane plane = new Plane(new Point(1,1,0), new Vector(0,0,1));
-        Ray ray1 = new Ray(new Point(0,0,0),new Vector(0,1,1));
+        Ray ray1 = new Ray(new Point(1,1,0),new Vector(0,1,1));
         Ray ray2 = new Ray(new Point(0,0,-1), new Vector(0,1,1));
         Ray ray3 = new Ray(new Point(0,0,1), new Vector(0,1,1));
         Ray ray4 = new Ray(new Point(0,-1,0),new Vector(0,1,0));
@@ -83,7 +83,7 @@ class PlaneTest {
         Ray ray6 = new Ray(new Point(0,1,0), new Vector(0,0,1));
         Ray ray7 = new Ray(new Point(0,0,3),new Vector(0,0,1));
         Ray ray8 = new Ray(new Point(0,0,-2),new Vector(0,0,1));
-        Ray ray9 = new Ray(new Point(1,1,0),new Vector(0,1,1));
+        Ray ray9 = new Ray(new Point(2,2,0),new Vector(0,1,1));
 
 
                  // ============ Equivalence Partitions Tests ==============
@@ -99,8 +99,13 @@ class PlaneTest {
 
                   // =============== Boundary Values Tests ==================
         // **** Group: A ray parallel to a plane
-        // TC03: The ray is inside the plane
-        assertNull(plane.findIntersections(ray4),"Ray parallel to the plane and inside");
+        // TC03: The ray is inside the plane - throw an exception
+        assertThrows(IllegalArgumentException.class, //
+                () -> plane.findIntersections(ray4), //
+                "Calculate a ray contained in a plane as a normal case");
+        // if suppose to return NULL -
+        //assertNull(plane.findIntersections(ray4),"Ray parallel to the plane and inside");
+
         // TC04: The ray is not inside the plane - no cutting points
         assertNull(plane.findIntersections(ray5),"Ray parallel to the plane and not inside");
 
