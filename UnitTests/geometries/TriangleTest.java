@@ -78,6 +78,5 @@ class TriangleTest {
         other_result=t.findIntersections(new Ray(new Point(3,0,0),new Vector(0,0,1)));
         assertEquals(1,other_result.size(),"Wrong number of points");
         assertEquals(new Point(0,0,0),other_result.get(0),"Point on edge of triangle");
-
     }
 }
