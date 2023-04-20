@@ -60,7 +60,6 @@ public class Vector extends Point{
      */
     public Vector scale(double i){
         return new Vector(xyz.scale(i));
-
     }
 
     /**

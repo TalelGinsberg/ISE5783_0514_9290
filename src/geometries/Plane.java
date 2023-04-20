@@ -35,7 +35,7 @@ public class Plane implements Geometry{
         q0=x;
         Vector v1 = x.subtract(y);
         Vector v2 = x.subtract(z);
-        normal = v1.crossProduct(v2);;
+        normal = v1.crossProduct(v2);
     }
 
 
@@ -75,7 +75,7 @@ public class Plane implements Geometry{
         if (isZero(nv))
             //throw new IllegalArgumentException("The scalar product of the normal with the ray vector is zero");
            return null;
-        double nQminusP0 = normal.dotProduct(ray.getP0().subtract(q0));
+        double nQminusP0 = normal.dotProduct(q0.subtract(ray.getP0()));
         double t = alignZero(nQminusP0 / nv);
         //if (t>0)
             return List.of(ray.getP0().add(ray.getDrr().scale(t)));
