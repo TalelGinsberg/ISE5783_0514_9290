@@ -80,12 +80,8 @@ public class Vector extends Point{
      * @return     the result
      */
     public Vector crossProduct(Vector u) {
-        double h1 = xyz.d2*u.xyz.d3;
-        double h2 = xyz.d3*u.xyz.d2;
-        double h3 = xyz.d3*u.xyz.d1;
-        double h4 = xyz.d1*u.xyz.d3;
-        double h5 = xyz.d1*u.xyz.d2;
-        double h6 = xyz.d2*u.xyz.d1;
+        if ((xyz.d1/u.xyz.d1==xyz.d2/u.xyz.d2) && (xyz.d1/u.xyz.d1==xyz.d2/u.xyz.d2))
+            return crossProduct(new Vector(u.xyz.d1+1,u.xyz.d2,u.xyz.d3));
         return new Vector(xyz.d2*u.xyz.d3-xyz.d3*u.xyz.d2,xyz.d3*u.xyz.d1-xyz.d1*u.xyz.d3,xyz.d1*u.xyz.d2-xyz.d2*u.xyz.d1);
     }
 
