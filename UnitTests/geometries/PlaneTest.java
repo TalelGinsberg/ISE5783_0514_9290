@@ -82,7 +82,7 @@ class PlaneTest {
         Ray ray5 = new Ray(new Point(0,0,1),new Vector(0,1,0));
         Ray ray6 = new Ray(new Point(0,1,0), new Vector(0,0,1));
         Ray ray7 = new Ray(new Point(0,0,3),new Vector(0,0,1));
-        Ray ray8 = new Ray(new Point(0,0,-2),new Vector(0,0,1));
+        Ray ray8 = new Ray(new Point(1,1,-2),new Vector(0,0,1));
         Ray ray9 = new Ray(new Point(2,2,0),new Vector(0,1,1));
 
 
@@ -100,11 +100,11 @@ class PlaneTest {
                   // =============== Boundary Values Tests ==================
         // **** Group: A ray parallel to a plane
         // TC03: The ray is inside the plane - throw an exception
-        assertThrows(IllegalArgumentException.class, //
-                () -> plane.findIntersections(ray4), //
-                "Calculate a ray contained in a plane as a normal case");
+        //assertThrows(IllegalArgumentException.class, //
+        //        () -> plane.findIntersections(ray4), //
+        //        "Calculate a ray contained in a plane as a normal case");
         // if suppose to return NULL -
-        //assertNull(plane.findIntersections(ray4),"Ray parallel to the plane and inside");
+        assertNull(plane.findIntersections(ray4),"Ray parallel to the plane and inside");
 
         // TC04: The ray is not inside the plane - no cutting points
         assertNull(plane.findIntersections(ray5),"Ray parallel to the plane and not inside");
@@ -115,7 +115,10 @@ class PlaneTest {
         // TC06: The ray starts above the plane
         assertNull(plane.findIntersections(ray7),"Ray orthogonal to the plane and starts above");
         // TC07: The ray starts under the plane
-        assertNull(plane.findIntersections(ray8),"Ray orthogonal to the plane and starts under");
+        List<Point> result7=plane.findIntersections(ray8);
+        assertEquals(1,result1.size(),"Wrong number of points");
+        assertEquals(new Point(1,1,0),result7.get(0),"Ray orthogonal to the plane and starts under");
+
 
 
         // TC08: A ray that is neither parallel nor perpendicular to the plane but starts inside the plane
