@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TriangleTest.findIntersections">
+  <component name="RunManager" selected="JUnit.PlaneTest.findIntersections">
     <configuration name="CylinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
@@ -168,8 +169,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TriangleTest.findIntersections" />
         <item itemvalue="JUnit.PlaneTest.findIntersections" />
+        <item itemvalue="JUnit.TriangleTest.findIntersections" />
         <item itemvalue="JUnit.SphereTest" />
         <item itemvalue="JUnit.PlaneTest" />
         <item itemvalue="JUnit.CylinderTest" />
@@ -302,21 +303,22 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/geometries/Triangle.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/geometries/Triangle.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/geometries/Plane.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="normal" language="JAVA" />
+        <watch expression="normal" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
