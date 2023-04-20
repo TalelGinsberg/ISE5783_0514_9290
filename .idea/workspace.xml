@@ -7,10 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="sync">
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="sync MON">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,22 +80,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlaneTest.getNormal">
-    <configuration name="CylinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_0514_9290" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="geometries.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.CylinderTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.PlaneTest.testConstructor">
     <configuration name="PlaneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
@@ -129,6 +112,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlaneTest.testConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_0514_9290" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="geometries.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="geometries" />
+      <option name="MAIN_CLASS_NAME" value="geometries.PlaneTest" />
+      <option name="METHOD_NAME" value="testConstructor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PolygonTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_0514_9290" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="geometries.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="geometries" />
+      <option name="MAIN_CLASS_NAME" value="geometries.PolygonTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SphereTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
@@ -144,35 +158,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_0514_9290" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="primitives.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.VectorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="JUnit.PlaneTest.getNormal" />
-      <item itemvalue="JUnit.CylinderTest" />
+      <item itemvalue="JUnit.PlaneTest.testConstructor" />
+      <item itemvalue="JUnit.PolygonTests" />
       <item itemvalue="JUnit.PlaneTest" />
       <item itemvalue="JUnit.SphereTest" />
-      <item itemvalue="JUnit.VectorTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlaneTest.testConstructor" />
+        <item itemvalue="JUnit.PolygonTests" />
         <item itemvalue="JUnit.PlaneTest.getNormal" />
         <item itemvalue="JUnit.SphereTest" />
         <item itemvalue="JUnit.PlaneTest" />
-        <item itemvalue="JUnit.CylinderTest" />
-        <item itemvalue="JUnit.VectorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681669097634</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎-00013" summary="sync MON">
+      <created>1681754165056</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1681754165056</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,7 +301,8 @@
     <MESSAGE value="FINAL STAGE2" />
     <MESSAGE value="start STAGE3" />
     <MESSAGE value="SphereTest STAGE3" />
-    <option name="LAST_COMMIT_MESSAGE" value="SphereTest STAGE3" />
+    <MESSAGE value="sync MON" />
+    <option name="LAST_COMMIT_MESSAGE" value="sync MON" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

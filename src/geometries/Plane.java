@@ -35,7 +35,7 @@ public class Plane implements Geometry{
         q0=x;
         Vector v1 = x.subtract(y);
         Vector v2 = x.subtract(z);
-        normal = v1.crossProduct(v2);;
+        normal = v1.crossProduct(v2);
     }
 
 
