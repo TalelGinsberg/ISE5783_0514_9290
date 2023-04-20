@@ -75,11 +75,12 @@ class SphereTest {
 
         // **** Group: Ray's line goes through the center
         // TC13: Ray starts before the sphere (2 points)
-        /**result = sphere.findIntersections(new Ray(new Point(1,0,-2),new Vector(0,0,1)));
+        result = sphere.findIntersections(new Ray(new Point(1,0,-2),new Vector(0,0,1)));
         assertEquals(2, result.size(), "Wrong number of points");
-        if (result.get(0).getX() > result.get(1).getX())
+        if (result.get(0).getX() > result.get(1).getX() )
             result = List.of(result.get(1), result.get(0));
-        assertEquals(List.of(new Point(1,0,-1), new Point(1,0,1)), result, "Ray starts before the sphere");**/
+
+        assertEquals(List.of(new Point(1,0,-1), new Point(1,0,1)), result, "Ray starts before the sphere");
 
         // TC14: Ray starts at sphere and goes inside (1 points)  - worked
         result = sphere.findIntersections(new Ray(new Point(1,0,-1),new Vector(0,0,1)));
