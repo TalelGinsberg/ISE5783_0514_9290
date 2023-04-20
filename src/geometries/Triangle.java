@@ -48,7 +48,7 @@ public class Triangle extends Polygon{
         Vector V3=points.get(0).subtract(vertices.get(0));
         Vector U3= vertices.get(2).subtract(vertices.get(0));
         double areaTriangle3=0.5*(V3.crossProduct(U3)).length();
-        if (areaTriangle3+areaTriangle1+areaTriangle2==areaTriangle)
+        if (Math.abs(areaTriangle- (areaTriangle3+areaTriangle1+areaTriangle2)<EPSILON)
             return points;
         return null;
 
