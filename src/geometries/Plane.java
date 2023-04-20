@@ -71,14 +71,14 @@ public class Plane implements Geometry{
     @Override
     public List<Point> findIntersections(Ray ray) {
         double nv = normal.dotProduct(ray.getDrr());
+
         if (isZero(nv))
-            throw new IllegalArgumentException("The scalar product of the normal with the ray vector is zero");
+            //throw new IllegalArgumentException("The scalar product of the normal with the ray vector is zero");
+           return null;
         double nQminusP0 = normal.dotProduct(ray.getP0().subtract(q0));
         double t = alignZero(nQminusP0 / nv);
-        if (t>0)
+        //if (t>0)
             return List.of(ray.getP0().add(ray.getDrr().scale(t)));
-        else return null;
-
-
+        //else return null;
     }
 }
