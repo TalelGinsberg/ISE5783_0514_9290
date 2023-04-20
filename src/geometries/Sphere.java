@@ -59,30 +59,36 @@ public class Sphere extends RadialGeometry{
 
     @Override
     public List<Point> findIntersections(Ray ray) {
-       Vector u = center.subtract(ray.getP0());
-       double tm = ray.getDrr().dotProduct(u);
-       double d = sqrt(u.lengthSquared()-tm*tm);
-       if (d>=radius)
-           return null;
-       double th = (sqrt(radius*radius-d*d));
-       double t1 = tm+th;
-       double t2 = tm-th;
 
-       if (t1 == t2 && t1>0){
-           return List.of(ray.getP0().add(ray.getDrr().scale(t1)));
-       }
-       if (t1>0) {
-           if (t2 > 0)
-               return List.of(ray.getP0().add(ray.getDrr().scale(t1)), ray.getP0().add(ray.getDrr().scale(t2)));
-           else
-               return List.of(ray.getP0().add(ray.getDrr().scale(t1)));
-       } else if (t2>0) {
-           return List.of(ray.getP0().add(ray.getDrr().scale(t2)));
-       }
-       return null;
+        if (center.equals(ray.getP0()))
+            return List.of(center.add(ray.getDrr().scale(radius)));
+
+        Vector u = center.subtract(ray.getP0());
+        double tm = ray.getDrr().dotProduct(u);
+        double d = sqrt(u.lengthSquared()-tm*tm);
+        if (d>=radius)
+            return null;
+        double th = (sqrt(radius*radius-d*d));
+        double t1 = tm+th;
+        double t2 = tm-th;
+
+        if (t1 == t2 && t1>0){
+            return List.of(ray.getP0().add(ray.getDrr().scale(t1)));
+        }
+        if (t1>0) {
+            if (t2 > 0)
+                return List.of(ray.getP0().add(ray.getDrr().scale(t1)), ray.getP0().add(ray.getDrr().scale(t2)));
+            else
+                return List.of(ray.getP0().add(ray.getDrr().scale(t1)));
+        } else if (t2>0) {
+            return List.of(ray.getP0().add(ray.getDrr().scale(t2)));
+        }
+        return null;
 
 
-       /**
+
+
+/**
         Point p0 = ray.getP0();
         Vector v = ray.getDrr();
 
