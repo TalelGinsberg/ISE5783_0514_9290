@@ -46,7 +46,7 @@ class PlaneTest {
      * test function for get normal function in plane
      */
     @Test
-    void getNormal() {
+    void getNormal() { //we didn't implement
 
         // ============ Equivalence Partitions Tests ==============
         //TC01: Constructing a plane using three dots and receiving the expected normal

@@ -73,15 +73,15 @@ public class Sphere extends RadialGeometry{
         double t2 = tm-th;
 
         if (t1 == t2 && t1>0){
-            return List.of(ray.getP0().add(ray.getDrr().scale(t1)));
+            return List.of(ray.getPoint(t1));
         }
         if (t1>0) {
             if (t2 > 0)
-                return List.of(ray.getP0().add(ray.getDrr().scale(t1)), ray.getP0().add(ray.getDrr().scale(t2)));
+                return List.of(ray.getPoint(t1), ray.getPoint(t2));
             else
-                return List.of(ray.getP0().add(ray.getDrr().scale(t1)));
+                return List.of(ray.getPoint(t1));
         } else if (t2>0) {
-            return List.of(ray.getP0().add(ray.getDrr().scale(t2)));
+            return List.of(ray.getPoint(t2));
         }
         return null;
 
