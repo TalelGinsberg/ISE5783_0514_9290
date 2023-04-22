@@ -59,19 +59,21 @@ public class Sphere extends RadialGeometry{
 
     @Override
     public List<Point> findIntersections(Ray ray) {
+        // calculated based on what was learnt in the course introduction to computer engineering
 
+        //if ray begins at center of sphere
         if (center.equals(ray.getP0()))
             return List.of(center.add(ray.getDrr().scale(radius)));
 
         Vector u = center.subtract(ray.getP0());
-        double tm = ray.getDrr().dotProduct(u);
-        double d = sqrt(u.lengthSquared()-tm*tm);
-        if (d>=radius)
+        double tm = ray.getDrr().dotProduct(u);//the shadow of u on ray
+        double d = sqrt(u.lengthSquared()-tm*tm);//size of second perpendicular vector using pitagoras
+        if (d>=radius)//ray is outside the sphere or tangent to sphere
             return null;
         double th = (sqrt(radius*radius-d*d));
         double t1 = tm+th;
         double t2 = tm-th;
-
+        // for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
         if (t1 == t2 && t1>0){
             return List.of(ray.getPoint(t1));
         }

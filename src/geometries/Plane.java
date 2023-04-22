@@ -70,8 +70,8 @@ public class Plane implements Geometry{
 
     @Override
     public List<Point> findIntersections(Ray ray) {
+        // calculated based on what was learnt in the course introduction to computer engineering
         double nv = normal.dotProduct(ray.getDrr());
-
         if (isZero(nv))
             //throw new IllegalArgumentException("The scalar product of the normal with the ray vector is zero");
            return null;

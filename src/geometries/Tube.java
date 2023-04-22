@@ -42,8 +42,8 @@ public class Tube extends RadialGeometry{
 
     @Override
     public Vector getNormal(Point p) {
+        // calculated based on what was learnt in the course introduction to computer engineering
 
-        //להבין!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         Vector v=p.subtract(this.axisRay.getP0());
 
         if(v.dotProduct(this.axisRay.getDrr())==0)
@@ -51,7 +51,7 @@ public class Tube extends RadialGeometry{
             return v.normalize();
         }
         double t=this.axisRay.getDrr().dotProduct(v);
-        Point o=this.axisRay.getP0().add(this.axisRay.getDrr().scale(t));
+        Point o=this.axisRay.getPoint(t);
         Vector normal=(p.subtract(o)).normalize();
         return normal;
     }
