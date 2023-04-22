@@ -7,7 +7,6 @@ import primitives.Vector;
 
 import java.util.List;
 
-import static java.lang.Math.sqrt;
 import static org.junit.jupiter.api.Assertions.*;
 /*** Testing Spheres
  * @author Noa Harel and Talel Ginsberg*/
@@ -65,7 +64,7 @@ class SphereTest {
                 // =============== Boundary Values Tests ==================
 
         // **** Group: Ray's line crosses the sphere (but not the center)
-        // TC11: Ray starts at sphere and goes inside (1 points)
+        // TC11: Ray starts at sphere and goes inside (1 point)
         result = sphere.findIntersections(new Ray(new Point(1,0,-1),new Vector(0,0.5,Math.sqrt(3)/2)));
         assertEquals(1,result.size(),"Wrong number of points");
         assertEquals(new Point(1,Math.sqrt(3)/2,0.5),result.get(0),"Ray starts at sphere and goes inside");
@@ -92,7 +91,7 @@ class SphereTest {
         assertEquals(new Point(1,0,1),result.get(0)," Ray starts inside");
 
 
-        // TC16: Ray starts at the center (1 points)
+        // TC16: Ray starts at the center (1 point)
         result = sphere.findIntersections(new Ray(new Point(1,0,0),new Vector(0,0,1)));
         assertEquals(1,result.size(),"Wrong number of points");
         assertEquals(new Point(1,0,1),result.get(0),"Ray starts at sphere and goes inside");

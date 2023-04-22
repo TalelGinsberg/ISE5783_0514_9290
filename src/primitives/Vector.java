@@ -7,11 +7,11 @@ public class Vector extends Point{
 
     /**
      * parameters constructor
-     * @param x
-     * @param y
-     * @param z
+     * @param x sent first double
+     * @param y sent first double
+     * @param z sent first double
      *
-     * @throws IllegalArgumentException if get the zero vector
+     * @throws IllegalArgumentException  get the zero vector - send an exception
      */
     public Vector(double x, double y, double z) {
         super(x,y,z);
@@ -21,9 +21,9 @@ public class Vector extends Point{
 
     /**
      * parameters constructor
-     * @param sentXyz
+     * @param sentXyz for vector
      *
-     * @throws IllegalArgumentException if get the zero vector
+     * @throws IllegalArgumentException  get the zero vector - send an exception
      */
     Vector(Double3 sentXyz) {
         super(sentXyz);
@@ -46,7 +46,7 @@ public class Vector extends Point{
 
     /**
      * add function - add two vectors
-     * @param vector
+     * @param vector the other vector
      * @return      new vector
      */
     public Vector add(Vector vector) {
