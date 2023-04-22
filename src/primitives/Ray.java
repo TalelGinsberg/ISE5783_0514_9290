@@ -15,8 +15,8 @@ public class Ray {
 
     /**
      *  Constructor to initialize Point based on a point and vector
-     * @param sentP0
-     * @param sentDrr
+     * @param sentP0 point for ray
+     * @param sentDrr  vector for ray
      */
     public Ray(Point sentP0, Vector sentDrr) {
         this.p0 = sentP0;
@@ -25,7 +25,7 @@ public class Ray {
 
     /**
      * getter for the po
-     * @return
+     * @return point of vector
      */
     public Point getP0() {
         return p0;
@@ -33,7 +33,7 @@ public class Ray {
 
     /**
      * getter for drr
-     * @return
+     * @return vector of ray
      */
     public Vector getDrr() {
         return drr;
