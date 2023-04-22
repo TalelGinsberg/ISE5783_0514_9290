@@ -7,16 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="FINAL CHANGES 20.4">
-      <change afterPath="$PROJECT_DIR$/UnitTests/geometries/GeometriesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="final stage3 before doc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +81,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VectorTest">
+  <component name="RunManager" selected="JUnit.SphereTest.testFindIntersections">
     <configuration name="PointTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
@@ -119,7 +112,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TriangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SphereTest.testFindIntersections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
@@ -128,8 +121,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.TriangleTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="geometries.SphereTest" />
+      <option name="METHOD_NAME" value="testFindIntersections" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,18 +160,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.PointTest" />
-      <item itemvalue="JUnit.TriangleTest" />
       <item itemvalue="JUnit.TubeTest" />
       <item itemvalue="JUnit.VectorTest" />
+      <item itemvalue="JUnit.SphereTest.testFindIntersections" />
       <item itemvalue="JUnit.SphereTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SphereTest.testFindIntersections" />
+        <item itemvalue="JUnit.SphereTest" />
         <item itemvalue="JUnit.VectorTest" />
         <item itemvalue="JUnit.PointTest" />
         <item itemvalue="JUnit.TubeTest" />
-        <item itemvalue="JUnit.TriangleTest" />
-        <item itemvalue="JUnit.SphereTest" />
       </list>
     </recent_temporary>
   </component>
@@ -316,7 +310,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1682011894650</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL‎-00019" summary="final stage3 before doc">
+      <created>1682196577654</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL‎-00019" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682196577654</updated>
+    </task>
+    <task id="LOCAL‎-00020" summary="final stage3 before doc">
+      <created>1682196726000</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL‎-00020" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682196726000</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -345,16 +353,12 @@
     <MESSAGE value="mid STAGE3" />
     <MESSAGE value="sync" />
     <MESSAGE value="FINAL CHANGES 20.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="FINAL CHANGES 20.4" />
+    <MESSAGE value="final stage3 before doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="final stage3 before doc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UnitTests/geometries/SphereTest.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java</url>
           <line>9</line>
