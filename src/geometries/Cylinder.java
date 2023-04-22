@@ -14,8 +14,8 @@ public class Cylinder extends Tube{
 
     /**
      * parameters constructor
-     * @param axisRay
-     * @param height
+     * @param axisRay sent axis ray for cylinder
+     * @param height sent height for cylinder
      */
     public Cylinder(Ray axisRay, double height,double r) {
         super(axisRay,r);
@@ -52,12 +52,12 @@ public class Cylinder extends Tube{
         }
         Point o=this.axisRay.getPoint(t);
         Vector test=o.subtract(this.axisRay.getP0()).normalize();
-        if((t==this.getHeight()) && (test.equals(this.axisRay.getDrr())))//the point is on the top - need to check the direction to confirm that its not on the opposite side
+        if((t==this.getHeight()) && (test.equals(this.axisRay.getDrr())))//the point is on the top - need to check the direction to confirm that it's not on the opposite side
         {
             return this.axisRay.getDrr();
         }
-        Vector normal=(point.subtract(o)).normalize();
-        return normal;
+        return (point.subtract(o)).normalize();
+
     }
     @Override
     public List<Point> findIntersections(Ray ray) {

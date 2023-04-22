@@ -12,9 +12,9 @@ public class Point {
 
     /**
      *  Constructor to initialize Point based on three number values
-     * @param x
-     * @param y
-     * @param z
+     * @param x first sent double for point
+     * @param y second sent double for point
+     * @param z third sent double for point
      */
     public Point(double x, double y, double z) {
         xyz=new Double3(x,y,z);
@@ -23,7 +23,7 @@ public class Point {
 
     /**
      * Constructor to initialize Point based on a Double3
-     * @param xyz
+     * @param xyz sent xyz for point
      */
     Point(Double3 xyz) {
         this.xyz = xyz;
@@ -46,7 +46,7 @@ public class Point {
 
     /**
      * Subtract two point
-     * @param p1
+     * @param p1 sent point to subtract point from
      * @return a new vector of the subtracted point
      */
     public Vector subtract(Point p1) {
@@ -55,7 +55,7 @@ public class Point {
 
     /**
      * Adds a sent vector to current point creating a point
-     * @param vector
+     * @param vector sent vector to add point to
      * @return a new Point of an addition of this vector and sent vector
      */
     public Point add(Vector vector) {
@@ -64,7 +64,7 @@ public class Point {
 
     /**
      * distance between current point and sent point
-     * @param p
+     * @param p sent point to calculate distance to
      * @return distance between current point and sent point
      */
     public double distance(Point p){
@@ -72,7 +72,7 @@ public class Point {
     }
     /**
      * distance between current point and sent point, squared
-     * @param p
+     * @param p sent point to calculate squared distance to
      * @return distance between current point and sent point,squared
      */
     public double distanceSquared(Point p){
@@ -83,14 +83,22 @@ public class Point {
 
     /**
      * getter for x of xyz
-     * @return
+     * @return x
      */
     public double getX() {
         return xyz.d1;
     }
+    /**
+     * getter for y of xyz
+     * @return y
+     */
     public double getY() {
         return xyz.d2;
     }
+    /**
+     * getter for z of xyz
+     * @return z
+     */
     public double getZ() {
         return xyz.d3;
     }

@@ -12,9 +12,9 @@ public class Triangle extends Polygon{
 
     /**
      * parameters constructor
-     * @param x
-     * @param y
-     * @param z
+     * @param x first sent point for triangle
+     * @param y second sent point for triangle
+     * @param z third sent point for triangle
      */
     public Triangle(Point x,Point y, Point z) {
         super(x,y,z);

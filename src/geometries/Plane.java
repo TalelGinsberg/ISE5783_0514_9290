@@ -17,8 +17,8 @@ public class Plane implements Geometry{
 
     /**
      * parameters constructor
-     * @param sentQ0
-     * @param sentNormal
+     * @param sentQ0 sent point for plane
+     * @param sentNormal sent normal for plane
      */
     public Plane(Point sentQ0, Vector sentNormal) {
         this.q0 = sentQ0;
@@ -27,9 +27,9 @@ public class Plane implements Geometry{
 
     /**
      * parameters constructor
-     * @param x
-     * @param y
-     * @param z
+     * @param x first point
+     * @param y second point
+     * @param z third point
      */
     public Plane(Point x,Point y,Point z) {
         q0=x;
