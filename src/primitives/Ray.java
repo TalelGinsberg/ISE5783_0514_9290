@@ -35,7 +35,7 @@ public class Ray {
      * getter for drr
      * @return vector of ray
      */
-    public Vector getDrr() {
+    public Vector getDir() {
         return drr;
     }
     @Override
