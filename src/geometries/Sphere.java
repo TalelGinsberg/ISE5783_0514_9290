@@ -5,21 +5,21 @@ import primitives.Ray;
 import primitives.Vector;
 
 import static java.lang.Math.sqrt;
+import static primitives.Util.*;
 
 import java.util.List;
 
 /*** class that represents Sphere
  * @author Noa Harel and Talel Ginsberg */
-public class Sphere extends RadialGeometry{
+public class Sphere extends RadialGeometry {
 
     private Point center;
-    //private double radius;
-
 
     /**
      * parameters construction
-     * @param center  canter of sphere
-     * @param radius  radius of sphere
+     *
+     * @param center canter of sphere
+     * @param radius radius of sphere
      */
     public Sphere(Point center, double radius) {
         this.center = center;
@@ -28,7 +28,8 @@ public class Sphere extends RadialGeometry{
 
     /**
      * getter function for center
-     * @return      center
+     *
+     * @return center
      */
     public Point getCenter() {
         return center;
@@ -36,7 +37,8 @@ public class Sphere extends RadialGeometry{
 
     /**
      * getter function for radius
-     * @return      radius
+     *
+     * @return radius
      */
     public double getRadius() {
         return radius;
@@ -62,28 +64,54 @@ public class Sphere extends RadialGeometry{
 
         //if ray begins at center of sphere
         if (center.equals(ray.getP0()))
-            return List.of(center.add(ray.getDrr().scale(radius)));
+            return List.of(center.add(ray.getDir().scale(radius)));
 
         Vector u = center.subtract(ray.getP0());
-        double tm = ray.getDrr().dotProduct(u);//the shadow of u on ray
-        double d = sqrt(u.lengthSquared()-tm*tm);//size of second perpendicular vector using pitagoras
-        if (d>=radius)//ray is outside the sphere or tangent to sphere
+
+        double tm = ray.getDir().dotProduct(u);//the shadow of u on ray
+        double d = alignZero(sqrt(u.lengthSquared() - tm * tm));//size of second perpendicular vector using pitagoras
+
+        //ray is outside the sphere or tangent to sphere
+        if (isZero(d - radius) || d > radius) {
             return null;
-        double th = (sqrt(radius*radius-d*d));
-        double t1 = tm+th;
-        double t2 = tm-th;
-        // for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
-        if (t1 == t2 && t1>0){
+        }
+
+        double th = (sqrt(radius * radius - d * d));
+
+        double t1 = alignZero(tm + th);
+        double t2 = alignZero(tm - th);
+
+        if (t1<=0 && t2<=0){
+            return  null;
+        }
+
+        if(t1>0 && t2>0){
+            return List.of(ray.getPoint(t1), ray.getPoint(t2));
+        }
+
+        if(t1>0){
             return List.of(ray.getPoint(t1));
         }
-        if (t1>0) {
-            if (t2 > 0)
-                return List.of(ray.getPoint(t1), ray.getPoint(t2));
-            else
-                return List.of(ray.getPoint(t1));
-        } else if (t2>0) {
+
+        if (t2>0){
             return List.of(ray.getPoint(t2));
         }
         return null;
+        /**
+        // for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
+        if (t1 == t2 && t1 > 0) {
+            return List.of(ray.getPoint(t1));
+        }
+
+        if (t1 > 0) {
+            if (t2 > 0)
+                return List.of(ray.getPoint(t1), ray.getPoint(t2));
+
+            return List.of(ray.getPoint(t1));
+        } else if (t2 > 0) {
+            return List.of(ray.getPoint(t2));
+        }
+        return null;
+         */
     }
 }

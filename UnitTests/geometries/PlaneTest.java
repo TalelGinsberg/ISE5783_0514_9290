@@ -1,5 +1,6 @@
 package geometries;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
 import primitives.Ray;
@@ -46,8 +47,7 @@ class PlaneTest {
      * test function for get normal function in plane
      */
     @Test
-    void getNormal() { //we didn't implement
-
+    void getNormal() {
         // ============ Equivalence Partitions Tests ==============
         //TC01: Constructing a plane using three dots and receiving the expected normal
         // We created a plane

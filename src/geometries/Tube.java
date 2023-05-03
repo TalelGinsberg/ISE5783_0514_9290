@@ -46,11 +46,11 @@ public class Tube extends RadialGeometry{
 
         Vector v=p.subtract(this.axisRay.getP0());
 
-        if(v.dotProduct(this.axisRay.getDrr())==0)
+        if(v.dotProduct(this.axisRay.getDir())==0)
         {
             return v.normalize();
         }
-        double t=this.axisRay.getDrr().dotProduct(v);
+        double t=this.axisRay.getDir().dotProduct(v);
         Point o=this.axisRay.getPoint(t);
         return (p.subtract(o)).normalize();
     }
