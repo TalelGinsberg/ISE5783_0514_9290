@@ -4,7 +4,9 @@ import java.util.Objects;
 
 /**
  * This class will serve all primitive classes based on three numbers, making a Point
- * @author Noa Harel and Talel Ginsberg */
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 public class Point {
 
     /** Numbers representing the point */
@@ -12,6 +14,7 @@ public class Point {
 
     /**
      *  Constructor to initialize Point based on three number values
+     *
      * @param x first sent double for point
      * @param y second sent double for point
      * @param z third sent double for point
@@ -23,6 +26,7 @@ public class Point {
 
     /**
      * Constructor to initialize Point based on a Double3
+     *
      * @param xyz sent xyz for point
      */
     Point(Double3 xyz) {
@@ -45,7 +49,8 @@ public class Point {
     }
 
     /**
-     * Subtract two point
+     * Subtract two points from each other and return the resulted vector
+     *
      * @param p1 sent point to subtract point from
      * @return a new vector of the subtracted point
      */
@@ -55,6 +60,7 @@ public class Point {
 
     /**
      * Adds a sent vector to current point creating a point
+     *
      * @param vector sent vector to add point to
      * @return a new Point of an addition of this vector and sent vector
      */
@@ -64,6 +70,7 @@ public class Point {
 
     /**
      * distance between current point and sent point
+     *
      * @param p sent point to calculate distance to
      * @return distance between current point and sent point
      */
@@ -72,6 +79,7 @@ public class Point {
     }
     /**
      * distance between current point and sent point, squared
+     *
      * @param p sent point to calculate squared distance to
      * @return distance between current point and sent point,squared
      */
@@ -83,21 +91,21 @@ public class Point {
 
     /**
      * getter for x of xyz
-     * @return x
+     * @return the value x of the point
      */
     public double getX() {
         return xyz.d1;
     }
     /**
      * getter for y of xyz
-     * @return y
+     * @return the value y of the point
      */
     public double getY() {
         return xyz.d2;
     }
     /**
      * getter for z of xyz
-     * @return z
+     * @return the value z of the point
      */
     public double getZ() {
         return xyz.d3;

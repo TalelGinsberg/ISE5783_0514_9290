@@ -6,12 +6,16 @@ import primitives.Vector;
 
 import java.util.List;
 
-/*** class that represents Triangle
- * @author Noa Harel and Talel Ginsberg */
+/**
+ * class that represents Triangle
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 public class Triangle extends Polygon{
 
     /**
      * parameters constructor
+     *
      * @param x first sent point for triangle
      * @param y second sent point for triangle
      * @param z third sent point for triangle
@@ -20,7 +24,6 @@ public class Triangle extends Polygon{
         super(x,y,z);
     }
 
-
     @Override
     public String toString() {
         return "Triangle{" +
@@ -28,6 +31,7 @@ public class Triangle extends Polygon{
                 ", plane=" + plane +
                 '}';
     }
+
     @Override
     public List<Point> findIntersections(Ray ray) {
         //We are creating 3 triangles, with 2 vertices and the intersection point, only if sum of area of all 3 triangles
