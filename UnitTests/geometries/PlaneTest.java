@@ -5,21 +5,26 @@ import org.junit.jupiter.api.Test;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
-
-
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*** Testing Planes
- * @author Noa Harel and Talel Ginsberg*/
+
+/**
+ * Testing Planes
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 class PlaneTest {
 
+    /**
+     * constructing point for the next tests
+     */
     Point p1=new Point(0,0,0);
     Point p2=new Point(0,1,0);
     Point p3=new Point(1,0,0);
 
     /**
-     * test for constructor of planes
+     * Test method for {@link Plane#Plane(Point, Point, Point)}.
      */
     @Test
     public void testConstructor() {
@@ -44,7 +49,7 @@ class PlaneTest {
     }
 
     /**
-     * test function for get normal function in plane
+     * Test method for {@link Plane#getNormal()}.
      */
     @Test
     void getNormal() {
@@ -69,8 +74,9 @@ class PlaneTest {
 
     }
 
+
     /**
-     * Test method for Plane #findIntersections
+     * Test method for {@link Plane#findIntersections(Ray)}.
      */
     @Test
     void findIntersections() {

@@ -15,7 +15,13 @@ import java.util.List;
  * @author Noa Harel and Talel Ginsberg
  */
 public class Plane implements Geometry {
+    /**
+     * point that represents the points on the plane
+     */
     private Point q0;
+    /**
+     * vector that represents the normal of the plane
+     */
     private Vector normal;
 
 
@@ -74,9 +80,6 @@ public class Plane implements Geometry {
     }
 
     @Override
-    /**
-     * implementation of {@link geometries.Geometry#getNormal(Point)}
-     */
     public Vector getNormal(Point p) {
        //according to  Software engineering conventions
         // return getNormal();
@@ -92,7 +95,6 @@ public class Plane implements Geometry {
 
         // the ray lies on the plane
         if (isZero(nv))
-            //throw new IllegalArgumentException("The scalar product of the normal with the ray vector is zero");
             return null;
         if (q0.equals(ray.getP0()))
             return null;

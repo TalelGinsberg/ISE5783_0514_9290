@@ -7,12 +7,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="Stage 4 before doc">
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="mid doc stage 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/GeometriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/GeometriesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PlaneTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/geometries/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/PolygonTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/SphereTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/geometries/TubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/geometries/TubeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/primitives/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/primitives/VectorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/renderer/IntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/renderer/IntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/RadialGeometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/RadialGeometry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,7 +364,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1683210263336</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL‎-00024" summary="mid doc stage 4">
+      <created>1683212139476</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL‎-00024" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1683212139476</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,28 +405,10 @@
     <MESSAGE value="sync before start 4" />
     <MESSAGE value="start 4" />
     <MESSAGE value="Stage 4 before doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stage 4 before doc" />
+    <MESSAGE value="mid doc stage 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="mid doc stage 4" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UnitTests/geometries/SphereTest.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UnitTests/geometries/CylinderTest.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/geometries/Cylinder.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="normal" language="JAVA" />

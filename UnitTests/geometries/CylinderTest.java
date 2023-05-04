@@ -1,15 +1,21 @@
 package geometries;
+
 import primitives.Point;
 import primitives.Vector;
 import primitives.Ray;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*** Testing Cylinders
- * @author Noa Harel and Talel Ginsberg*/
+
+
+/**
+ * Testing Cylinders
+ * @author Noa Harel and Talel Ginsberg
+ */
 class CylinderTest {
+
     /**
-     * test function for get normal function in cylinder
+     * Test method for {@link CylinderTest#getNormal()}.
      */
     @Test
     void getNormal() {

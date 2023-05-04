@@ -7,15 +7,21 @@ import primitives.Ray;
 import java.util.List;
 
 
-/*** class that represents Tube
- * @author Noa Harel and Talel Ginsberg */
+/**
+ * class that represents Tube
+ * @author Noa Harel and Talel Ginsberg
+ */
 public class Tube extends RadialGeometry{
 
+    /**
+     * a ray that represents the ray of the tube
+     */
     Ray axisRay;
 
 
     /**
      * parameters constructor
+     *
      * @param axisRay sent axis ray for tube
      * @param newRadius sent radius for tube
      */
@@ -27,11 +33,13 @@ public class Tube extends RadialGeometry{
 
     /**
      * getter function for axis ray of the tube
+     *
      * @return      axisRay
      */
     public Ray getAxisRay() {
         return axisRay;
     }
+
     @Override
     public String toString() {
         return "Tube{" +

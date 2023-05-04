@@ -6,10 +6,17 @@ import primitives.Vector;
 
 import java.util.List;
 
-/*** class that represents Cylinder
- * @author Noa Harel and Talel Ginsberg*/
+/**
+ *  class that represents Cylinder
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 
 public class Cylinder extends Tube {
+
+    /**
+     * height of the cylinder
+     */
     private double height;
 
     /**
@@ -24,7 +31,7 @@ public class Cylinder extends Tube {
     }
 
     /**
-     * getter method
+     * getter method to get height of cylinder
      *
      * @return height of the Cylinder
      */

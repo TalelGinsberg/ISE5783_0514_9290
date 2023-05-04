@@ -8,15 +8,23 @@ import primitives.Vector;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*** Testing Triangles
- * @author Noa Harel and Talel Ginsberg*/
+/**
+ * Testing Triangles
+ *
+ * @author Noa Harel and Talel Ginsberg
+ * */
 class TriangleTest {
 
+    /**
+     * constructing points for next tests
+     */
     Point p1=new Point(0,0,0);
     Point p2=new Point(0,1,0);
     Point p3=new Point(1,0,0);
+
+
     /**
-     * test function for get normal function in triangle
+     * test method for {@link Triangle#getNormal(Point)}.
      */
     @Test
     void getNormal() {
@@ -40,6 +48,9 @@ class TriangleTest {
         assertEquals(0,v2.dotProduct(result),"Triangle's normal is not orthogonal to one of the edges");
     }
 
+    /**
+     * Test method for {@link Triangle#findIntersections(Ray)}.
+     */
     @Test
     void findIntersections() {
         Point p1=new Point(1,0,0);

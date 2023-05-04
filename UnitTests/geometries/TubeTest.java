@@ -6,15 +6,22 @@ import primitives.Ray;
 import primitives.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*** Testing Tubes
- * @author Noa Harel and Talel Ginsberg*/
+/**
+ *  Testing Tubes
+ *
+ * @author Noa Harel and Talel Ginsberg
+ * */
 class TubeTest {
 
+    /**
+     * constructing points for next tests
+     */
     Point p1 = new Point(0,1,0);
     Point p2 = new Point(1,0,2);
 
+
     /**
-     * test function for get normal function in tube
+     * Test method for {@link Tube#getNormal(Point)}.
      */
     @Test
     void getNormal() {

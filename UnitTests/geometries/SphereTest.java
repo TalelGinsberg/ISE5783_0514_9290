@@ -12,10 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Noa Harel and Talel Ginsberg*/
 class SphereTest {
 
+    /**
+     * constructing a point to use in the next tests
+     */
     Point p1 = new Point(0,1,0);
 
+
     /**
-     * test function for get normal function in sphere
+     * Test method for {@link Sphere#getNormal(Point)}
      */
     @Test
     void getNormal() {

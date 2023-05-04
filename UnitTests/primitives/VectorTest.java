@@ -5,15 +5,25 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static primitives.Util.isZero;
-/*** Testing Vectors
- * @author Noa Harel and Talel Ginsberg*/
+
+
+/**
+ *  Testing Vectors
+ * @author Noa Harel and Talel Ginsberg
+ *
+ */
 class VectorTest {
 
+    /**
+     * constructing vectors to use in the next tests
+     */
     Vector v1 = new Vector(1, 2, 3);
     Vector v2 = new Vector(-2, -4, -6);
     Vector v3 = new Vector(0, 3, -2);
+
+
     /**
-     * test function for add function in vector
+     * Test method for {@link Vector#add(Vector)}.
      */
     @Test
     void add() {
@@ -29,8 +39,9 @@ class VectorTest {
         assertEquals(result, v1.add(v2), "ERROR: Vector - Vector does not work correctly - add");
     }
 
+
     /**
-     * test function for dot product function in vector
+     * Test nethod for {@link Vector#dotProduct(Vector)}.
      */
     @Test
     void dotProduct() {
@@ -45,8 +56,9 @@ class VectorTest {
 
     }
 
+
     /**
-     * test function for cross product function in vector
+     * Test method for {@link Vector#crossProduct(Vector)}
      */
     @Test
     void crossProduct() {
@@ -62,8 +74,9 @@ class VectorTest {
         assertTrue(isZero(result.dotProduct(v1))&&isZero(result.dotProduct(v3)),"ERROR: crossProduct() result is not orthogonal to its operands");
     }
 
+
     /**
-     * test function for length function in vector
+     * test method for {@link Vector#length()}.
      */
     @Test
     void length() {
@@ -75,8 +88,10 @@ class VectorTest {
         assertEquals(5,v1.length(), 0.00001, "ERROR: length() wrong value");
     }
 
+
+
     /**
-     * test function for length squared function in vector
+     * Test method for {@link Vector#lengthSquared()}
      */
     @Test
     void lengthSquared() {
@@ -86,8 +101,9 @@ class VectorTest {
         assertEquals(14, v1.lengthSquared(), 0.00001, "ERROR: lengthSquared() wrong value");
     }
 
+
     /**
-     * test function for normalize function in vector
+     * Test method for {@link Vector#normalize()}
      */
     @Test
     void normalize() {

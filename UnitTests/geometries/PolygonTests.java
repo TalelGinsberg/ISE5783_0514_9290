@@ -13,15 +13,17 @@ import geometries.Polygon;
 import primitives.Point;
 import primitives.Vector;
 
-/** Testing Polygons
- * @author Dan */
+/**
+ * Testing Polygons
+ * @author Dan
+ */
+
 public class PolygonTests {
 
-   /** Test method for
-    * {
-    * @link Polygon#Polygon(Point...)
-    * }.
-    * */
+
+   /**
+    * Test method for {@link Polygon#Polygon(Point...)}.
+    */
    @Test
    public void testConstructor() {
       // ============ Equivalence Partitions Tests ==============

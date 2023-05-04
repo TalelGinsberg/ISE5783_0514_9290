@@ -76,6 +76,9 @@ public class IntegrationTest {
     }
 
 
+    /**
+     * Integration Test for {@link Triangle#findIntersections(Ray)} and {@link Camera#constructRay(int, int, int, int)}.
+     */
 
     @Test
     void testConstructRayTroughPixelTriangle(){
@@ -93,7 +96,9 @@ public class IntegrationTest {
     }
 
 
-
+    /**
+     * Integration Test for {@link Plane#findIntersections(Ray)} and {@link Camera#constructRay(int, int, int, int)}.
+     */
     @Test
     void testConstructRayTroughPixelPlane(){
 
