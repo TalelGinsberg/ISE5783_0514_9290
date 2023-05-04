@@ -4,17 +4,20 @@ import java.util.Objects;
 
 /**
  * This class will serve all primitive classes based on a point and vector
- * @author Noa Harel and Talel Ginsberg */
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 public class Ray {
 
 
-    /* point*/
+    /* point for which the ray starts*/
     private Point p0;
-    /* vector*/
+    /* vector for the direction of the ray*/
     private Vector drr;
 
     /**
      *  Constructor to initialize Point based on a point and vector
+     *
      * @param sentP0 point for ray
      * @param sentDrr  vector for ray
      */
@@ -24,7 +27,8 @@ public class Ray {
     }
 
     /**
-     * getter for the po
+     * getter for the po, the starting point of the ray
+     *
      * @return point of vector
      */
     public Point getP0() {
@@ -32,7 +36,8 @@ public class Ray {
     }
 
     /**
-     * getter for drr
+     * getter for drr,the direction vector of ray
+     *
      * @return vector of ray
      */
     public Vector getDir() {
@@ -59,6 +64,12 @@ public class Ray {
                 '}';
     }
 
+    /**
+     * calculates the point=p0+t*drr
+     *
+     * @param t a double to scale the vector with
+     * @return the point of the ray plus the ray scaled with t
+     */
     public Point getPoint(double t){
         return p0.add(drr.scale(t));
     }

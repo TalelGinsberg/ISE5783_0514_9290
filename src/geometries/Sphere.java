@@ -9,10 +9,13 @@ import static primitives.Util.*;
 
 import java.util.List;
 
-/*** class that represents Sphere
- * @author Noa Harel and Talel Ginsberg */
+/**
+ * class that represents Sphere
+ * @author Noa Harel and Talel Ginsberg
+ */
 public class Sphere extends RadialGeometry {
 
+    /*center point for sphere*/
     private Point center;
 
     /**
@@ -29,7 +32,7 @@ public class Sphere extends RadialGeometry {
     /**
      * getter function for center
      *
-     * @return center
+     * @return center point of this sphere
      */
     public Point getCenter() {
         return center;
@@ -38,7 +41,7 @@ public class Sphere extends RadialGeometry {
     /**
      * getter function for radius
      *
-     * @return radius
+     * @return radius for this raduis
      */
     public double getRadius() {
         return radius;
@@ -81,37 +84,27 @@ public class Sphere extends RadialGeometry {
         double t1 = alignZero(tm + th);
         double t2 = alignZero(tm - th);
 
+        //for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
+
+        /*0 points*/
         if (t1<=0 && t2<=0){
             return  null;
         }
 
+        /*2 points*/
         if(t1>0 && t2>0){
             return List.of(ray.getPoint(t1), ray.getPoint(t2));
         }
 
+        /*1 point*/
         if(t1>0){
             return List.of(ray.getPoint(t1));
         }
 
+        /*1 point*/
         if (t2>0){
             return List.of(ray.getPoint(t2));
         }
         return null;
-        /**
-        // for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
-        if (t1 == t2 && t1 > 0) {
-            return List.of(ray.getPoint(t1));
-        }
-
-        if (t1 > 0) {
-            if (t2 > 0)
-                return List.of(ray.getPoint(t1), ray.getPoint(t2));
-
-            return List.of(ray.getPoint(t1));
-        } else if (t2 > 0) {
-            return List.of(ray.getPoint(t2));
-        }
-        return null;
-         */
     }
 }

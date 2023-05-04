@@ -1,12 +1,16 @@
 package primitives;
 
 
-/*** class that represents Vector
- * @author Noa Harel and Talel Ginsberg */
+/**
+ * class that represents Vector
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 public class Vector extends Point{
 
     /**
      * parameters constructor
+     *
      * @param x sent first double
      * @param y sent first double
      * @param z sent first double
@@ -21,6 +25,7 @@ public class Vector extends Point{
 
     /**
      * parameters constructor
+     *
      * @param sentXyz for vector
      *
      * @throws IllegalArgumentException  get the zero vector - send an exception
@@ -46,6 +51,7 @@ public class Vector extends Point{
 
     /**
      * add function - add two vectors
+     *
      * @param vector the other vector
      * @return      new vector
      */
@@ -55,6 +61,7 @@ public class Vector extends Point{
 
     /**
      * scale function - multiple vector in number
+     *
      * @param i  the number
      * @return      the result
      */
@@ -64,6 +71,7 @@ public class Vector extends Point{
 
     /**
      * scalar multiplication
+     *
      * @param u  vector
      * @return  the result
      */
@@ -76,6 +84,7 @@ public class Vector extends Point{
 
     /**
      * Vector multiplication
+     *
      * @param u vector
      * @return     the result
      */
@@ -88,6 +97,7 @@ public class Vector extends Point{
 
     /**
      * A function that calculates the length of the vector
+     *
      * @return      the result
      */
     public double length() {
@@ -98,6 +108,7 @@ public class Vector extends Point{
 
     /**
      * A function that calculates the squared length of the vector
+     *
      * @return      the result
      */
     public double lengthSquared() {
@@ -108,6 +119,7 @@ public class Vector extends Point{
 
     /**
      * Normalize the vector - turning the vector into the unit vector
+     *
      * @return      the unit vector
      */
     public Vector normalize() {

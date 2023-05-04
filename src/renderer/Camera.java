@@ -84,12 +84,13 @@ public class Camera {
     //------------------------------functions---------------------------
 
     /**
+     * creates a ray starting from camera through the center of wanted pixel on view plane
      *
-     * @param nX
-     * @param nY
-     * @param j
-     * @param i
-     * @return
+     * @param nX width of row of view plane for camera
+     * @param nY height of column of view plane for camera
+     * @param j row  of pixel
+     * @param i column of pixel
+     * @return construct ray from camera through center of wanted pixel
      */
     public Ray constructRay(int nX, int nY, int j, int i){
 
@@ -104,7 +105,7 @@ public class Camera {
         double yI = -(i-(nY-1)/2.0)*Ry;
         double xJ = -(j-(nX-1)/2.0)*Rx;
 
-        // handle zero vector
+        // handle zero vector, because scale can not handle the zero vector so we split it up
         Point pIJ=Pc;
         if (xJ != 0)
             pIJ = pIJ.add(vRight.scale(xJ));
@@ -113,7 +114,10 @@ public class Camera {
 
         // direction vector for ray
         Vector Vij = pIJ.subtract(place);
+
+        //change the direction of the vector, sine the directions were switched from the slides in class
         Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
+
         return new Ray(place,Vij);
     }
 
@@ -209,6 +213,4 @@ public class Camera {
         this.distance = distance;
         return this;
     }
-
-
 }
