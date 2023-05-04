@@ -11,6 +11,11 @@ import primitives.Vector;
 
 import java.util.List;
 
+/**
+ * integration test
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 public class IntegrationTest {
 
 
