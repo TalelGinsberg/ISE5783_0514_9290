@@ -14,6 +14,9 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Noa Harel and Talel Ginsberg
  */
 class ImageWriterTest {
+    /*constants for resolution*/
+    int WIDTH=800;
+    int LENGTH=500;
 
     /**
      * Test method for {@link ImageWriter#writePixel(int, int, Color)}.
@@ -21,15 +24,15 @@ class ImageWriterTest {
     @Test
     void initialImage() {
         /*constructing an image based on information in directions*/
-        ImageWriter imageWriter=new ImageWriter("initial image-stage5",800,500);
+        ImageWriter imageWriter=new ImageWriter("initial image-stage5",WIDTH,LENGTH);
 
         /*creating wanted colors for the net and background*/
         Color background = new Color(java.awt.Color.cyan);
         Color net = new Color(java.awt.Color.blue);
 
         /*nested loop that goes through every pixel in grid and colors it*/
-        for (int row=0;row<800;row++){
-            for (int column=0;column<500;column++){
+        for (int row=0;row<WIDTH;row++){
+            for (int column=0;column<LENGTH;column++){
 
                 /*for lines on net that are horizontal, for lines that are all net*/
                 if ((row % 50 == 1) || ((row + 1) % 50 == 1))
