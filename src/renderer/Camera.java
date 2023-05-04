@@ -8,8 +8,6 @@ import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 
-
-//   לשנות את הסדר של הפונקציות לפי מה שכתוב בתריגל 1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /**
  * class that represents a camera
  *
@@ -167,9 +165,36 @@ public class Camera {
         return this;
     }
 
-    public Ray constructRay(int nX, int nY, int j, int i){
-        return null;
-    }
 
+
+    public Ray constructRay(int nX, int nY, int j, int i){
+
+        // image center
+        Point Pc = place.add(vTo.scale(distance));
+
+        // ratio (pixel width & height)
+        double Ry = height/nY;
+        double Rx = width/nX;
+
+        // pixel[i,j] center
+        double yI = -(i-(nY-1)/2.0)*Ry;
+        double xJ = -(j-(nX-1)/2.0)*Rx;
+
+       // Point pIJ=Pc.add(vRight.scale(xJ).add(vUp.scale(yI)));
+
+
+        Point pIJ=Pc;
+        if (xJ != 0)
+            pIJ = pIJ.add(vRight.scale(xJ));
+        if (yI != 0)
+            pIJ = pIJ.add(vUp.scale(yI));
+
+
+
+        // direction vector for ray
+        Vector Vij = pIJ.subtract(place);
+        Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
+        return new Ray(place,Vij);
+    }
 
 }
