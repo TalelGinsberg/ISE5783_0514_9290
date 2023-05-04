@@ -15,6 +15,9 @@ import static primitives.Util.isZero;
  */
 public class Camera {
 
+
+    //----------------------------fields--------------------------
+
     /**
      * place of the camera
      */
@@ -39,6 +42,7 @@ public class Camera {
      * double that represents the height of the view plane
      */
     private double height;
+
     /**
      * double that represents the width of the view plane
      */
@@ -49,6 +53,71 @@ public class Camera {
      */
     private double distance;
 
+
+    //-----------------------------constructor-------------------------
+
+    /**
+     * parameters constructor for camera - gets place vector up and vector front, create vector
+     * right and check if the vectors are orthogonal
+     *
+     * @param place place of the camera
+     * @param vUp up direction vector of the camera
+     * @param vTo front direction vector of the camera
+     */
+    public Camera(Point place, Vector vUp, Vector vTo) {
+        // initialize place, vUp and vTo
+        this.place = place;
+        this.vUp = vUp.normalize();
+        this.vTo = vTo.normalize();
+
+        // the vectors are orthogonal
+        if(isZero(alignZero(vTo.dotProduct(vUp)))){
+            // create vRight - cross product between vUp and vTo
+            vRight = vTo.crossProduct(vUp).normalize();
+        }
+
+        // the vectors aren't orthogonal
+        else throw new IllegalArgumentException("the vectors are not orthogonal");
+    }
+
+
+    //------------------------------functions---------------------------
+
+    /**
+     *
+     * @param nX
+     * @param nY
+     * @param j
+     * @param i
+     * @return
+     */
+    public Ray constructRay(int nX, int nY, int j, int i){
+
+        // image center
+        Point Pc = place.add(vTo.scale(distance));
+
+        // ratio (pixel width & height)
+        double Ry = height/nY;
+        double Rx = width/nX;
+
+        // pixel[i,j] center
+        double yI = -(i-(nY-1)/2.0)*Ry;
+        double xJ = -(j-(nX-1)/2.0)*Rx;
+
+        // handle zero vector
+        Point pIJ=Pc;
+        if (xJ != 0)
+            pIJ = pIJ.add(vRight.scale(xJ));
+        if (yI != 0)
+            pIJ = pIJ.add(vUp.scale(yI));
+
+        // direction vector for ray
+        Vector Vij = pIJ.subtract(place);
+        Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
+        return new Ray(place,Vij);
+    }
+
+    //--------------------------------getters----------------------------
 
     /**
      * getter for place of the camera
@@ -114,6 +183,8 @@ public class Camera {
         return distance;
     }
 
+    //-------------------------------setters--------------------------------
+
     /**
      * setter for the size of the view plane that gets width and
      * height and return the camera itself
@@ -128,32 +199,6 @@ public class Camera {
         return this;
     }
 
-
-    /**
-     * parameters constructor for camera - gets place vector up and vector front, create vector
-     * right and check if the vectors are orthogonal
-     *
-     * @param place place of the camera
-     * @param vUp up direction vector of the camera
-     * @param vTo front direction vector of the camera
-     */
-    public Camera(Point place, Vector vUp, Vector vTo) {
-        // initialize place, vUp and vTo
-        this.place = place;
-        this.vUp = vUp.normalize();
-        this.vTo = vTo.normalize();
-
-        // the vectors are orthogonal
-        if(isZero(alignZero(vTo.dotProduct(vUp)))){
-            // create vRight - cross product between vUp and vTo
-            vRight = vTo.crossProduct(vUp).normalize();
-        }
-
-        // the vectors aren't orthogonal
-        else throw new IllegalArgumentException("the vectors are not orthogonal");
-    }
-
-
     /**
      * update function for distance between camera and view plane
      *
@@ -165,36 +210,5 @@ public class Camera {
         return this;
     }
 
-
-
-    public Ray constructRay(int nX, int nY, int j, int i){
-
-        // image center
-        Point Pc = place.add(vTo.scale(distance));
-
-        // ratio (pixel width & height)
-        double Ry = height/nY;
-        double Rx = width/nX;
-
-        // pixel[i,j] center
-        double yI = -(i-(nY-1)/2.0)*Ry;
-        double xJ = -(j-(nX-1)/2.0)*Rx;
-
-       // Point pIJ=Pc.add(vRight.scale(xJ).add(vUp.scale(yI)));
-
-
-        Point pIJ=Pc;
-        if (xJ != 0)
-            pIJ = pIJ.add(vRight.scale(xJ));
-        if (yI != 0)
-            pIJ = pIJ.add(vUp.scale(yI));
-
-
-
-        // direction vector for ray
-        Vector Vij = pIJ.subtract(place);
-        Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
-        return new Ray(place,Vij);
-    }
 
 }

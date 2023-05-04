@@ -69,8 +69,10 @@ public class PolygonTests {
 
    }
 
-   /** Test method for {
-    * @link Polygon#getNormal(Point)}. */
+
+   /**
+    * Test method for {@link Polygon#getNormal(Point)}.
+    */
    @Test
    public void testGetNormal() {
       // ============ Equivalence Partitions Tests ==============
