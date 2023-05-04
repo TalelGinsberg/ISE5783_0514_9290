@@ -3,10 +3,7 @@ package renderer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import geometries.Intersectable;
-import geometries.Plane;
-import geometries.Sphere;
-import geometries.Triangle;
+import geometries.*;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
 import primitives.Ray;
@@ -25,8 +22,7 @@ public class IntegrationTest {
      * @param nY: number of rows(height of columns)-resolution
      * @return the amount of intersections
      */
-    public int sumIntersections(Intersectable objects, Camera cam, int nX, int nY)
-    {
+    public int sumIntersections(Intersectable objects, Camera cam, int nX, int nY){
         int sum = 0;
         for (int i=0;i<nX;i++)
         {
@@ -39,6 +35,13 @@ public class IntegrationTest {
         }
         return sum;
     }
+
+
+
+    /**
+     * Integration Test for {@link Sphere#findIntersections(Ray)} and {@link Camera#constructRay(int, int, int, int)}.
+     */
+
     @Test
     void testConstructRayTroughPixelSphere(){
 

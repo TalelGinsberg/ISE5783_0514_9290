@@ -32,6 +32,7 @@ class SphereTest {
         // We made sure that the result is equal to the one we expected
         assertTrue(vector.equals(result), "Sphere's normal is not the correct vector");
     }
+
     /**
      * Test method for {@link geometries.Sphere#findIntersections(primitives.Ray)}.
      */
