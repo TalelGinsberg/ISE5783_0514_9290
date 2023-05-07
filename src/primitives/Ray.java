@@ -1,6 +1,9 @@
 package primitives;
 
+import java.util.List;
 import java.util.Objects;
+
+import static primitives.Util.isZero;
 
 /**
  * This class will serve all primitive classes based on a point and vector
@@ -43,6 +46,7 @@ public class Ray {
     public Vector getDir() {
         return drr;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,4 +77,25 @@ public class Ray {
     public Point getPoint(double t){
         return p0.add(drr.scale(t));
     }
+
+
+    /**
+     *
+     * @param points
+     * @return
+     */
+    public Point findClosestPoint(List<Point> points){
+        if (isZero(points.size()) )
+            return null;
+        double minDistance=p0.distance(points.get(0));
+        Point closestPoint=points.get(0);
+        for (int index=1;index<points.size();index++){
+            if (p0.distance(points.get(index)) < minDistance) {
+                minDistance = p0.distance(points.get(index));
+                closestPoint = points.get(index);
+            }
+        }
+        return closestPoint;
+    }
+
 }

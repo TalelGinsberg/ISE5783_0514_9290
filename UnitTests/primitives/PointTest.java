@@ -56,4 +56,25 @@ class PointTest {
         assertTrue((p1.add(v4).equals(p0)),"ERROR: Point + Vector does not work correctly");
     }
 
+
+
+    /**
+     * test method for {@link Point#distance(Point)}.
+     */
+
+    @Test
+    void distance() {
+        Point point1 = new Point(0,0,0);
+        Point point2 = new Point(1,2,3);
+        Point point3 = new Point(4,4,4);
+
+        // =============== Boundary Values Tests ==================
+        // TC01 - one of the points is zero
+        assertEquals(Math.sqrt(14), point1.distance(point2),"first case distance points");
+
+        // ============ Equivalence Partitions Tests ==============
+        // TC02 - distance between two points
+        assertEquals(Math.sqrt(14), point3.distance(point2), "second case distance points");
+    }
+
 }
