@@ -9,6 +9,8 @@ import java.util.Objects;
  */
 public class Point {
 
+    public static final Point ZERO = new Point(0,0,0);
+
     /** Numbers representing the point */
     Double3 xyz;
 
@@ -96,6 +98,7 @@ public class Point {
     public double getX() {
         return xyz.d1;
     }
+
     /**
      * getter for y of xyz
      * @return the value y of the point
@@ -103,6 +106,7 @@ public class Point {
     public double getY() {
         return xyz.d2;
     }
+
     /**
      * getter for z of xyz
      * @return the value z of the point

@@ -1,8 +1,11 @@
 package renderer;
 
+import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+
+import java.util.MissingResourceException;
 
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
@@ -52,6 +55,16 @@ public class Camera {
      * double that represents the distance between camera and view plane
      */
     private double distance;
+    /**
+     * ImageWriter that represents writing an image
+     */
+    private ImageWriter imageWriter;
+
+
+    /**
+     * RayTracerBase that represents tracer for ray base
+     */
+    private RayTracerBase rayTracerBase;
 
 
     //-----------------------------constructor-------------------------
@@ -102,14 +115,14 @@ public class Camera {
         double Rx = width/nX;
 
         // pixel[i,j] center
-        double yI = -(i-(nY-1)/2.0)*Ry;
-        double xJ = -(j-(nX-1)/2.0)*Rx;
+        double yI = alignZero(-(i-(nY-1)/2.0)*Ry);
+        double xJ = alignZero(-(j-(nX-1)/2.0)*Rx);
 
         // handle zero vector, because scale can not handle the zero vector so we split it up
         Point pIJ=Pc;
-        if (xJ != 0)
+        if (!isZero(xJ))
             pIJ = pIJ.add(vRight.scale(xJ));
-        if (yI != 0)
+        if (!isZero(yI))
             pIJ = pIJ.add(vUp.scale(yI));
 
         // direction vector for ray
@@ -121,6 +134,129 @@ public class Camera {
         return new Ray(place,Vij);
     }
 
+
+    /**
+     * Renders an image using the camera's settings.
+     *
+     * @throws MissingResourceException if any of the required camera settings are missing
+     * @throws UnsupportedOperationException if the method has not been implemented yet
+     */
+    public void renderImage(){
+        try {
+
+            //place has not been set
+            if (place == null)
+                throw new MissingResourceException("missing point place for camera", "Camera", "place");
+
+            //vTo has not been set
+            if (vTo == null)
+                throw new MissingResourceException("missing vTo place for camera", "Camera", "vTo");
+
+            //vUp has not been set
+            if (vUp == null)
+                throw new MissingResourceException("missing vUp place for camera", "Camera", "vUp");
+
+            //vRight has not been set
+            if (vRight == null)
+                throw new MissingResourceException("missing vRight place for camera", "Camera", "vRight");
+
+            //imageWriter has not been set
+            if (imageWriter == null)
+                throw new MissingResourceException("missing imageWriter place for camera", "Camera", "imageWriter");
+
+            //rayTracerBase has not been set
+            if (rayTracerBase == null)
+                throw new MissingResourceException("missing RayTracerBase place for camera", "Camera", "rayTracerBase");
+
+            //width has not been set
+            if (width == 0.0)
+                throw new MissingResourceException("missing width place for camera", "Camera", "width");
+
+            //height has not been set
+            if (height == 0.0)
+                throw new MissingResourceException("missing height place for camera", "Camera", "height");
+
+
+            //distance has not been set
+            if (distance == 0.0)
+                throw new MissingResourceException("missing distance place for camera", "Camera", "distance");
+            //goes through every pixel in view plane  and casts ray, meaning creates a ray for every pixel and sets the color
+            for (int row = 0; row < width; row++) {
+                for (int column = 0; column < height; column++) {
+                    castRay(imageWriter.getNx(), imageWriter.getNy(), column, row);
+                }
+            }
+        }
+        //if one of the resources was not set
+        catch (MissingResourceException e){
+            throw  new UnsupportedOperationException("renderImage - value not set yet" + e.getKey());
+        }
+    }
+
+
+    /**
+     * Casts a ray from the camera through a pixel in the image, and writes the color of the intersection point to the
+     * corresponding pixel in the image.
+     *
+     * @param nX the number of pixels in the x-direction of the image
+     * @param nY the number of pixels in the y-direction of the image
+     * @param column the column number of the pixel to cast the ray through
+     * @param row the row number of the pixel to cast the ray through
+     * @throws MissingResourceException if the imageWriter or rayTracerBase have not been set
+     */
+    private void castRay(int nX, int nY, int column, int row) {
+
+        //create the ray
+        Ray ray = constructRay(nX, nY, row, column);
+        //calculates the color of pixel in ray using traceRay method from Class TraceRay
+        Color pixelColor = rayTracerBase.traceRay(ray);
+        //writes the color of the pixel to image
+        imageWriter.writePixel(row, column, pixelColor);
+    }
+
+    /**
+     * Prints a grid on the camera's image using the specified interval and color.
+     *
+     * @param interval the interval between the grid lines
+     * @param color the color to use for the grid lines
+     *
+     * @throws MissingResourceException if the imageWriter has not been set
+     */
+    public void printGrid(int interval, Color color){
+
+        // imageWriter has not been set
+        if(imageWriter==null)
+            throw new MissingResourceException("missing imageWriter-func printGrid","Camera","imageWriter");
+
+        /*nested loop that goes through every pixel in grid and colors it*/
+        for (int row=0;row<width;row++){
+            for (int column=0;column<height;column++){
+
+                /*for lines on net that are horizontal, for lines that are all net*/
+                if ((row % 50 == 1) || ((row + 1) % 50 == 1))
+                    imageWriter.writePixel(row, column, color);
+
+                else
+                    /*for vertical lines, since we are going through the pixels horizontally we will only reach 2 net
+                     dots, every 50 pixels, as opposed to the whole line being net
+                     */
+                    if ((column % 50 == 1) || ((column + 1) % 50 == 1))
+                        imageWriter.writePixel(row, column, color);
+            }
+        }
+    }
+
+    /**
+     * Writes the camera's image to a file using the imageWriter.
+     *
+     * @throws MissingResourceException if the imageWriter has not been set
+     */
+    public void writeToImage(){
+        // imageWriter has not been set
+        if(imageWriter==null)
+            throw new MissingResourceException("missing imageWriter-func writeToImage","Camera","imageWriter");
+        imageWriter.writeToImage();
+    }
     //--------------------------------getters----------------------------
 
     /**
@@ -211,6 +347,26 @@ public class Camera {
      */
     public Camera setVPDistance(double distance){
         this.distance = distance;
+        return this;
+    }
+
+    /**
+     * set function for rayTracerBase - builder design pattern
+     * @param imageWriter sent imageWriter to set
+     * @return this camera that function was called from
+     */
+    public Camera setImageWriter(ImageWriter imageWriter) {
+        this.imageWriter = imageWriter;
+        return this;
+    }
+
+    /**
+     * set function for rayTracerBase - builder design pattern
+     * @param rayTracerBase sent rayTracerBase to set
+     * @return this camera that function was called from
+     */
+    public Camera setRayTracerBase(RayTracerBase rayTracerBase) {
+        this.rayTracerBase = rayTracerBase;
         return this;
     }
 }
