@@ -60,7 +60,6 @@ public class Camera {
      */
     private ImageWriter imageWriter;
 
-
     /**
      * RayTracerBase that represents tracer for ray base
      */
@@ -80,13 +79,14 @@ public class Camera {
     public Camera(Point place, Vector vUp, Vector vTo) {
         // initialize place, vUp and vTo
         this.place = place;
-        this.vUp = vUp.normalize();
-        this.vTo = vTo.normalize();
+        this.vUp = vTo.normalize();
+        this.vTo = vUp.normalize();
+
 
         // the vectors are orthogonal
         if(isZero(alignZero(vTo.dotProduct(vUp)))){
             // create vRight - cross product between vUp and vTo
-            vRight = vTo.crossProduct(vUp).normalize();
+            vRight = vUp.crossProduct(vTo).normalize();
         }
 
         // the vectors aren't orthogonal
@@ -107,6 +107,7 @@ public class Camera {
      */
     public Ray constructRay(int nX, int nY, int j, int i){
 
+
         // image center
         Point Pc = place.add(vTo.scale(distance));
 
@@ -115,8 +116,8 @@ public class Camera {
         double Rx = width/nX;
 
         // pixel[i,j] center
-        double yI = alignZero(-(i-(nY-1)/2.0)*Ry);
-        double xJ = alignZero(-(j-(nX-1)/2.0)*Rx);
+        double yI = alignZero(-(i-(nY-1)/2d)*Ry);
+        double xJ = alignZero((j-(nX-1)/2d)*Rx);
 
         // handle zero vector, because scale can not handle the zero vector so we split it up
         Point pIJ=Pc;
@@ -127,11 +128,14 @@ public class Camera {
 
         // direction vector for ray
         Vector Vij = pIJ.subtract(place);
+        //Vector Vij = place.subtract(pIJ);
 
         //change the direction of the vector, sine the directions were switched from the slides in class
-        Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
+        //Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
 
         return new Ray(place,Vij);
+
+
     }
 
 
@@ -181,8 +185,8 @@ public class Camera {
             if (distance == 0.0)
                 throw new MissingResourceException("missing distance place for camera", "Camera", "distance");
             //goes through every pixel in view plane  and casts ray, meaning creates a ray for every pixel and sets the color
-            for (int row = 0; row < width; row++) {
-                for (int column = 0; column < height; column++) {
+            for (int row = 0; row < imageWriter.getNy(); row++) {
+                for (int column = 0; column < imageWriter.getNx(); column++) {
                     castRay(imageWriter.getNx(), imageWriter.getNy(), column, row);
                 }
             }
@@ -229,18 +233,16 @@ public class Camera {
             throw new MissingResourceException("missing imageWriter-func printGrid","Camera","imageWriter");
 
         /*nested loop that goes through every pixel in grid and colors it*/
-        for (int row=0;row<width;row++){
-            for (int column=0;column<height;column++){
-
+        for (int row=0; row< imageWriter.getNy(); row++){
+            for (int column=0; column<imageWriter.getNx() ; column++){
                 /*for lines on net that are horizontal, for lines that are all net*/
-                if ((row % 50 == 1) || ((row + 1) % 50 == 1))
+                if ((row % (imageWriter.getNy()/10) == 0) || ((row + 1) % (imageWriter.getNy()/10) == 0))
                     imageWriter.writePixel(row, column, color);
-
                 else
                     /*for vertical lines, since we are going through the pixels horizontally we will only reach 2 net
                      dots, every 50 pixels, as opposed to the whole line being net
                      */
-                    if ((column % 50 == 1) || ((column + 1) % 50 == 1))
+                    if ((column % (imageWriter.getNx()/10) == 0) || ((column + 1) % (imageWriter.getNx()/10) == 0))
                         imageWriter.writePixel(row, column, color);
             }
         }
@@ -257,6 +259,7 @@ public class Camera {
             throw new MissingResourceException("missing imageWriter-func writeToImage","Camera","imageWriter");
         imageWriter.writeToImage();
     }
+
     //--------------------------------getters----------------------------
 
     /**

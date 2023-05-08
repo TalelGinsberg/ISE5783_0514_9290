@@ -50,17 +50,19 @@ public class Geometries implements Intersectable{
     public List<Point> findIntersections(Ray ray) {
         //counter for amount of points that intersected
         int count=0;
+        int z = 0;
         //go through each geometry in geometries and sum up length of points that were received in find intersection
         for (Intersectable var: list) {
-            if(var.findIntersections(ray)!=null)
-                count +=var.findIntersections(ray).size();
+            if(var.findIntersections(ray)!= null)
+                count += var.findIntersections(ray).size();
         }
+        //System.out.println(ray.toString());
         if(count==0)
             return null;
         List<Point> points=new LinkedList<Point>();
         //go through each geometry in geometries and add all points to list of points that were received in find intersection
         for (Intersectable var: list) {
-            if(var.findIntersections(ray)!=null)
+            if(var.findIntersections(ray)!= null)
                 var.findIntersections(ray).forEach((x)->points.add(x));
         }
         return points;

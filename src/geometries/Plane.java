@@ -90,18 +90,22 @@ public class Plane implements Geometry {
 
     @Override
     public List<Point> findIntersections(Ray ray) {
-        // calculated based on what was learnt in the course introduction to computer engineering
-        double nv = normal.dotProduct(ray.getDir());
+        try{
+            // calculated based on what was learnt in the course introduction to computer engineering
+            double nv = normal.dotProduct(ray.getDir());
 
-        // the ray lies on the plane
-        if (isZero(nv))
-            return null;
-        if (q0.equals(ray.getP0()))
-            return null;
-        double nQminusP0 = normal.dotProduct(q0.subtract(ray.getP0()));
-        double t = alignZero(nQminusP0 / nv);
-        if (t > 0)
-            return List.of(ray.getPoint(t));
-        else return null;
+            // the ray lies on the plane
+            if (isZero(nv))
+                return null;
+            if (q0.equals(ray.getP0()))
+                return null;
+            double nQminusP0 = normal.dotProduct(q0.subtract(ray.getP0()));
+            double t = alignZero(nQminusP0 / nv);
+            if (t > 0)
+                return List.of(ray.getPoint(t));
+            else return null;
+        }
+        catch (IllegalArgumentException e) {return null;}
+
     }
 }

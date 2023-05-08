@@ -2,6 +2,7 @@ package renderer;
 
 import static java.awt.Color.YELLOW;
 
+import geometries.Geometries;
 import org.junit.jupiter.api.Test;
 
 import geometries.Sphere;
@@ -22,17 +23,16 @@ public class RenderTests {
       Scene scene = new Scene.SceneBuilder("Test scene")//
          .setAmbientLight(new AmbientLight(new Color(255, 191, 191), //
                                            new Double3(1, 1, 1))) //
-         .setBackground(new Color(75, 127, 90)).build();
-
-      scene.getGeometries().add(new Sphere(new Point(0, 0, -100), 50d),
+         .setBackground(new Color(75, 127, 90))
+              .setGeometries(new Geometries( new Sphere(new Point(0, 0, -100), 50d),
                            new Triangle(new Point(-100, 0, -100), new Point(0, 100, -100), new Point(-100, 100, -100)), // up
                            // left
                            new Triangle(new Point(-100, 0, -100), new Point(0, -100, -100),
                                         new Point(-100, -100, -100)), // down
                            // left
-                           new Triangle(new Point(100, 0, -100), new Point(0, -100, -100), new Point(100, -100, -100))); // down
+                           new Triangle(new Point(100, 0, -100), new Point(0, -100, -100), new Point(100, -100, -100)))).build(); // down
       // right
-      Camera camera = new Camera(Point.ZERO, new Vector(0, 0, -1), new Vector(0, 1, 0)) //
+      Camera camera = new Camera(Point.ZERO, new Vector(0, 1, 0), new Vector(0, 0, -1)) //
          .setVPDistance(100) //
          .setVPSize(500, 500) //
          .setImageWriter(new ImageWriter("base render test", 1000, 1000))
