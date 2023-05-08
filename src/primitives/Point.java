@@ -9,10 +9,15 @@ import java.util.Objects;
  */
 public class Point {
 
+    //----------------------------fields--------------------------
+
     public static final Point ZERO = new Point(0,0,0);
 
     /** Numbers representing the point */
     Double3 xyz;
+
+
+    //-----------------------------constructor-------------------------
 
     /**
      *  Constructor to initialize Point based on three number values
@@ -35,20 +40,8 @@ public class Point {
         this.xyz = xyz;
     }
 
-    @Override
-    public String toString() {
-        return "Point{" +
-                "xyz=" + xyz +
-                '}';
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Point point = (Point) o;
-        return Objects.equals(xyz, point.xyz);
-    }
+    //------------------------------functions---------------------------
 
     /**
      * Subtract two points from each other and return the resulted vector
@@ -90,6 +83,27 @@ public class Point {
                 (p.xyz.d2-this.xyz.d2)*(p.xyz.d2-this.xyz.d2)+
                 (p.xyz.d3-this.xyz.d3)*(p.xyz.d3-this.xyz.d3);
     }
+
+
+    //---------------------------override functions-------------------------
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "xyz=" + xyz +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return Objects.equals(xyz, point.xyz);
+    }
+
+
+    //--------------------------------getters----------------------------
 
     /**
      * getter for x of xyz

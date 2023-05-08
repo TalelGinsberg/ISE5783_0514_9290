@@ -13,10 +13,15 @@ import java.util.List;
  */
 public class Geometries implements Intersectable{
 
+    //----------------------------fields--------------------------
+
     /**
      * list of intersaction point
      */
     private List<Intersectable> list;
+
+
+    //-----------------------------constructors-------------------------
 
     /**
      * default constructor for geometries
@@ -34,6 +39,8 @@ public class Geometries implements Intersectable{
         this.list = List.of(geometries);
     }
 
+    //------------------------------functions---------------------------
+
     /**
      * add geometries to the list of the geometries
      * @param geometries get a list of unknown number of geometries to add to the list
@@ -45,6 +52,7 @@ public class Geometries implements Intersectable{
     }
 
 
+    //---------------------------override functions-------------------------
 
     @Override
     public List<Point> findIntersections(Ray ray) {

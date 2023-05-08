@@ -15,15 +15,21 @@ import java.util.List;
  * @author Noa Harel and Talel Ginsberg
  */
 public class Plane implements Geometry {
+
+    //----------------------------fields--------------------------
+
     /**
      * point that represents the points on the plane
      */
     private Point q0;
+
     /**
      * vector that represents the normal of the plane
      */
     private Vector normal;
 
+
+    //-----------------------------constructors-------------------------
 
     /**
      * parameters constructor
@@ -52,24 +58,7 @@ public class Plane implements Geometry {
         normal = v1.crossProduct(v2);
     }
 
-
-    /**
-     * getter function for q0
-     *
-     * @return q0
-     */
-    public Point getQ0() {
-        return q0;
-    }
-
-    /**
-     * getter function for normal
-     *
-     * @return normal of the plane
-     */
-    public Vector getNormal() {
-        return normal;
-    }
+    //---------------------------override functions-------------------------
 
     @Override
     public String toString() {
@@ -86,7 +75,6 @@ public class Plane implements Geometry {
         // but for better performance we use the following
         return normal;
     }
-
 
     @Override
     public List<Point> findIntersections(Ray ray) {
@@ -107,5 +95,25 @@ public class Plane implements Geometry {
         }
         catch (IllegalArgumentException e) {return null;}
 
+    }
+
+    //--------------------------------getters----------------------------
+
+    /**
+     * getter function for q0
+     *
+     * @return q0
+     */
+    public Point getQ0() {
+        return q0;
+    }
+
+    /**
+     * getter function for normal
+     *
+     * @return normal of the plane
+     */
+    public Vector getNormal() {
+        return normal;
     }
 }
