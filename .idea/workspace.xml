@@ -7,19 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="sync stage 5">
-      <change afterPath="$PROJECT_DIR$/UnitTests/primitives/RayTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/renderer/RenderTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/AmbientLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/RayTracerBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/primitives/PointTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/primitives/PointTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
-    </list>
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="sync stage 5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
