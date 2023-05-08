@@ -34,6 +34,7 @@ public class Triangle extends Polygon{
 
     @Override
     public List<Point> findIntersections(Ray ray) {
+        try{
         //We are creating 3 triangles, with 2 vertices and the intersection point, only if sum of area of all 3 triangles
         // is equal to area of original triangle it is an intersection point
 
@@ -47,7 +48,6 @@ public class Triangle extends Polygon{
         List <Point>points =plane.findIntersections(ray);
         if (points==null)
                 return null;
-
         //original triangle
         Vector V=vertices.get(1).subtract(vertices.get(0));
         Vector U= vertices.get(2).subtract(vertices.get(0));
@@ -72,7 +72,11 @@ public class Triangle extends Polygon{
         //if sum of area of all 3 triangle is equal to area of original triangle it is an intersection point
         if (areaTriangle3+areaTriangle1+areaTriangle2==areaTriangle)
             return points;
-        return null;
+        return null;}
+        catch (IllegalArgumentException e)
+        {
+            return null;
+        }
 
     }
 }

@@ -63,48 +63,51 @@ public class Sphere extends RadialGeometry {
 
     @Override
     public List<Point> findIntersections(Ray ray) {
-        // calculated based on what was learnt in the course introduction to computer engineering
+        try{
+            // calculated based on what was learnt in the course introduction to computer engineering
 
-        //if ray begins at center of sphere
-        if (center.equals(ray.getP0()))
-            return List.of(center.add(ray.getDir().scale(radius)));
+            //if ray begins at center of sphere
+            if (center.equals(ray.getP0()))
+                return List.of(center.add(ray.getDir().scale(radius)));
 
-        Vector u = center.subtract(ray.getP0());
+            Vector u = center.subtract(ray.getP0());
 
-        double tm = ray.getDir().dotProduct(u);//the shadow of u on ray
-        double d = alignZero(sqrt(u.lengthSquared() - tm * tm));//size of second perpendicular vector using pitagoras
+            double tm = ray.getDir().dotProduct(u);//the shadow of u on ray
+            double d = alignZero(sqrt(u.lengthSquared() - tm * tm));//size of second perpendicular vector using pitagoras
 
-        //ray is outside the sphere or tangent to sphere
-        if (isZero(d - radius) || d > radius) {
+            //ray is outside the sphere or tangent to sphere
+            if (isZero(d - radius) || d > radius) {
+                return null;
+            }
+
+            double th = (sqrt(radius * radius - d * d));
+
+            double t1 = alignZero(tm + th);
+            double t2 = alignZero(tm - th);
+
+            //for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
+
+            /*0 points*/
+            if (t1<=0 && t2<=0){
+                return  null;
+            }
+
+            /*2 points*/
+            if(t1>0 && t2>0){
+                return List.of(ray.getPoint(t1), ray.getPoint(t2));
+            }
+
+            /*1 point*/
+            if(t1>0){
+                return List.of(ray.getPoint(t1));
+            }
+
+            /*1 point*/
+            if (t2>0){
+                return List.of(ray.getPoint(t2));
+            }
             return null;
         }
-
-        double th = (sqrt(radius * radius - d * d));
-
-        double t1 = alignZero(tm + th);
-        double t2 = alignZero(tm - th);
-
-        //for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
-
-        /*0 points*/
-        if (t1<=0 && t2<=0){
-            return  null;
-        }
-
-        /*2 points*/
-        if(t1>0 && t2>0){
-            return List.of(ray.getPoint(t1), ray.getPoint(t2));
-        }
-
-        /*1 point*/
-        if(t1>0){
-            return List.of(ray.getPoint(t1));
-        }
-
-        /*1 point*/
-        if (t2>0){
-            return List.of(ray.getPoint(t2));
-        }
-        return null;
+        catch (IllegalArgumentException e){return null;}
     }
 }
