@@ -8,6 +8,8 @@ package primitives;
  */
 public class Vector extends Point{
 
+    //-----------------------------constructor-------------------------
+
     /**
      * parameters constructor
      *
@@ -36,18 +38,8 @@ public class Vector extends Point{
             throw new IllegalArgumentException("Doesn't support zero vector");
     }
 
-    @Override
-    public String toString() {
-        return "Vector{" +
-                "xyz=" + xyz +
-                '}';
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
+    //------------------------------functions---------------------------
 
     /**
      * add function - add two vectors
@@ -57,16 +49,6 @@ public class Vector extends Point{
      */
     public Vector add(Vector vector) {
         return new Vector(vector.xyz.add(this.xyz));
-    }
-
-    /**
-     * scale function - multiple vector in number
-     *
-     * @param i  the number
-     * @return      the result
-     */
-    public Vector scale(double i){
-        return new Vector(xyz.scale(i));
     }
 
     /**
@@ -92,7 +74,9 @@ public class Vector extends Point{
         if ((xyz.d1/u.xyz.d1==xyz.d2/u.xyz.d2) && (xyz.d1/u.xyz.d1==xyz.d2/u.xyz.d2))
             //return crossProduct(new Vector(u.xyz.d1+1,u.xyz.d2,u.xyz.d3));
             throw new IllegalArgumentException("for parallel vectors ");
-        return new Vector((xyz.d2*u.xyz.d3-xyz.d3*u.xyz.d2),xyz.d3*u.xyz.d1-xyz.d1*u.xyz.d3,xyz.d1*u.xyz.d2-xyz.d2*u.xyz.d1);
+
+        return new Vector(xyz.d2*u.xyz.d3-xyz.d3*u.xyz.d2,xyz.d3*u.xyz.d1-xyz.d1*u.xyz.d3,xyz.d1*u.xyz.d2-xyz.d2*u.xyz.d1);
+
     }
 
     /**
@@ -104,7 +88,6 @@ public class Vector extends Point{
         return Math.sqrt(lengthSquared());
 
     }
-
 
     /**
      * A function that calculates the squared length of the vector
@@ -126,4 +109,32 @@ public class Vector extends Point{
         return scale(1/length());
 
     }
+
+    /**
+     * scale function - multiple vector in number
+     *
+     * @param i  the number
+     * @return      the result
+     */
+    public Vector scale(double i){
+        return new Vector(xyz.scale(i));
+    }
+
+
+    //---------------------------override functions-------------------------
+
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "xyz=" + xyz +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+
+
 }

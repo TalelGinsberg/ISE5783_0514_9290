@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class Triangle extends Polygon{
 
+    //-----------------------------constructor-------------------------
+
     /**
      * parameters constructor
      *
@@ -24,6 +26,7 @@ public class Triangle extends Polygon{
         super(x,y,z);
     }
 
+    //---------------------------override functions-------------------------
     @Override
     public String toString() {
         return "Triangle{" +

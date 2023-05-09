@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Noa Harel and Talel Ginsberg
  */
 class ImageWriterTest {
+
     /*constants for resolution*/
     int WIDTH=800;
     int LENGTH=500;

@@ -15,8 +15,12 @@ import java.util.List;
  */
 public class Sphere extends RadialGeometry {
 
+    //----------------------------fields--------------------------
+
     /*center point for sphere*/
     private Point center;
+
+    //-----------------------------constructor-------------------------
 
     /**
      * parameters construction
@@ -29,24 +33,8 @@ public class Sphere extends RadialGeometry {
         this.radius = radius;
     }
 
-    /**
-     * getter function for center
-     *
-     * @return center point of this sphere
-     */
-    public Point getCenter() {
-        return center;
-    }
 
-    /**
-     * getter function for radius
-     *
-     * @return radius for this raduis
-     */
-    public double getRadius() {
-        return radius;
-    }
-
+    //---------------------------override functions-------------------------
     @Override
     public String toString() {
         return "Sphere{" +
@@ -109,5 +97,26 @@ public class Sphere extends RadialGeometry {
             return null;
         }
         catch (IllegalArgumentException e){return null;}
+    }
+
+
+    //--------------------------------getters----------------------------
+
+    /**
+     * getter function for center
+     *
+     * @return center point of this sphere
+     */
+    public Point getCenter() {
+        return center;
+    }
+
+    /**
+     * getter function for radius
+     *
+     * @return radius for this raduis
+     */
+    public double getRadius() {
+        return radius;
     }
 }

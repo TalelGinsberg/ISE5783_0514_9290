@@ -13,11 +13,15 @@ import java.util.List;
  */
 public class Tube extends RadialGeometry{
 
+    //----------------------------fields--------------------------
+
     /**
      * a ray that represents the ray of the tube
      */
     Ray axisRay;
 
+
+    //-----------------------------constructor-------------------------
 
     /**
      * parameters constructor
@@ -31,14 +35,8 @@ public class Tube extends RadialGeometry{
 
     }
 
-    /**
-     * getter function for axis ray of the tube
-     *
-     * @return      axisRay
-     */
-    public Ray getAxisRay() {
-        return axisRay;
-    }
+
+    //---------------------------override functions-------------------------
 
     @Override
     public String toString() {
@@ -66,5 +64,17 @@ public class Tube extends RadialGeometry{
     @Override
     public List<Point> findIntersections(Ray ray) {
         return null;
+    }
+
+
+    //--------------------------------getters----------------------------
+
+    /**
+     * getter function for axis ray of the tube
+     *
+     * @return      axisRay
+     */
+    public Ray getAxisRay() {
+        return axisRay;
     }
 }

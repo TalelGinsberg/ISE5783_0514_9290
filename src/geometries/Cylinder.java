@@ -14,10 +14,14 @@ import java.util.List;
 
 public class Cylinder extends Tube {
 
+    //----------------------------fields--------------------------
+
     /**
      * height of the cylinder
      */
     private double height;
+
+    //-----------------------------constructor-------------------------
 
     /**
      * parameters constructor
@@ -30,6 +34,8 @@ public class Cylinder extends Tube {
         this.height = height;
     }
 
+    //--------------------------------getters----------------------------
+
     /**
      * getter method to get height of cylinder
      *
@@ -38,6 +44,9 @@ public class Cylinder extends Tube {
     public double getHeight() {
         return height;
     }
+
+
+    //---------------------------override functions-------------------------
 
     @Override
     public String toString() {

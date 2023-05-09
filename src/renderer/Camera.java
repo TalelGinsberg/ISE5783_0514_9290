@@ -12,7 +12,25 @@ import static primitives.Util.isZero;
 
 
 /**
- * class that represents a camera
+ * The Camera class represents a camera in a virtual 3D space. The camera has a place,
+ * direction vectors up and front, and three more direction vectors derived from these: right,
+ * left, and down. The camera also has a height and width that represent the size of the
+ * image on the view plane, a distance that represents the distance between the camera and
+ * the view plane, an ImageWriter that represents a class that writes the image to a file,
+ * and a RayTracerBase that represents a ray tracer for the base.
+ *
+ * The constructor takes the camera's place, direction vectors up and front, and creates the
+ * right direction vector by taking the cross product of the up and front vectors. If the up
+ * and front vectors are not orthogonal, an exception is thrown.
+ *
+ * The constructRay method takes the pixel's row and column and the number of rows and columns in
+ * the image and creates a ray from the camera that passes through the center of the given pixel.
+ *
+ * The renderImage method checks that all the necessary fields are set and then iterates
+ * over each pixel in the image, casts a ray for each pixel using constructRay, and sets the
+ * color of the pixel based on the object it intersects with using the RayTracerBase. If a field is
+ * missing, a MissingResourceException is thrown. If the renderImage method has not been implemented
+ * yet, an UnsupportedOperationException is thrown.
  *
  * @author Noa Harel and Talel Ginsberg
  */
@@ -76,7 +94,7 @@ public class Camera {
      * @param vUp up direction vector of the camera
      * @param vTo front direction vector of the camera
      */
-    public Camera(Point place, Vector vUp, Vector vTo) {
+    public Camera(Point place, Vector vTo, Vector vUp) {
         // initialize place, vUp and vTo
         this.place = place;
         this.vUp = vUp.normalize();
@@ -105,39 +123,36 @@ public class Camera {
      * @param i column of pixel
      * @return construct ray from camera through center of wanted pixel
      */
-    public Ray constructRay(int nX, int nY, int j, int i){
-        try {
-            // image center
-            Point Pc = place.add(vTo.scale(distance));
+    public Ray constructRay(int nX, int nY, int j, int i) {
 
-            // ratio (pixel width & height)
-            double Ry = height / nY;
-            double Rx = width / nX;
+        // image center
+        Point Pc = place.add(vTo.scale(distance));
 
-            // pixel[i,j] center
-            double yI = alignZero(-(i - (nY - 1) / 2.0) * Ry);
-            double xJ = alignZero((j - ((nX - 1) / 2.0)) * Rx);
+        // ratio (pixel width & height)
+        double Ry = height / nY;
+        double Rx = width / nX;
 
-            // handle zero vector, because scale can not handle the zero vector so we split it up
-            Point pIJ = Pc;
+        // pixel[i,j] center
+        double yI = alignZero(-(i - (nY - 1) / 2d) * Ry);
+        double xJ = alignZero((j - (nX - 1) / 2d) * Rx);
 
-            if (!isZero(yI))
-                pIJ = pIJ.add(vUp.scale(yI));
-            if (!isZero(xJ))
-                pIJ = pIJ.add(vRight.scale(xJ));
-            // direction vector for ray
-            Vector Vij = pIJ.subtract(place);
-            //Vector Vij = place.subtract(pIJ);
 
-            //change the direction of the vector, sine the directions were switched from the slides in class
-            //Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
+        // handle zero vector, because scale can not handle the zero vector so we split it up
+        Point pIJ = Pc;
 
-            return new Ray(place, Vij);
-        }
-        catch (IllegalArgumentException e) {return null;}
+        if (!isZero(xJ))
+            pIJ = pIJ.add(vRight.scale(xJ));
 
+        if (!isZero(yI))
+            pIJ = pIJ.add(vUp.scale(yI));
+
+
+        // direction vector for ray
+        Vector Vij = pIJ.subtract(place);
+
+
+        return new Ray(place, Vij.normalize());
     }
-
 
     /**
      * Renders an image using the camera's settings.
@@ -196,7 +211,6 @@ public class Camera {
             throw  new UnsupportedOperationException("renderImage - value not set yet" + e.getKey());
         }
     }
-
 
     /**
      * Casts a ray from the camera through a pixel in the image, and writes the color of the intersection point to the
@@ -270,7 +284,6 @@ public class Camera {
     public Point getPlace() {
         return place;
     }
-
 
     /**
      * getter for vector direction up of camera\

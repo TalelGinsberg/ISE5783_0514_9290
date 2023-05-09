@@ -12,11 +12,14 @@ import static primitives.Util.isZero;
  */
 public class Ray {
 
+    //----------------------------fields--------------------------
 
     /* point for which the ray starts*/
     private Point p0;
     /* vector for the direction of the ray*/
     private Vector drr;
+
+    //-----------------------------constructor-------------------------
 
     /**
      *  Constructor to initialize Point based on a point and vector
@@ -29,23 +32,54 @@ public class Ray {
         this.drr = sentDrr.normalize();
     }
 
-    /**
-     * getter for the po, the starting point of the ray
-     *
-     * @return point of vector
-     */
-    public Point getP0() {
-        return p0;
-    }
+    //------------------------------functions---------------------------
+
 
     /**
-     * getter for drr,the direction vector of ray
+     * calculates the point=p0+t*drr
      *
-     * @return vector of ray
+     * @param t a double to scale the vector with
+     * @return the point of the ray plus the ray scaled with t
      */
-    public Vector getDir() {
-        return drr;
+    public Point getPoint(double t){
+        return p0.add(drr.scale(t));
     }
+
+
+    /**
+     * Finds the closest point in a list of points to a given point.
+     *
+     * @param points A list of points to search from
+     * @return The closest point to the given point
+     *         If the list is empty, returns null.
+     */
+    public Point findClosestPoint(List<Point> points){
+
+        if (isZero(points.size()))
+            return null;
+
+        // Initialize the minimum distance to be the distance from p0 to the first point in the list
+        double minDistance = p0.distance(points.get(0));
+
+        // Initialize the closest point to be the first point in the list
+        Point closestPoint = points.get(0);
+
+        // Iterate over the rest of the points and update the minimum distance and closest point as necessary
+        for (int index = 1; index < points.size(); index++) {
+            double distance = p0.distance(points.get(index));
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestPoint = points.get(index);
+            }
+        }
+
+        // return the closest point
+        return closestPoint;
+
+    }
+
+
+    //---------------------------override functions-------------------------
 
     @Override
     public boolean equals(Object o) {
@@ -68,34 +102,24 @@ public class Ray {
                 '}';
     }
 
+    //--------------------------------getters----------------------------
+
     /**
-     * calculates the point=p0+t*drr
+     * getter for the po, the starting point of the ray
      *
-     * @param t a double to scale the vector with
-     * @return the point of the ray plus the ray scaled with t
+     * @return point of vector
      */
-    public Point getPoint(double t){
-        return p0.add(drr.scale(t));
+    public Point getP0() {
+        return p0;
     }
 
-
     /**
+     * getter for drr,the direction vector of ray
      *
-     * @param points
-     * @return
+     * @return vector of ray
      */
-    public Point findClosestPoint(List<Point> points){
-        if (isZero(points.size()) )
-            return null;
-        double minDistance=p0.distance(points.get(0));
-        Point closestPoint=points.get(0);
-        for (int index=1;index<points.size();index++){
-            if (p0.distance(points.get(index)) < minDistance) {
-                minDistance = p0.distance(points.get(index));
-                closestPoint = points.get(index);
-            }
-        }
-        return closestPoint;
+    public Vector getDir() {
+        return drr;
     }
 
 }
