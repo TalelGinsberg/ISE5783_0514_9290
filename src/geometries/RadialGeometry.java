@@ -7,7 +7,7 @@ package geometries;
  *
  * @author Noa Harel and Talel Ginsberg
  */
-abstract public class RadialGeometry implements Geometry{
+abstract public class RadialGeometry extends Geometry{
 
     /**
      * number that represents the radius of the radial geometry

@@ -45,18 +45,13 @@ public class Sphere extends RadialGeometry {
     }
 
     @Override
-    public Vector getNormal(Point p) {
-        return p.subtract(center);
-    }
-
-    @Override
-    public List<Point> findIntersections(Ray ray) {
+    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         try{
             // calculated based on what was learnt in the course introduction to computer engineering
 
             //if ray begins at center of sphere
             if (center.equals(ray.getP0()))
-                return List.of(center.add(ray.getDir().scale(radius)));
+                return List.of(new GeoPoint(this, center.add(ray.getDir().scale(radius))));
 
             Vector u = center.subtract(ray.getP0());
 
@@ -82,22 +77,29 @@ public class Sphere extends RadialGeometry {
 
             /*2 points*/
             if(t1>0 && t2>0){
-                return List.of(ray.getPoint(t1), ray.getPoint(t2));
+                return List.of(new GeoPoint(this, ray.getPoint(t1)),new GeoPoint(this, ray.getPoint(t2)));
             }
 
             /*1 point*/
             if(t1>0){
-                return List.of(ray.getPoint(t1));
+                return List.of(new GeoPoint( this, ray.getPoint(t1)));
             }
 
             /*1 point*/
             if (t2>0){
-                return List.of(ray.getPoint(t2));
+                return List.of(new GeoPoint(this, ray.getPoint(t2)));
             }
             return null;
         }
         catch (IllegalArgumentException e){return null;}
     }
+
+    @Override
+    public Vector getNormal(Point p) {
+        return p.subtract(center);
+    }
+
+
 
 
     //--------------------------------getters----------------------------

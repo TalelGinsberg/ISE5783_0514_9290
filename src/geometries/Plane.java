@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Noa Harel and Talel Ginsberg
  */
-public class Plane implements Geometry {
+public class Plane extends Geometry {
 
     //----------------------------fields--------------------------
 
@@ -77,7 +77,7 @@ public class Plane implements Geometry {
     }
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         try{
             // calculated based on what was learnt in the course introduction to computer engineering
             double nv = normal.dotProduct(ray.getDir());
@@ -90,12 +90,12 @@ public class Plane implements Geometry {
             double nQminusP0 = normal.dotProduct(q0.subtract(ray.getP0()));
             double t = alignZero(nQminusP0 / nv);
             if (t > 0)
-                return List.of(ray.getPoint(t));
+                return List.of(new GeoPoint(this,ray.getPoint(t)));
             else return null;
         }
         catch (IllegalArgumentException e) {return null;}
-
     }
+
 
     //--------------------------------getters----------------------------
 
