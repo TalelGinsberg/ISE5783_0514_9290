@@ -94,6 +94,7 @@ public class Sphere extends RadialGeometry {
         catch (IllegalArgumentException e){return null;}
     }
 
+
     @Override
     public Vector getNormal(Point p) {
         return p.subtract(center);
