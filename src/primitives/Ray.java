@@ -64,15 +64,7 @@ public class Ray {
     }
 
 
-    /**
-     * Finds the closest geo point in a list of points to a given point.
-     *
-     * @param points A list of geo points to search from
-     * @return The closest geo point to the given point
-     *         If the list is empty, returns null.
-     */
-    public Point findClosestPoint(List<Point> intersections) {
-            }
+
     public GeoPoint findClosestGeoPoint(List<GeoPoint> points){
 
         if (isZero(points.size()))
