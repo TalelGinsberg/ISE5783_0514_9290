@@ -7,13 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="stage 6 first step">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
-    </list>
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="step 1 stage 6" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -424,7 +418,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1683658162837</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL‎-00035" summary="step 1 stage 6">
+      <created>1683660696138</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL‎-00035" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1683660696138</updated>
+    </task>
+    <task id="LOCAL‎-00036" summary="step 1 stage 6">
+      <created>1683660855027</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL‎-00036" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1683660855027</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -439,7 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="push tag" />
     <MESSAGE value="final changes" />
     <MESSAGE value="final tag" />
     <MESSAGE value="Stage2" />
@@ -464,7 +471,8 @@
     <MESSAGE value="start 9.5" />
     <MESSAGE value="trial" />
     <MESSAGE value="stage 6 first step" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage 6 first step" />
+    <MESSAGE value="step 1 stage 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="step 1 stage 6" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
