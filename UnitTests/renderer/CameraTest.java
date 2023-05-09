@@ -5,11 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import primitives.*;
-import renderer.Camera;
 
 /**
  * Testing Camera Class
- * 
+ *
  * @author Dan
  *
  */
@@ -18,7 +17,7 @@ class CameraTest {
 
 	/**
 	 * Test method for
-	 * {@link Camera#constructRay(int, int, int, int)}.
+	 * {@link renderer.Camera#constructRay(int, int, int, int)}.
 	 */
 	@Test
 	void testConstructRay() {
@@ -27,7 +26,6 @@ class CameraTest {
 
 		// ============ Equivalence Partitions Tests ==============
 		// EP01: 4X4 Inside (1,1)
-
 		assertEquals(new Ray(ZERO_POINT, new Vector(1, -1, -10)),
 				camera.setVPSize(8, 8).constructRay(4, 4, 1, 1), badRay);
 
@@ -56,6 +54,6 @@ class CameraTest {
 		assertEquals(new Ray(ZERO_POINT, new Vector(1, -3, -10)),
 				camera.setVPSize(8, 8).constructRay(4, 4, 1, 0), badRay);
 
-}
+	}
 
 }

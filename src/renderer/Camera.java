@@ -79,14 +79,14 @@ public class Camera {
     public Camera(Point place, Vector vUp, Vector vTo) {
         // initialize place, vUp and vTo
         this.place = place;
-        this.vUp = vTo.normalize();
-        this.vTo = vUp.normalize();
+        this.vUp = vUp.normalize();
+        this.vTo = vTo.normalize();
 
 
         // the vectors are orthogonal
         if(isZero(alignZero(vTo.dotProduct(vUp)))){
             // create vRight - cross product between vUp and vTo
-            vRight = vUp.crossProduct(vTo).normalize();
+            vRight = vTo.crossProduct(vUp).normalize();
         }
 
         // the vectors aren't orthogonal
@@ -106,35 +106,35 @@ public class Camera {
      * @return construct ray from camera through center of wanted pixel
      */
     public Ray constructRay(int nX, int nY, int j, int i){
+        try {
+            // image center
+            Point Pc = place.add(vTo.scale(distance));
 
+            // ratio (pixel width & height)
+            double Ry = height / nY;
+            double Rx = width / nX;
 
-        // image center
-        Point Pc = place.add(vTo.scale(distance));
+            // pixel[i,j] center
+            double yI = alignZero(-(i - (nY - 1) / 2.0) * Ry);
+            double xJ = alignZero((j - ((nX - 1) / 2.0)) * Rx);
 
-        // ratio (pixel width & height)
-        double Ry = height/nY;
-        double Rx = width/nX;
+            // handle zero vector, because scale can not handle the zero vector so we split it up
+            Point pIJ = Pc;
 
-        // pixel[i,j] center
-        double yI = alignZero(-(i-(nY-1)/2d)*Ry);
-        double xJ = alignZero((j-(nX-1)/2d)*Rx);
+            if (!isZero(yI))
+                pIJ = pIJ.add(vUp.scale(yI));
+            if (!isZero(xJ))
+                pIJ = pIJ.add(vRight.scale(xJ));
+            // direction vector for ray
+            Vector Vij = pIJ.subtract(place);
+            //Vector Vij = place.subtract(pIJ);
 
-        // handle zero vector, because scale can not handle the zero vector so we split it up
-        Point pIJ=Pc;
-        if (!isZero(xJ))
-            pIJ = pIJ.add(vRight.scale(xJ));
-        if (!isZero(yI))
-            pIJ = pIJ.add(vUp.scale(yI));
+            //change the direction of the vector, sine the directions were switched from the slides in class
+            //Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
 
-        // direction vector for ray
-        Vector Vij = pIJ.subtract(place);
-        //Vector Vij = place.subtract(pIJ);
-
-        //change the direction of the vector, sine the directions were switched from the slides in class
-        //Vij=new Vector(Vij.getX(),Vij.getZ(),Vij.getY());
-
-        return new Ray(place,Vij);
-
+            return new Ray(place, Vij);
+        }
+        catch (IllegalArgumentException e) {return null;}
 
     }
 

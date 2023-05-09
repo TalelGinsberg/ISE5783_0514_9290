@@ -92,7 +92,7 @@ public class Vector extends Point{
         if ((xyz.d1/u.xyz.d1==xyz.d2/u.xyz.d2) && (xyz.d1/u.xyz.d1==xyz.d2/u.xyz.d2))
             //return crossProduct(new Vector(u.xyz.d1+1,u.xyz.d2,u.xyz.d3));
             throw new IllegalArgumentException("for parallel vectors ");
-        return new Vector(xyz.d2*u.xyz.d3-xyz.d3*u.xyz.d2,xyz.d3*u.xyz.d1-xyz.d1*u.xyz.d3,xyz.d1*u.xyz.d2-xyz.d2*u.xyz.d1);
+        return new Vector((xyz.d2*u.xyz.d3-xyz.d3*u.xyz.d2),xyz.d3*u.xyz.d1-xyz.d1*u.xyz.d3,xyz.d1*u.xyz.d2-xyz.d2*u.xyz.d1);
     }
 
     /**
