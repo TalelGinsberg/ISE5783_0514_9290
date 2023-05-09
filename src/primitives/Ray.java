@@ -51,34 +51,17 @@ public class Ray {
     /**
      * Finds the closest point in a list of points to a given point.
      *
-     * @param points A list of points to search from
+     * @param  intersections A list of points to search from
      * @return The closest point to the given point
      *         If the list is empty, returns null.
      */
-    public Point findClosestPoint(List<Point> points){
+    public Point findClosestPoint(List<Point> intersections){
 
-        if (isZero(points.size()))
-            return null;
-
-        // Initialize the minimum distance to be the distance from p0 to the first point in the list
-        double minDistance = p0.distance(points.get(0));
-
-        // Initialize the closest point to be the first point in the list
-        Point closestPoint = points.get(0);
-
-        // Iterate over the rest of the points and update the minimum distance and closest point as necessary
-        for (int index = 1; index < points.size(); index++) {
-            double distance = p0.distance(points.get(index));
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestPoint = points.get(index);
-            }
-        }
-
-        // return the closest point
-        return closestPoint;
+        return intersections == null ? null : findClosestGeoPoint(intersections.stream().map(point ->  new GeoPoint(null, point)).toList()).point;
 
     }
+
+
     /**
      * Finds the closest geo point in a list of points to a given point.
      *
