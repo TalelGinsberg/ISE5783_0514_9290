@@ -21,6 +21,7 @@ public abstract class Intersectable {
     protected abstract List<GeoPoint> findGoeIntersectionsHelper(Ray ray);
 
 
+
     public final List<Point> findIntersections(Ray ray) {
         List<GeoPoint> geoList = findGeoIntersections(ray);
         return geoList == null ? null

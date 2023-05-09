@@ -8,7 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="step 1 stage 6">
-      <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,9 +167,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in ISE5783_0514_9290" />
+        <item itemvalue="JUnit.RenderTests" />
         <item itemvalue="JUnit.geometries in ISE5783_0514_9290" />
         <item itemvalue="JUnit.CameraTest.testConstructRay" />
-        <item itemvalue="JUnit.RenderTests" />
         <item itemvalue="JUnit.RenderTests.basicRenderTwoColorTest" />
       </list>
     </recent_temporary>
@@ -434,7 +435,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1683660855027</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL‎-00037" summary="step 1 stage 6">
+      <created>1683661066106</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL‎-00037" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1683661066106</updated>
+    </task>
+    <task id="LOCAL‎-00038" summary="step 1 stage 6">
+      <created>1683661132539</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL‎-00038" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1683661132539</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

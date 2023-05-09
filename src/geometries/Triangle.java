@@ -52,6 +52,7 @@ public class Triangle extends Polygon{
             List <GeoPoint>points =plane.findGoeIntersectionsHelper(ray);
             if (points==null)
                 return null;
+            GeoPoint point=new GeoPoint(this,points.get(0).point);
             //original triangle
             Vector V=vertices.get(1).subtract(vertices.get(0));
             Vector U= vertices.get(2).subtract(vertices.get(0));
@@ -59,23 +60,23 @@ public class Triangle extends Polygon{
 
             //triangle with intersection point, first and second vertices
             Vector V1=vertices.get(1).subtract(vertices.get(0));
-            Vector U1= points.get(0).point.subtract(vertices.get(0));
+            Vector U1= point.point.subtract(vertices.get(0));
             Vector v10 = V1.crossProduct(U1);
             double areaTriangle1=0.5*(v10).length();
 
             //triangle with intersection point, second and third vertices
-            Vector V2=vertices.get(1).subtract(points.get(0).point);
-            Vector U2= vertices.get(2).subtract(points.get(0).point);
+            Vector V2=vertices.get(1).subtract(point.point);
+            Vector U2= vertices.get(2).subtract(point.point);
             double areaTriangle2=0.5*(V2.crossProduct(U2)).length();
 
             //triangle with intersection point, first and third vertices
-            Vector V3=points.get(0).point.subtract(vertices.get(0));
+            Vector V3=point.point.subtract(vertices.get(0));
             Vector U3= vertices.get(2).subtract(vertices.get(0));
             double areaTriangle3=0.5*(V3.crossProduct(U3)).length();
 
             //if sum of area of all 3 triangle is equal to area of original triangle it is an intersection point
             if (areaTriangle3+areaTriangle1+areaTriangle2==areaTriangle)
-                return points;
+                return List.of(point);
             return null;}
         catch (IllegalArgumentException e)
         {
