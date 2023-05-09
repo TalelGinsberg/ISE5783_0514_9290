@@ -56,11 +56,16 @@ public class Geometries extends Intersectable{
 
     @Override
     protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
+
+
         //counter for amount of points that intersected
         int count=0;
         int z = 0;
+
+
         //go through each geometry in geometries and sum up length of points that were received in find intersection
-        for (Intersectable var: list) {
+        for (Intersectable var : list)
+        {
             if(var.findGoeIntersectionsHelper(ray)!= null)
                 count += var.findGoeIntersectionsHelper(ray).size();
         }

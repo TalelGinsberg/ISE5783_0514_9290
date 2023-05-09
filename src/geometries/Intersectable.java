@@ -16,22 +16,17 @@ public abstract class Intersectable {
 
 
 
-    public List<GeoPoint> findGeoIntersections(Ray ray){return findGoeIntersectionsHelper(ray);}
+    public final List<GeoPoint> findGeoIntersections(Ray ray){return findGoeIntersectionsHelper(ray);}
 
     protected abstract List<GeoPoint> findGoeIntersectionsHelper(Ray ray);
 
-    /**
-     * Finds the intersections between the object and the given Ray.
-     *
-     * @param ray The Ray to intersect with the object.
-     * @return A List of Point objects representing the intersections, or NULL
-     * if no intersections were found.
-     */
 
-    public List<Point> findIntersections(Ray ray) {
-        var geoList = findGeoIntersections(ray);
-        return geoList == null ? null : geoList.stream().map(gp -> gp.point).toList();
+    public final List<Point> findIntersections(Ray ray) {
+        List<GeoPoint> geoList = findGeoIntersections(ray);
+        return geoList == null ? null
+                : geoList.stream().map(geoPoint ->  geoPoint.point).toList();
     }
+
 
     /**
      * A helper class for returning a pair of a Geometry object and the Point at which a Ray
