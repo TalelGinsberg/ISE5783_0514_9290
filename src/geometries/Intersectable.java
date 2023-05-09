@@ -27,6 +27,8 @@ public abstract class Intersectable {
      * @return A List of Point objects representing the intersections, or NULL
      * if no intersections were found.
      */
+    //public abstract List<Point> findIntersections(Ray ray);
+
 
     public List<Point> findIntersections(Ray ray) {
         var geoList = findGeoIntersections(ray);

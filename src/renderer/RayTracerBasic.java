@@ -38,8 +38,8 @@ public class RayTracerBasic extends RayTracerBase {
      * @param point The point at which to calculate the color.
      * @return The color at the specified point.
      */
-    private Color calcColor(Point point) {
-        return scene.getAmbientLight().getIntensity();
+    private Color calcColor(GeoPoint point) {
+        return this.scene.getAmbientLight().getIntensity();
     }
 
     //---------------------------override functions-------------------------
@@ -51,6 +51,6 @@ public class RayTracerBasic extends RayTracerBase {
         if (points == null)
             return scene.getBackground();
 
-        return calcColor(ray.findClosestGeoPoint(points).point);
+        return calcColor(ray.findClosestGeoPoint(points));
     }
 }
