@@ -4,9 +4,17 @@ import primitives.Vector;
 import primitives.Point;
 
 /**
- * Interface that will serve all geometries.
- * This abstract class implements the Intersectable interface.
- * It provides a getter for the emission color and an abstract method for getting the normal at a given point.
+ * The Geometry class is an abstract class that serves as a base class for all geometries in a 3D scene. It implements the Intersectable interface, providing functionality for determining intersections between geometries and rays in the scene.
+ *
+ * The class contains the following methods:
+ *
+ * - getEmission(): A getter method for the emission color of the geometry.
+ * - getNormal(Point p): An abstract method for getting the normal vector at a given point on the geometry.
+ * - setEmission(Color emission): A method for setting the emission color of the geometry to a specified color and returning the geometry.
+ *
+ * This class is designed to be subclassed by other geometries that implement the getNormal method, which is specific to the geometry being modeled.
+ *
+ * This class is authored by Noa Harel and Talel Ginsberg.
  *
  * @author Noa Harel and Talel Ginsberg
  */

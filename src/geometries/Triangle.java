@@ -35,7 +35,6 @@ public class Triangle extends Polygon{
                 '}';
     }
 
-
     @Override
     protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         try{
