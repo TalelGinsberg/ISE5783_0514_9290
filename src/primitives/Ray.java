@@ -72,10 +72,7 @@ public class Ray {
      *         If the list is empty, returns null.
      */
     public Point findClosestPoint(List<Point> intersections) {
-        return intersections == null ? null
-                : findClosestGeoPoint(intersections.stream()
-                .map((p) ‐> new GeoPoint(null, p)).toList()).point;
-    }
+            }
     public GeoPoint findClosestGeoPoint(List<GeoPoint> points){
 
         if (isZero(points.size()))
