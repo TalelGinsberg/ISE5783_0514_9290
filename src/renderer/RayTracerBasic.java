@@ -34,12 +34,12 @@ public class RayTracerBasic extends RayTracerBase {
     //------------------------------functions---------------------------
 
     /**
-     * Calculates the color at the specified point using the ambient light in the scene.
-     * @param point The point at which to calculate the color.
-     * @return The color at the specified point.
+     * Calculates the color at the specified geo point using the ambient light in the scene.
+     * @param point The geo point at which to calculate the color.
+     * @return The color at the specified geo point.
      */
     private Color calcColor(GeoPoint point) {
-        return scene.getAmbientLight().getIntensity()
+        return (scene.getAmbientLight().getIntensity())
                 .add(point.geometry.getEmission());
 
     }

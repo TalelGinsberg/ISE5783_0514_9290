@@ -7,7 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="final step 1 stage 6 after doc" />
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="final step 1 stage 6 before doc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -453,14 +458,7 @@
       <option name="project" value="LOCAL‎" />
       <updated>1683662039429</updated>
     </task>
-    <task id="LOCAL‎-00040" summary="final step 1 stage 6 after doc">
-      <created>1683662911644</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL‎-00040" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1683662911644</updated>
-    </task>
-    <option name="localTasksCounter" value="41" />
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -475,6 +473,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="final tag" />
     <MESSAGE value="Stage2" />
     <MESSAGE value="final documentation stage2" />
     <MESSAGE value="FINAL STAGE2" />
@@ -499,8 +498,7 @@
     <MESSAGE value="stage 6 first step" />
     <MESSAGE value="step 1 stage 6" />
     <MESSAGE value="final step 1 stage 6 before doc" />
-    <MESSAGE value="final step 1 stage 6 after doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="final step 1 stage 6 after doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="final step 1 stage 6 before doc" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

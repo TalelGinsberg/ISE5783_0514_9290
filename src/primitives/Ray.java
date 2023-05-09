@@ -8,7 +8,7 @@ import java.util.Objects;
 import static primitives.Util.isZero;
 
 /**
- * This class will serve all primitive classes based on a point and vector
+ * This class represents a ray in 3D space, defined by a starting point and a direction vector.
  *
  * @author Noa Harel and Talel Ginsberg
  */
@@ -24,10 +24,10 @@ public class Ray {
     //-----------------------------constructor-------------------------
 
     /**
-     *  Constructor to initialize Point based on a point and vector
+     *  Constructor to initialize a Ray object with a starting point and a direction vector.
      *
-     * @param sentP0 point for ray
-     * @param sentDrr  vector for ray
+     * @param sentP0 The starting point of the ray.
+     * @param sentDrr The direction vector of the ray.
      */
     public Ray(Point sentP0, Vector sentDrr) {
         this.p0 = sentP0;
@@ -36,23 +36,22 @@ public class Ray {
 
     //------------------------------functions---------------------------
 
-
     /**
-     * calculates the point=p0+t*drr
+     * Calculates the point that is a certain distance away from the starting point of the ray,
+     * in the direction of the ray.
      *
-     * @param t a double to scale the vector with
-     * @return the point of the ray plus the ray scaled with t
+     * @param t A scalar value representing the distance from the starting point to the desired point.
+     * @return The point that is t units away from the starting point in the direction of the ray.
      */
     public Point getPoint(double t){
         return p0.add(drr.scale(t));
     }
 
-
     /**
-     * Finds the closest point in a list of points to a given point.
+     * Finds the closest point in a list of points to a given point on the ray.
      *
-     * @param  intersections A list of points to search from
-     * @return The closest point to the given point
+     * @param intersections A list of points to search from.
+     * @return The closest point to the given point on the ray.
      *         If the list is empty, returns null.
      */
     public Point findClosestPoint(List<Point> intersections){
@@ -63,8 +62,13 @@ public class Ray {
 
     }
 
-
-
+    /**
+     * Finds the closest GeoPoint in a list of GeoPoints to the starting point of the ray.
+     *
+     * @param points A list of GeoPoints to search from.
+     * @return The closest GeoPoint to the starting point of the ray.
+     *         If the list is empty, returns null.
+     */
     public GeoPoint findClosestGeoPoint(List<GeoPoint> points){
 
         if (isZero(points.size()))
@@ -90,8 +94,6 @@ public class Ray {
 
     }
 
-
-
     //---------------------------override functions-------------------------
 
     @Override
@@ -100,11 +102,6 @@ public class Ray {
         if (o == null || getClass() != o.getClass()) return false;
         Ray ray = (Ray) o;
         return Objects.equals(p0, ray.p0) && Objects.equals(drr, ray.drr);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(p0, drr);
     }
 
     @Override
