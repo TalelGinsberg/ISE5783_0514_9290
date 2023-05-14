@@ -1,12 +1,13 @@
 package renderer;
 
 import geometries.Intersectable.GeoPoint;
-import primitives.Color;
-import primitives.Point;
-import primitives.Ray;
+import lighting.LightSource;
+import primitives.*;
 import scene.Scene;
 
 import java.util.List;
+
+import static primitives.Util.alignZero;
 
 /**
  *
@@ -38,12 +39,44 @@ public class RayTracerBasic extends RayTracerBase {
      * @param point The geo point at which to calculate the color.
      * @return The color at the specified geo point.
      */
-    private Color calcColor(GeoPoint point) {
+    private Color calcColor(GeoPoint point, Ray ray) {
         return (scene.getAmbientLight().getIntensity())
-                .add(point.geometry.getEmission());
+                .add(calcLocalEffects(point, ray));
 
     }
 
+    private Color calcLocalEffects(GeoPoint gp, Ray ray) {
+        Color color = gp.geometry.getEmission();
+        Vector v = ray.getDir();
+        Vector n = gp.geometry.getNormal(gp.point);
+        double nv = alignZero(n.dotProduct(v));
+        if (nv == 0)
+            return color;
+        Material mat = gp.geometry.getMaterial();
+        for (LightSource lightSource : scene.getLights()) {
+            Vector l = lightSource.getL(gp.point);
+            double nl = alignZero(n.dotProduct(l));
+            if (nl * nv > 0) { // sign(nl) == sing(nv)
+                Color iL = lightSource.getIntensity(gp.point);
+                color = color.add(iL.scale(calcDiffusive(mat, nl)),
+                        iL.scale(calcSpecular(mat, n, l, nl, v)));
+            }
+        }
+        return color;
+    }
+
+    private Double3 calcSpecular(Material mat, Vector n, Vector l, double nl, Vector v) {
+        Vector r = l.subtract(n.scale(l.dotProduct(n)).scale(2));
+        double minusVR = alignZero(v.dotProduct(r) * -1);
+        return mat.kS.scale(Math.pow(Math.max(0,minusVR),mat.nShininess));
+
+    }
+
+    private Double3 calcDiffusive(Material mat, double nl) {
+        double nlAbs = Math.abs(nl);
+        return mat.kD.scale(nlAbs);
+
+    }
 
 
     //---------------------------override functions-------------------------
@@ -55,6 +88,8 @@ public class RayTracerBasic extends RayTracerBase {
         if (points == null)
             return scene.getBackground();
 
-        return calcColor(ray.findClosestGeoPoint(points));
+        return calcColor(ray.findClosestGeoPoint(points),ray);
     }
+
+
 }
