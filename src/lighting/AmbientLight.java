@@ -21,7 +21,7 @@ import primitives.Double3;
  *
  * @author Noa Harel and Talel Ginsberg
  */
-public class AmbientLight {
+public class AmbientLight extends Light{
 
     //----------------------------fields--------------------------
 
@@ -30,7 +30,7 @@ public class AmbientLight {
      * This can be used as a default value or to disable ambient lighting entirely.
      */
     static public final AmbientLight NONE = new AmbientLight(Color.BLACK, Double3.ZERO);
-    private final Color intensity;
+    //private final Color intensity;
 
     //-----------------------------constructor-------------------------
 
@@ -44,7 +44,8 @@ public class AmbientLight {
      * @param ka The scaling factor for the ambient light.
      */
     public AmbientLight(Color ia, double ka) {
-        intensity = ia.scale(ka);
+        super(ia.scale(ka));
+        //intensity = ia.scale(ka);
     }
 
     /**
@@ -57,7 +58,8 @@ public class AmbientLight {
      * @param ka The scaling factors for the ambient light.
      */
     public AmbientLight(Color ia, Double3 ka) {
-        intensity = ia.scale(ka);
+        super(ia.scale(ka));
+        //intensity = ia.scale(ka);
     }
 
 
@@ -68,9 +70,9 @@ public class AmbientLight {
      *
      * @return The intensity of the ambient light.
      */
-    public Color getIntensity() {
+    /*public Color getIntensity() {
         return intensity;
-    }
+    }*/
 }
 
 

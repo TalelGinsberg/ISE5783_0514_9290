@@ -4,8 +4,8 @@ import lighting.AmbientLight;
 import geometries.Geometries;
 //import lighting.Light;
 //import lighting.LightSource;
+import lighting.LightSource;
 import primitives.Color;
-import primitives.Point;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Scene {
     private final Geometries geometries;
     private AmbientLight ambientLight;
 
-    //private final List<LightSource> lights;
+    private final List<LightSource> GetLight;
 
 
     //-----------------------------constructor-------------------------
@@ -39,7 +39,7 @@ public class Scene {
         background = builder.background;
         ambientLight = builder.ambientLight;
         geometries = builder.geometries;
-        //lights = builder.lights;
+        GetLight = builder.lights;
     }
 
     //--------------------------------getters----------------------------
@@ -80,7 +80,7 @@ public class Scene {
         return geometries;
     }
 
-    //public List<LightSource> getLights() {return lights;}
+    public List<LightSource> getLights() {return GetLight;}
 
     //-------------------------------setters--------------------------------
 
@@ -104,7 +104,7 @@ public class Scene {
     public static class SceneBuilder {
 
         private final String name;
-        //private List<LightSource> lights = new LinkedList<>();
+        private List<LightSource> lights = new LinkedList<>();
         private Color background = Color.BLACK;
         private AmbientLight ambientLight = AmbientLight.NONE;
         private Geometries geometries = new Geometries();
@@ -130,10 +130,10 @@ public class Scene {
             return this;
         }
 
-        /*public SceneBuilder setLights(List<LightSource> lights) {
+        public SceneBuilder setLights(List<LightSource> lights) {
             this.lights = lights;
             return this;
-        }*/
+        }
 
         /**
          * Sets the ambient light of the scene and returns the updated SceneBuilder object.

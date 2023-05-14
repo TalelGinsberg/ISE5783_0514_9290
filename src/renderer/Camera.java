@@ -160,7 +160,7 @@ public class Camera {
      * @throws MissingResourceException if any of the required camera settings are missing
      * @throws UnsupportedOperationException if the method has not been implemented yet
      */
-    public void renderImage(){
+    public Camera renderImage(){
         try {
 
             //place has not been set
@@ -205,6 +205,7 @@ public class Camera {
                     castRay(imageWriter.getNx(), imageWriter.getNy(), column, row);
                 }
             }
+            return this;
         }
         //if one of the resources was not set
         catch (MissingResourceException e){
