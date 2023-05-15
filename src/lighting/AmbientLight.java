@@ -34,31 +34,24 @@ public class AmbientLight extends Light{
     //-----------------------------constructor-------------------------
 
     /**
-     * Constructs a new `AmbientLight` with the specified intensity and scaling factor.
-     * The intensity can be specified as a scalar value or a vector of RGB values, and
-     * the scaling factor can be specified as a scalar or a vector of scaling factors
-     * for each color channel.
+     * Constructs an ambient light with the given intensity and coefficient that is double.
      *
-     * @param ia The intensity of the ambient light.
-     * @param ka The scaling factor for the ambient light.
+     * @param ia The intensity of the ambient light
+     * @param ka The coefficient that determines the impact of the ambient light on objects
      */
     public AmbientLight(Color ia, double ka) {
         super(ia.scale(ka));
     }
 
     /**
-     * Constructs a new `AmbientLight` with the specified intensity and scaling factors.
-     * The intensity can be specified as a scalar value or a vector of RGB values, and
-     * the scaling factors can be specified as a vector of scaling factors for each color
-     * channel.
+     * Constructs an ambient light with the given intensity and coefficient that's Double3.
      *
-     * @param ia The intensity of the ambient light.
-     * @param ka The scaling factors for the ambient light.
+     * @param ia The intensity of the ambient light
+     * @param ka The coefficient that determines the impact of the ambient light on objects
      */
     public AmbientLight(Color ia, Double3 ka) {
         super(ia.scale(ka));
     }
-
 }
 
 
