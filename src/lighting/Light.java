@@ -2,6 +2,13 @@ package lighting;
 
 import primitives.Color;
 
+
+/**
+ * The lighting package contains classes and interfaces related to lighting
+ * calculations and light sources in a 3D scene.
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 abstract class Light {
 
     //----------------------------fields--------------------------

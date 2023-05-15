@@ -43,63 +43,13 @@ public class Sphere extends RadialGeometry {
                 ", radius=" + radius +
                 '}';
     }
-/*
+
     @Override
-    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
-        try{
-            // calculated based on what was learnt in the course introduction to computer engineering
-
-            //if ray begins at center of sphere
-            if (center.equals(ray.getP0()))
-                return List.of(new GeoPoint(this, center.add(ray.getDir().scale(radius))));
-
-            Vector u = center.subtract(ray.getP0());
-
-            double tm = ray.getDir().dotProduct(u);//the shadow of u on ray
-            double d = alignZero(sqrt(u.lengthSquared() - tm * tm));//size of second perpendicular vector using pitagoras
-
-            //ray is outside the sphere or tangent to sphere
-            if (isZero(d - radius) || d > radius) {
-                return null;
-            }
-
-            double th = (sqrt(radius * radius - d * d));
-
-            double t1 = alignZero(tm + th);
-            double t2 = alignZero(tm - th);
-
-            //for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
-
-            //0 points
-            if (t1<=0 && t2<=0){
-                return  null;
-            }
-
-            //2 points
-            if(t1>0 && t2>0){
-                return List.of(new GeoPoint(this, ray.getPoint(t1)),new GeoPoint(this, ray.getPoint(t2)));
-            }
-
-            //1 point
-            if(t1>0){
-                return List.of(new GeoPoint( this, ray.getPoint(t1)));
-            }
-
-            //1 point
-            if (t2>0){
-                return List.of(new GeoPoint(this, ray.getPoint(t2)));
-            }
-            return null;
-        }
-        catch (IllegalArgumentException e){return null;}
-    }
-
-    */
     protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         Point P0 = ray.getP0();
         Vector v = ray.getDir();
         if(P0.equals(center)){
-            return List.of(new GeoPoint(this,/* center.add(v.scale(radius)))*/ray.getPoint(radius)));
+            return List.of(new GeoPoint(this,ray.getPoint(radius)));
         }
         Vector u=center.subtract(P0);
         double tm= v.dotProduct(u);

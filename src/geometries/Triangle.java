@@ -35,57 +35,7 @@ public class Triangle extends Polygon{
                 ", plane=" + plane +
                 '}';
     }
-/*
-    @Override
-    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
-        try{
-            //We are creating 3 triangles, with 2 vertices and the intersection point, only if sum of area of all 3 triangles
-            // is equal to area of original triangle it is an intersection point
 
-
-            //create plane with all 3 points of triangle,meaning the plane contains the triangle
-            Vector v1=vertices.get(1).subtract(vertices.get(0));
-            Vector v2=vertices.get(2).subtract(vertices.get(0));
-            Vector normal = v1.crossProduct(v2);
-            Plane plane=new Plane(vertices.get(0),normal);
-            //finds intersection point between ray and plane we created
-            List <GeoPoint>points =plane.findGoeIntersectionsHelper(ray);
-            if (points==null)
-                return null;
-            GeoPoint point=new GeoPoint(this,points.get(0).point);
-            //original triangle
-            Vector V=vertices.get(1).subtract(vertices.get(0));
-            Vector U= vertices.get(2).subtract(vertices.get(0));
-            double areaTriangle=0.5*(V.crossProduct(U)).length();
-
-            //triangle with intersection point, first and second vertices
-            Vector V1=vertices.get(1).subtract(vertices.get(0));
-            Vector U1= point.point.subtract(vertices.get(0));
-            Vector v10 = V1.crossProduct(U1);
-            double areaTriangle1=0.5*(v10).length();
-
-            //triangle with intersection point, second and third vertices
-            Vector V2=vertices.get(1).subtract(point.point);
-            Vector U2= vertices.get(2).subtract(point.point);
-            double areaTriangle2=0.5*(V2.crossProduct(U2)).length();
-
-            //triangle with intersection point, first and third vertices
-            Vector V3=point.point.subtract(vertices.get(0));
-            Vector U3= vertices.get(2).subtract(vertices.get(0));
-            double areaTriangle3=0.5*(V3.crossProduct(U3)).length();
-
-            //if sum of area of all 3 triangle is equal to area of original triangle it is an intersection point
-            if (areaTriangle3+areaTriangle1+areaTriangle2==areaTriangle)
-                return List.of(point);
-            return null;}
-        catch (IllegalArgumentException e)
-        {
-            return null;
-        }
-
-    }
-
-     */
     @Override
     protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         List<Point> points = this.plane.findIntersections(ray);
