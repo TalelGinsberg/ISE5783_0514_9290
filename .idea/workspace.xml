@@ -7,24 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="stage 6 second step">
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="stage 6 picssss workkkkk">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/base render test.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/base render test.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/color render test.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/color render test.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/lightSphereDirectional.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/lightSphereDirectional.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/lightSpherePoint.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/lightSpherePoint.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/lightSphereSpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/lightSphereSpot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/lightTrianglesDirectional.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/lightTrianglesDirectional.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/lightTrianglesPoint.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/lightTrianglesPoint.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/lightTrianglesSpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/lightTrianglesSpot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/AmbientLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/AmbientLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/PointLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/PointLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/SpotLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/SpotLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/lighting/LightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/lighting/LightTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +33,9 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/Temp1_ISE5782_4020_0953-PR06.zip/ISE5782_4020_0953-PR06/unitTests/lighting/LightsTest.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -104,7 +92,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ISE5783_0514_9290">
+  <component name="RunManager" selected="JUnit.LightTest.triangleAllLights">
     <configuration name="All in ISE5783_0514_9290" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <option name="PACKAGE_NAME" value="" />
@@ -143,31 +131,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RenderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LightTest.sphereAllLights" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="renderer.*" />
+          <option name="PATTERN" value="lighting.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.RenderTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="lighting" />
+      <option name="MAIN_CLASS_NAME" value="lighting.LightTest" />
+      <option name="METHOD_NAME" value="sphereAllLights" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="geometries in ISE5783_0514_9290" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LightTest.triangleAllLights" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="geometries.*" />
+          <option name="PATTERN" value="lighting.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="geometries" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="lighting" />
+      <option name="MAIN_CLASS_NAME" value="lighting.LightTest" />
+      <option name="METHOD_NAME" value="triangleAllLights" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -175,17 +166,17 @@
     <list>
       <item itemvalue="JUnit.ImageWriterTest" />
       <item itemvalue="JUnit.LightTest" />
-      <item itemvalue="JUnit.geometries in ISE5783_0514_9290" />
+      <item itemvalue="JUnit.LightTest.sphereAllLights" />
+      <item itemvalue="JUnit.LightTest.triangleAllLights" />
       <item itemvalue="JUnit.All in ISE5783_0514_9290" />
-      <item itemvalue="JUnit.RenderTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LightTest.triangleAllLights" />
+        <item itemvalue="JUnit.LightTest.sphereAllLights" />
         <item itemvalue="JUnit.All in ISE5783_0514_9290" />
         <item itemvalue="JUnit.LightTest" />
         <item itemvalue="JUnit.ImageWriterTest" />
-        <item itemvalue="JUnit.RenderTests" />
-        <item itemvalue="JUnit.geometries in ISE5783_0514_9290" />
       </list>
     </recent_temporary>
   </component>
@@ -478,7 +469,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1684054861647</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="stage 6 picssss workkkkk">
+      <created>1684184752301</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1684184752301</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -493,7 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="final documentation stage2" />
     <MESSAGE value="FINAL STAGE2" />
     <MESSAGE value="start STAGE3" />
     <MESSAGE value="SphereTest STAGE3" />
@@ -518,18 +515,10 @@
     <MESSAGE value="final step 1 stage 6 before doc" />
     <MESSAGE value="final step 1 stage 6 after doc" />
     <MESSAGE value="stage 6 second step" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage 6 second step" />
+    <MESSAGE value="stage 6 picssss workkkkk" />
+    <option name="LAST_COMMIT_MESSAGE" value="stage 6 picssss workkkkk" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UnitTests/lighting/LightTest.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="normal" language="JAVA" />
