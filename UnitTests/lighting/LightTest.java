@@ -164,31 +164,27 @@ class LightTest {
     }
 
     /**Produce a picture of two triangles lighted by multiple light sources*/
-
     @Test
     public void triangleAllLights() {
         scene2.getGeometries().add(triangle1, triangle2);
 
         // Adjust light positions and intensities
-        scene2.getLights().add(new SpotLight(new Color(255, 200, 200), new Point(-50, -50, 25), new Vector(-1, -1, -1))
-                .setkL(0.001).setkQ(0.01));
-        scene2.getLights().add(new SpotLight(new Color(200, 200, 255), new Point(30, 10, -100), new Vector(-1, -1, -1))
-                .setkL(0.005).setkQ(0.001));
-
-        // Add additional lights with adjusted intensities
-        scene2.getLights().add(new PointLight(new Color(200, 255, 200), new Point(-30, -50, -25))
-                .setkL(0.00001).setkQ(0.000001));
-        scene2.getLights().add(new PointLight(new Color(255, 200, 255), new Point(10, 10, -50))
-                .setkL(0.001).setkQ(0.000001));
-        scene2.getLights().add(new DirectionalLight(new Color(255, 255, 200), new Vector(-1, -1, -2)));
+        scene2.getLights().add(new SpotLight(new Color(255, 255, 255), new Point(-50, -50, 50), new Vector(-1, -1, -1))
+                .setkL(0.0001).setkQ(0.0001));
+        scene2.getLights().add(new SpotLight(new Color(255, 255, 255), new Point(50, -50, 50), new Vector(1, -1, -1))
+                .setkL(0.0001).setkQ(0.0001));
+        scene2.getLights().add(new PointLight(new Color(255, 255, 255), new Point(0, 0, -100))
+                .setkL(0.0001).setkQ(0.0001));
+        scene2.getLights().add(new DirectionalLight(new Color(255, 255, 255), new Vector(0, 0, -1)));
 
         // Render the image
-        ImageWriter imageWriter = new ImageWriter("triangleAllLights", 500, 500);
+        ImageWriter imageWriter = new ImageWriter("triangleAllLights", 1000, 1000);
         camera2.setImageWriter(imageWriter)
                 .setRayTracerBase(new RayTracerBasic(scene2))
                 .renderImage()
                 .writeToImage();
     }
+
 
 
 

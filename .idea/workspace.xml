@@ -7,13 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="doc">
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="final doc stage 6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/Light.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/LightSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/LightSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/SpotLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/SpotLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/lighting/LightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/lighting/LightTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +89,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LightTest">
+  <component name="RunManager" selected="JUnit.LightTest.triangleAllLights">
     <configuration name="All in ISE5783_0514_9290" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <option name="PACKAGE_NAME" value="" />
@@ -132,49 +128,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RenderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LightTest.triangleAllLights" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="renderer.*" />
+          <option name="PATTERN" value="lighting.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.RenderTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="lighting" />
+      <option name="MAIN_CLASS_NAME" value="lighting.LightTest" />
+      <option name="METHOD_NAME" value="triangleAllLights" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="geometries in ISE5783_0514_9290" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LightTest.triangleAllLightsOverwhelming" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="geometries.*" />
+          <option name="PATTERN" value="lighting.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="geometries" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="lighting" />
+      <option name="MAIN_CLASS_NAME" value="lighting.LightTest" />
+      <option name="METHOD_NAME" value="triangleAllLightsOverwhelming" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.LightTest.triangleAllLights" />
+      <item itemvalue="JUnit.LightTest.triangleAllLightsOverwhelming" />
       <item itemvalue="JUnit.ImageWriterTest" />
       <item itemvalue="JUnit.LightTest" />
-      <item itemvalue="JUnit.geometries in ISE5783_0514_9290" />
       <item itemvalue="JUnit.All in ISE5783_0514_9290" />
-      <item itemvalue="JUnit.RenderTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LightTest.triangleAllLights" />
+        <item itemvalue="JUnit.LightTest.triangleAllLightsOverwhelming" />
         <item itemvalue="JUnit.LightTest" />
         <item itemvalue="JUnit.All in ISE5783_0514_9290" />
         <item itemvalue="JUnit.ImageWriterTest" />
-        <item itemvalue="JUnit.RenderTests" />
-        <item itemvalue="JUnit.geometries in ISE5783_0514_9290" />
       </list>
     </recent_temporary>
   </component>
@@ -474,7 +473,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1684192266562</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL‎-00042" summary="final doc stage 6">
+      <created>1684193064126</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL‎-00042" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1684193064126</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -489,7 +495,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FINAL STAGE2" />
     <MESSAGE value="start STAGE3" />
     <MESSAGE value="SphereTest STAGE3" />
     <MESSAGE value="mid STAGE3" />
@@ -514,7 +519,8 @@
     <MESSAGE value="final step 1 stage 6 after doc" />
     <MESSAGE value="stage 6 second step" />
     <MESSAGE value="doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="doc" />
+    <MESSAGE value="final doc stage 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="final doc stage 6" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
