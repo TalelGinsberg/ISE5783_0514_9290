@@ -65,7 +65,8 @@ public class Tube extends RadialGeometry{
     protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         return null;
     }
-//--------------------------------getters----------------------------
+
+    //--------------------------------getters----------------------------
 
     /**
      * getter function for axis ray of the tube

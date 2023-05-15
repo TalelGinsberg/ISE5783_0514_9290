@@ -30,7 +30,6 @@ public class AmbientLight extends Light{
      * This can be used as a default value or to disable ambient lighting entirely.
      */
     static public final AmbientLight NONE = new AmbientLight(Color.BLACK, Double3.ZERO);
-    //private final Color intensity;
 
     //-----------------------------constructor-------------------------
 
@@ -58,20 +57,8 @@ public class AmbientLight extends Light{
      */
     public AmbientLight(Color ia, Double3 ka) {
         super(ia.scale(ka));
-        //intensity = ia.scale(ka);
     }
 
-
-    //--------------------------------getters----------------------------
-
-    /**
-     * Returns the intensity of this ambient light.
-     *
-     * @return The intensity of the ambient light.
-     */
-    /*public Color getIntensity() {
-        return intensity;
-    }*/
 }
 
 

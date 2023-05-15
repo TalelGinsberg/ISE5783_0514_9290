@@ -7,10 +7,14 @@ import java.util.List;
 import java.util.Objects;
 
 
+
 /**
- * The Intersectable interface represents an object that can be intersected by a Ray.
- * Implementing classes should provide a method to find intersections between the object
- * and a given Ray.
+ * The Intersectable class represents an abstract 3D
+ * object that can be intersected by a ray.
+ * This class provides methods for finding the intersection
+ * points between the object and a given ray,
+ * as well as a helper class for returning a pair of the
+ * intersected Geometry object and the intersection point.
  *
  * @author Noa Harel and Talel Ginsberg
  */

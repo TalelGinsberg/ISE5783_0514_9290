@@ -75,27 +75,8 @@ public class Plane extends Geometry {
         // but for better performance we use the following
         return normal;
     }
-/*
-    @Override
-    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
-        try{
-            // calculated based on what was learnt in the course introduction to computer engineering
-            double nv = normal.dotProduct(ray.getDir());
 
-            // the ray lies on the plane
-            if (isZero(nv))
-                return null;
-            if (q0.equals(ray.getP0()))
-                return null;
-            double nQminusP0 = normal.dotProduct(q0.subtract(ray.getP0()));
-            double t = alignZero(nQminusP0 / nv);
-            if (t > 0)
-                return List.of(new GeoPoint(this,ray.getPoint(t)));
-            else return null;
-        }
-        catch (IllegalArgumentException e) {return null;}
-    }
-    */
+    @Override
     protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         Point p0 = ray.getP0();
         Vector v = ray.getDir();

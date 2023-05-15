@@ -7,8 +7,11 @@ import java.util.Objects;
 
 import static primitives.Util.isZero;
 
+
+
 /**
- * This class represents a ray in 3D space, defined by a starting point and a direction vector.
+ * This class represents a ray in 3D space,
+ * defined by a starting point and a direction vector.
  *
  * @author Noa Harel and Talel Ginsberg
  */
@@ -62,11 +65,12 @@ public class Ray {
 
     }
 
+
     /**
-     * Finds the closest GeoPoint in a list of GeoPoints to the starting point of the ray.
+     * Finds the closest GeoPoint in a list of GeoPoints to a given point on the ray.
      *
      * @param points A list of GeoPoints to search from.
-     * @return The closest GeoPoint to the starting point of the ray.
+     * @return The closest GeoPoint to the given point on the ray.
      *         If the list is empty, returns null.
      */
     public GeoPoint findClosestGeoPoint(List<GeoPoint> points){

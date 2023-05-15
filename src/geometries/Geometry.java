@@ -26,8 +26,11 @@ public abstract class Geometry extends Intersectable {
      */
     private Color emission = Color.BLACK;
 
-
-
+    /**
+     * This field represents the material properties of this Geometry object.
+     * A Material object contains information about the material's properties,
+     * such as its color and texture.
+     */
     private Material material=new Material();
 
     //--------------------------------getters----------------------------
@@ -44,6 +47,11 @@ public abstract class Geometry extends Intersectable {
 
 
 
+    /**
+     * Returns the material of this geometry.
+     *
+     * @return the material of this geometry
+     */
     public Material getMaterial() {
         return material;
     }
@@ -61,6 +69,12 @@ public abstract class Geometry extends Intersectable {
 
     //--------------------------------setters----------------------------
 
+
+    /**
+     * Sets the material of this geometry.
+     * @param material The material to set.
+     * @return This geometry instance.
+     */
     public Geometry setMaterial(Material material) {
         this.material = material;
         return this;
