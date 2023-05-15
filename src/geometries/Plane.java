@@ -75,7 +75,7 @@ public class Plane extends Geometry {
         // but for better performance we use the following
         return normal;
     }
-
+/*
     @Override
     protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         try{
@@ -94,6 +94,39 @@ public class Plane extends Geometry {
             else return null;
         }
         catch (IllegalArgumentException e) {return null;}
+    }
+    */
+    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
+        Point p0 = ray.getP0();
+        Vector v = ray.getDir();
+        if (this.q0.equals(p0)){
+            return null;
+        }
+        Vector n = this.normal;
+        Vector p0_q0 = this.q0.subtract(p0);
+
+        // numerator
+        double nP0Q0 = alignZero(n.dotProduct(p0_q0));
+        // t should be greater than zero
+        if (isZero(nP0Q0)){
+            return null;
+        }
+
+        // denominator
+        double nv = alignZero(n.dotProduct(v));
+        // ray is lying in the plane axis
+        if (isZero(nv)){
+            return null;
+        }
+
+        double t = alignZero(nP0Q0/nv);
+
+        // t need to be greater than zero
+        if (t <= 0){
+            return null;
+        }
+        Point point = ray.getPoint(t);
+        return List.of(new GeoPoint(this, point));
     }
 
 

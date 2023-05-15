@@ -43,7 +43,7 @@ public class Sphere extends RadialGeometry {
                 ", radius=" + radius +
                 '}';
     }
-
+/*
     @Override
     protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
         try{
@@ -70,22 +70,22 @@ public class Sphere extends RadialGeometry {
 
             //for the point to be good t has to be larger than zero, because if it is equal to zero it is beginning point of ray
 
-            /*0 points*/
+            //0 points
             if (t1<=0 && t2<=0){
                 return  null;
             }
 
-            /*2 points*/
+            //2 points
             if(t1>0 && t2>0){
                 return List.of(new GeoPoint(this, ray.getPoint(t1)),new GeoPoint(this, ray.getPoint(t2)));
             }
 
-            /*1 point*/
+            //1 point
             if(t1>0){
                 return List.of(new GeoPoint( this, ray.getPoint(t1)));
             }
 
-            /*1 point*/
+            //1 point
             if (t2>0){
                 return List.of(new GeoPoint(this, ray.getPoint(t2)));
             }
@@ -94,10 +94,41 @@ public class Sphere extends RadialGeometry {
         catch (IllegalArgumentException e){return null;}
     }
 
+    */
+    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
+        Point P0 = ray.getP0();
+        Vector v = ray.getDir();
+        if(P0.equals(center)){
+            return List.of(new GeoPoint(this,/* center.add(v.scale(radius)))*/ray.getPoint(radius)));
+        }
+        Vector u=center.subtract(P0);
+        double tm= v.dotProduct(u);
+        double d= alignZero(Math.sqrt(u.lengthSquared()-tm*tm));
+        if (d>=radius) {
+            return null;
+        }
+        double th=alignZero(Math.sqrt(radius*radius-d*d));
+        double t1= alignZero(tm+th);
+        double t2=alignZero(tm-th);
+        if(t1>0 && t2>0){
+            Point P1=P0.add(v.scale(t1));
+            Point P2=P0.add(v.scale(t2));
+            return List.of(new GeoPoint(this, P1), new GeoPoint(this, P2));
 
+        }
+        if (t1>0) {
+            Point P1=P0.add(v.scale(t1));
+            return List.of(new GeoPoint(this, P1));
+        }
+        if ( t2>0){
+            Point P2=P0.add(v.scale(t2));
+            return List.of(new GeoPoint(this, P2));
+        }
+        return null;
+    }
     @Override
     public Vector getNormal(Point p) {
-        return p.subtract(center);
+        return p.subtract(center).normalize();
     }
 
 
