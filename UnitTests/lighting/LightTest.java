@@ -11,7 +11,7 @@ import renderer.*;
 import scene.Scene;
 
 /** Test rendering a basic image
- * @author Dan */
+ * @author Dan, Talel Ginsberg and Noa Harel*/
 class LightTest {
     private final Scene          scene1                  = new Scene.SceneBuilder("Test scene").build();
     private final Scene          scene2                  = new Scene.SceneBuilder("Test scene")
@@ -136,7 +136,6 @@ class LightTest {
         scene2.getGeometries().add(triangle1, triangle2);
         scene2.getLights().add(new SpotLight(trianglesLightColor, trianglesLightPosition, trianglesLightDirection)
                 .setkL(0.001).setkQ(0.0001));
-
         ImageWriter imageWriter = new ImageWriter("lightTrianglesSpot", 500, 500);
         camera2.setImageWriter(imageWriter) //
                 .setRayTracerBase(new RayTracerBasic(scene2)) //
@@ -144,8 +143,59 @@ class LightTest {
                 .writeToImage(); //
     }
 
+    /** Produce a picture of a sphere lighted by multiple light sources*/
+    @Test
+    public void sphereAllLights() {
+        scene1.getGeometries().add(sphere);
+
+        // Add lights with adjusted intensities
+        scene1.getLights().add(new SpotLight(sphereLightColor, new Point(0, 0, 0), new Vector(1, 1, -0.5))
+                .setkL(0.0000001).setkQ(0.0001));
+        scene1.getLights().add(new PointLight(sphereLightColor, new Point(1,1,1))
+                .setkL(0.001).setkQ(0.0002));
+        scene1.getLights().add(new DirectionalLight(new Color(80, 500, 0), new Vector(-1, -1, -0.5)));
+
+        // Render the image
+        ImageWriter imageWriter = new ImageWriter("sphereAllLights", 500, 500);
+        camera1.setImageWriter(imageWriter) //
+                .setRayTracerBase(new RayTracerBasic(scene1)) //
+                .renderImage() //
+                .writeToImage(); //
+    }
+
+    /**Produce a picture of two triangles lighted by multiple light sources*/
+
+    @Test
+    public void triangleAllLights() {
+        scene2.getGeometries().add(triangle1, triangle2);
+
+        // Adjust light positions and intensities
+        scene2.getLights().add(new SpotLight(new Color(255, 200, 200), new Point(-50, -50, 25), new Vector(-1, -1, -1))
+                .setkL(0.001).setkQ(0.01));
+        scene2.getLights().add(new SpotLight(new Color(200, 200, 255), new Point(30, 10, -100), new Vector(-1, -1, -1))
+                .setkL(0.005).setkQ(0.001));
+
+        // Add additional lights with adjusted intensities
+        scene2.getLights().add(new PointLight(new Color(200, 255, 200), new Point(-30, -50, -25))
+                .setkL(0.00001).setkQ(0.000001));
+        scene2.getLights().add(new PointLight(new Color(255, 200, 255), new Point(10, 10, -50))
+                .setkL(0.001).setkQ(0.000001));
+        scene2.getLights().add(new DirectionalLight(new Color(255, 255, 200), new Vector(-1, -1, -2)));
+
+        // Render the image
+        ImageWriter imageWriter = new ImageWriter("triangleAllLights", 500, 500);
+        camera2.setImageWriter(imageWriter)
+                .setRayTracerBase(new RayTracerBasic(scene2))
+                .renderImage()
+                .writeToImage();
+    }
+
+
+
+
+
     /** Produce a picture of a sphere lighted by a narrow spotlight */
-    /*
+    /* for bonus
     @Test
     public void sphereSpotSharp() {
         scene1.getGeometries().add(sphere);
@@ -164,7 +214,7 @@ class LightTest {
 
     /** Produce a picture of two triangles lighted by a narrow spotlight */
 
-    /*
+    /* for bonus
     @Test
     public void trianglesSpotSharp() {
         scene2.getGeometries().add(triangle1, triangle2);
