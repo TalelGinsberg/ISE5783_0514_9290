@@ -37,7 +37,7 @@ public class Triangle extends Polygon{
     }
 
     @Override
-    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         List<Point> points = this.plane.findIntersections(ray);
         // if there is no point intersected in the plane
         if (points == null)

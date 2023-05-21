@@ -28,15 +28,16 @@ public abstract class Intersectable {
      * @param ray The ray to intersect with.
      * @return A list of GeoPoints representing the intersection points, or null if there are no intersections.
      */
-    public final List<GeoPoint> findGeoIntersections(Ray ray){return findGoeIntersectionsHelper(ray);}
+    public final List<GeoPoint> findGeoIntersections(Ray ray){return findGeoIntersectionsHelper(ray);}
 
     /**
-     * A helper method for finding the intersection points between this object and a given ray, in the form of GeoPoints.
+     * A helper method for finding the intersection points between this object and a given ray,
+     * in the form of GeoPoints.
      *
      * @param ray The ray to intersect with.
      * @return A list of GeoPoints representing the intersection points, or null if there are no intersections.
      */
-    protected abstract List<GeoPoint> findGoeIntersectionsHelper(Ray ray);
+    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray);
 
 
     /**
@@ -63,12 +64,12 @@ public abstract class Intersectable {
         /**
          * The Geometry object at which the Ray intersects.
          */
-        public Geometry geometry;
+        public final Geometry geometry;
 
         /**
          * The Point at which the Ray intersects the Geometry object.
          */
-        public Point point;
+        public final Point point;
 
         //-----------------------------constructors-------------------------
 

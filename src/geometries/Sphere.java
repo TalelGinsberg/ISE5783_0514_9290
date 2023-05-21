@@ -45,7 +45,7 @@ public class Sphere extends RadialGeometry {
     }
 
     @Override
-    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         Point P0 = ray.getP0();
         Vector v = ray.getDir();
         if(P0.equals(center)){

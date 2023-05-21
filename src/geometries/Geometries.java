@@ -1,6 +1,5 @@
 package geometries;
 
-import primitives.Point;
 import primitives.Ray;
 
 import java.util.LinkedList;
@@ -55,7 +54,7 @@ public class Geometries extends Intersectable{
     //---------------------------override functions-------------------------
 
     @Override
-    protected List<GeoPoint> findGoeIntersectionsHelper(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
 
 
         //counter for amount of points that intersected
@@ -66,8 +65,8 @@ public class Geometries extends Intersectable{
         //go through each geometry in geometries and sum up length of points that were received in find intersection
         for (Intersectable var : list)
         {
-            if(var.findGoeIntersectionsHelper(ray)!= null)
-                count += var.findGoeIntersectionsHelper(ray).size();
+            if(var.findGeoIntersectionsHelper(ray)!= null)
+                count += var.findGeoIntersectionsHelper(ray).size();
         }
         //System.out.println(ray.toString());
         if(count==0)
@@ -75,8 +74,8 @@ public class Geometries extends Intersectable{
         List<GeoPoint> points=new LinkedList<GeoPoint>();
         //go through each geometry in geometries and add all points to list of points that were received in find intersection
         for (Intersectable var: list) {
-            if(var.findGoeIntersectionsHelper(ray)!= null)
-                var.findGoeIntersectionsHelper(ray).forEach((x)->points.add(x));
+            if(var.findGeoIntersectionsHelper(ray)!= null)
+                var.findGeoIntersectionsHelper(ray).forEach((x)->points.add(x));
         }
         return points;
     }
