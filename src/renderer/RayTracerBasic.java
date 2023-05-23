@@ -56,7 +56,7 @@ public class RayTracerBasic extends RayTracerBase {
             if (intersections==null)
                 return true;
             for (GeoPoint intersectionPoint:intersections) {
-                if (lightDirection.distance(intersectionPoint.point) > gp.point.distance(intersectionPoint.point))
+                if (lightSource.getDistance(intersectionPoint.point) > gp.point.distance(intersectionPoint.point))
                     return false;
             }
             return true;
