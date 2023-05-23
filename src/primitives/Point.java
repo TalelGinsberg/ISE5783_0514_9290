@@ -70,7 +70,7 @@ public class Point {
      * @return distance between current point and sent point
      */
     public double distance(Point p){
-        return Math.sqrt(p.distanceSquared(this));
+        return Math.sqrt(distanceSquared(p));
     }
     /**
      * distance between current point and sent point, squared
@@ -82,6 +82,8 @@ public class Point {
         return (p.xyz.d1-this.xyz.d1)*(p.xyz.d1-this.xyz.d1)+
                 (p.xyz.d2-this.xyz.d2)*(p.xyz.d2-this.xyz.d2)+
                 (p.xyz.d3-this.xyz.d3)*(p.xyz.d3-this.xyz.d3);
+
+
     }
 
 

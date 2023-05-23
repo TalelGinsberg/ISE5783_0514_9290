@@ -12,11 +12,17 @@ import static primitives.Util.alignZero;
 /**
  * This class implements a basic ray tracer algorithm for rendering images.
  * It calculates the color of each pixel in the image based on the scene geometry, lights, and materials.
-
+ *
  * @author Noa Harel and Talel Ginsberg
  */
 public class RayTracerBasic extends RayTracerBase {
 
+    //----------------------------fields--------------------------
+
+    /**
+     * Constant for head of ray offset size for shading rays
+     */
+    private static final double DELTA = 0.1;
 
     //-----------------------------constructor-------------------------
 
@@ -31,6 +37,34 @@ public class RayTracerBasic extends RayTracerBase {
 
 
     //------------------------------functions---------------------------
+
+    /**
+     * Checking the absence of shading between a point and the light source
+     *
+     * @param gp
+     * @param l
+     * @param n
+     * @return
+     */
+    private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n,double nl) {
+        try {
+            Vector lightDirection = l.scale(-1); // from point to light source
+            Vector epsVector = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA);
+            Point point = gp.point.add(epsVector);
+            Ray lightRay = new Ray(point, lightDirection);
+            List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay);
+            if (intersections==null)
+                return true;
+            for (GeoPoint intersectionPoint:intersections) {
+                if (lightDirection.distance(intersectionPoint.point) > gp.point.distance(intersectionPoint.point))
+                    return false;
+            }
+            return true;
+        }
+        catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
 
     /**
      * Calculates the color of the given intersection point by considering the ambient light and local effects
@@ -54,13 +88,14 @@ public class RayTracerBasic extends RayTracerBase {
         // Return the calculated color
         return color;
     }
-        /**
-         * Calculates the local effects at a given intersection point, such as diffuse and specular reflections.
-         *
-         * @param gp  The intersection point
-         * @param ray The ray that intersected with the geometry
-         * @return The color of the local effects at the intersection point
-         */
+
+    /**
+     * Calculates the local effects at a given intersection point, such as diffuse and specular reflections.
+     *
+     * @param gp  The intersection point
+     * @param ray The ray that intersected with the geometry
+     * @return The color of the local effects at the intersection point
+     */
     private Color calcLocalEffects(GeoPoint gp, Ray ray) {
         Color color = gp.geometry.getEmission(); // Start with the emission color of the geometry
 
@@ -83,6 +118,7 @@ public class RayTracerBasic extends RayTracerBase {
 
             // Check if the light is on the same side as the view direction
             if (nl * nv > 0) {
+                if (unshaded(gp,lightSource, l, n,nl)) {
                 Color iL = lightSource.getIntensity(gp.point); // Intensity of the light source at the intersection point
 
                 // Calculate the contributions of diffuse and specular reflections
@@ -92,19 +128,19 @@ public class RayTracerBasic extends RayTracerBase {
                 );
             }
         }
-        return color;
     }
-
+        return color;
+}
 
     /**
      * Calculates the specular reflection color at a given intersection point.
      *
-     * @param kS The specular reflection coefficient of the material
-     * @param n The surface normal vector at the intersection point
-     * @param l The direction vector towards the light source
-     * @param nl The dot product between the surface normal and light direction vectors
-     * @param v The view direction vector
-     * @param iL The intensity of the light source at the intersection point
+     * @param kS         The specular reflection coefficient of the material
+     * @param n          The surface normal vector at the intersection point
+     * @param l          The direction vector towards the light source
+     * @param nl         The dot product between the surface normal and light direction vectors
+     * @param v          The view direction vector
+     * @param iL         The intensity of the light source at the intersection point
      * @param nShininess The shininess factor of the material
      * @return The color resulting from the specular reflection at the intersection point
      */
