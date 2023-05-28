@@ -9,9 +9,10 @@ import java.util.List;
 
 /**
  * class that represents Tube
+ *
  * @author Noa Harel and Talel Ginsberg
  */
-public class Tube extends RadialGeometry{
+public class Tube extends RadialGeometry {
 
     //----------------------------fields--------------------------
 
@@ -26,11 +27,11 @@ public class Tube extends RadialGeometry{
     /**
      * parameters constructor
      *
-     * @param axisRay sent axis ray for tube
+     * @param axisRay   sent axis ray for tube
      * @param newRadius sent radius for tube
      */
     public Tube(Ray axisRay, double newRadius) {
-        this.radius=newRadius;
+        this.radius = newRadius;
         this.axisRay = axisRay;
 
     }
@@ -50,14 +51,13 @@ public class Tube extends RadialGeometry{
     public Vector getNormal(Point p) {
         // calculated based on what was learnt in the course introduction to computer engineering
 
-        Vector v=p.subtract(this.axisRay.getP0());
+        Vector v = p.subtract(this.axisRay.getP0());
 
-        if(v.dotProduct(this.axisRay.getDir())==0)
-        {
+        if (v.dotProduct(this.axisRay.getDir()) == 0) {
             return v.normalize();
         }
-        double t=this.axisRay.getDir().dotProduct(v);
-        Point o=this.axisRay.getPoint(t);
+        double t = this.axisRay.getDir().dotProduct(v);
+        Point o = this.axisRay.getPoint(t);
         return (p.subtract(o)).normalize();
     }
 
@@ -71,7 +71,7 @@ public class Tube extends RadialGeometry{
     /**
      * getter function for axis ray of the tube
      *
-     * @return      axisRay
+     * @return axisRay
      */
     public Ray getAxisRay() {
         return axisRay;

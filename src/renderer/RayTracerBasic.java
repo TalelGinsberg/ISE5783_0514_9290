@@ -46,22 +46,21 @@ public class RayTracerBasic extends RayTracerBase {
      * @param n
      * @return
      */
-    private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n,double nl) {
+    private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nl) {
         try {
             Vector lightDirection = l.scale(-1); // from point to light source
             Vector epsVector = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA);
             Point point = gp.point.add(epsVector);
             Ray lightRay = new Ray(point, lightDirection);
             List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
-            if (intersections==null)
+            if (intersections == null)
                 return true;
-            for (GeoPoint intersectionPoint:intersections) {
+            for (GeoPoint intersectionPoint : intersections) {
                 if (lightSource.getDistance(intersectionPoint.point) > gp.point.distance(intersectionPoint.point))
                     return false;
             }
             return true;
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             return false;
         }
     }
@@ -118,19 +117,19 @@ public class RayTracerBasic extends RayTracerBase {
 
             // Check if the light is on the same side as the view direction
             if (nl * nv > 0) {
-                if (unshaded(gp,lightSource, l, n,nl)) {
-                Color iL = lightSource.getIntensity(gp.point); // Intensity of the light source at the intersection point
+                if (unshaded(gp, lightSource, l, n, nl)) {
+                    Color iL = lightSource.getIntensity(gp.point); // Intensity of the light source at the intersection point
 
-                // Calculate the contributions of diffuse and specular reflections
-                color = color.add(
-                        calcDiffusive(material.kD, nl, iL),
-                        calcSpecular(material.kS, n, l, nl, v, iL, material.nShininess)
-                );
+                    // Calculate the contributions of diffuse and specular reflections
+                    color = color.add(
+                            calcDiffusive(material.kD, nl, iL),
+                            calcSpecular(material.kS, n, l, nl, v, iL, material.nShininess)
+                    );
+                }
             }
         }
-    }
         return color;
-}
+    }
 
     /**
      * Calculates the specular reflection color at a given intersection point.

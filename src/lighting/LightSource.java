@@ -30,6 +30,7 @@ public interface LightSource {
 
     /**
      * Return the distance between the light source and specified point.
+     *
      * @param point The point at which to evaluate the distance  between the light.
      * @return the distance between the light source and specified point.
      */

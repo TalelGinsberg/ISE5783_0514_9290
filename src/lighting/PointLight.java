@@ -13,13 +13,21 @@ import primitives.Vector;
 public class PointLight extends Light implements LightSource {
 
     //----------------------------fields--------------------------
-    /**The position of the point light in 3D space*/
+    /**
+     * The position of the point light in 3D space
+     */
     private final Point position;
-    /**The constant attenuation coefficient*/
+    /**
+     * The constant attenuation coefficient
+     */
     private double kC;
-    /**The linear attenuation coefficient*/
+    /**
+     * The linear attenuation coefficient
+     */
     private double kL;
-    /**The quadratic attenuation coefficient*/
+    /**
+     * The quadratic attenuation coefficient
+     */
     private double kQ;
 
     //-----------------------------constructor-------------------------
@@ -37,6 +45,7 @@ public class PointLight extends Light implements LightSource {
         kL = 0d;
         kQ = 0d;
     }
+
     //---------------------------override functions-------------------------
     @Override
     public Color getIntensity(Point p) {
