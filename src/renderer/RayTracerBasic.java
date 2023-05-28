@@ -52,7 +52,7 @@ public class RayTracerBasic extends RayTracerBase {
             Vector epsVector = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA);
             Point point = gp.point.add(epsVector);
             Ray lightRay = new Ray(point, lightDirection);
-            List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay);
+            List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
             if (intersections==null)
                 return true;
             for (GeoPoint intersectionPoint:intersections) {
@@ -77,7 +77,7 @@ public class RayTracerBasic extends RayTracerBase {
     private Color calcColor(GeoPoint point, Ray ray) {
         // Calculate the color using ambient light and local effects
         // Start by getting the intensity of the ambient light from the scene's ambient light source
-        Color ambientIntensity = scene.getAmbientLight().getIntensity();
+        Color ambientIntensity = scene.ambientLight.getIntensity();
 
         // Calculate the local effects at the intersection point
         Color localEffects = calcLocalEffects(point, ray);
@@ -112,7 +112,7 @@ public class RayTracerBasic extends RayTracerBase {
         Material material = gp.geometry.getMaterial(); // Material of the intersected geometry
 
         // Iterate over all light sources in the scene
-        for (LightSource lightSource : scene.getLights()) {
+        for (LightSource lightSource : scene.lights) {
             Vector l = lightSource.getL(gp.point); // Light direction vector at the intersection point
             double nl = alignZero(n.dotProduct(l)); // Dot product between the normal and light direction vectors
 
@@ -182,10 +182,10 @@ public class RayTracerBasic extends RayTracerBase {
 
     @Override
     public Color traceRay(Ray ray) {
-        List<GeoPoint> points = scene.getGeometries().findGeoIntersections(ray); // Find intersections between the ray and geometries in the scene
+        List<GeoPoint> points = scene.geometries.findGeoIntersections(ray); // Find intersections between the ray and geometries in the scene
 
         if (points == null)
-            return scene.getBackground(); // If no intersections are found, return the background color of the scene
+            return scene.background; // If no intersections are found, return the background color of the scene
 
         return calcColor(ray.findClosestGeoPoint(points), ray); // Calculate the color at the closest intersection point
     }

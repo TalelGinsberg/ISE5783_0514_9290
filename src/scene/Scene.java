@@ -20,11 +20,11 @@ public class Scene {
 
     //----------------------------fields--------------------------
     private final String name;
-    private final Color background;
-    private final Geometries geometries;
-    private AmbientLight ambientLight;
+    public final Color background;
+    public final Geometries geometries;
+    public final  AmbientLight ambientLight;
 
-    private final List<LightSource> GetLight;
+    public final List<LightSource> lights;
 
 
     //-----------------------------constructor-------------------------
@@ -39,7 +39,7 @@ public class Scene {
         background = builder.background;
         ambientLight = builder.ambientLight;
         geometries = builder.geometries;
-        GetLight = builder.lights;
+        lights = builder.lights;
     }
 
     //--------------------------------getters----------------------------
@@ -53,47 +53,7 @@ public class Scene {
         return name;
     }
 
-    /**
-     * Returns the background color of the scene.
-     *
-     * @return the background color of the scene.
-     */
-    public Color getBackground() {
-        return background;
-    }
 
-    /**
-     * Returns the ambient light of the scene.
-     *
-     * @return the ambient light of the scene.
-     */
-    public AmbientLight getAmbientLight() {
-        return ambientLight;
-    }
-
-    /**
-     * Returns the geometries in the scene.
-     *
-     * @return the geometries in the scene.
-     */
-    public Geometries getGeometries() {
-        return geometries;
-    }
-
-    public List<LightSource> getLights() {return GetLight;}
-
-    //-------------------------------setters--------------------------------
-
-    /**
-     * Sets the ambient light of the scene and returns the updated Scene object.
-     *
-     * @param ambientLight the ambient light to set.
-     * @return the updated Scene object.
-     */
-    public Scene setAmbientLight(AmbientLight ambientLight) {
-        this.ambientLight = ambientLight;
-        return this;
-    }
 
 
     //-------------------------------builder--------------------------------
@@ -163,12 +123,7 @@ public class Scene {
          * @return a new Scene object.
          */
         public Scene build() {
-            //            validateObject(scene);
             return new Scene(this);
-        }
-
-        private void validateObject(Scene scene) {
-            //nothing to do
         }
 
         /**
@@ -178,7 +133,7 @@ public class Scene {
          * @return the updated SceneBuilder object.
          */
         public SceneBuilder readXmlFile(String filename) {
-            //to do
+            //todo
             return this;
         }
     }
