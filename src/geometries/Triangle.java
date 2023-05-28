@@ -64,37 +64,26 @@ public class Triangle extends Polygon {
         double AreaTriangleCAP;
         try {
             AreaTriangleCAP = (((A.subtract(C)).crossProduct(P.subtract(C))).length()) / 2;
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
-
-        // if the area of the triangle ABP is zero, it means u is zero - the point is on the side of the triangle
-        // which is something we are not considering as an intersection point - so we'll return null
-        double AreaTriangleABP;
-        try {
+            // if the area of the triangle ABP is zero, it means u is zero - the point is on the side of the triangle
+            // which is something we are not considering as an intersection point - so we'll return null
+            double AreaTriangleABP;
             AreaTriangleABP = (((B.subtract(A)).crossProduct(P.subtract(A))).length()) / 2;
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
-
-        // if the area of the triangle BCP is zero, it means u is zero - the point is on the side of the triangle
-        // which is something we are not considering as an intersection point - so we'll return null
-        double AreaTriangleBCP;
-        try {
+            // if the area of the triangle BCP is zero, it means u is zero - the point is on the side of the triangle
+            // which is something we are not considering as an intersection point - so we'll return null
+            double AreaTriangleBCP;
             AreaTriangleBCP = (((C.subtract(B)).crossProduct(P.subtract(B))).length()) / 2;
+            // after we calculated the areas we can calculate u,v,w
+            double u = AreaTriangleCAP / AreaTriangleABC;
+            double v = AreaTriangleABP / AreaTriangleABC;
+            double w = AreaTriangleBCP / AreaTriangleABC;
+
+            // now we check if P is actually inside the area of the triangle - if so, we'll return P
+            if (Util.isZero(u + v + w - 1))
+                return List.of(new GeoPoint(this, P));
+            else
+                return null;
         } catch (IllegalArgumentException e) {
             return null;
         }
-
-        // after we calculated the areas we can calculate u,v,w
-        double u = AreaTriangleCAP / AreaTriangleABC;
-        double v = AreaTriangleABP / AreaTriangleABC;
-        double w = AreaTriangleBCP / AreaTriangleABC;
-
-        // now we check if P is actually inside the area of the triangle - if so, we'll return P
-        if (Util.isZero(u + v + w - 1))
-            return List.of(new GeoPoint(this, P));
-        else
-            return null;
     }
 }

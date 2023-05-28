@@ -89,19 +89,8 @@ public class ShadowTests {
     public void sphereTriangleSpot1() {
         sphereTriangleHelper("shadowSphereTriangleSpot1", //
                 new Triangle(new Point(-70, -40, 0), new Point(-40, -70, 0), new Point(-68, -68, -4)), //
-                new Point(-150, -150, 200));
-    }
-
-    @Test
-    public void sphereTriangleSpot11() {
-        sphereTriangleHelper("shadowSphereTriangleSpot11", //
-                new Triangle(
-                        new Point(-70, -40, 0),
-                        new Point(-40, -70, 0),
-                        new Point(-68, -68, -4)), //
                 new Point(-88, -88, 120));
     }
-
     /**
      * Sphere-Triangle shading - move spot even more close
      */
@@ -112,7 +101,7 @@ public class ShadowTests {
                         new Point(-70, -40, 0),
                         new Point(-40, -70, 0),
                         new Point(-68, -68, -4)), //
-                new Point(-96, -96, 182));
+                new Point(-76, -76, 70));
     }
 
     /**
@@ -143,41 +132,6 @@ public class ShadowTests {
                 .setRayTracer(new RayTracerBasic(scene2))
                 .renderImage() //
                 .writeToImage();
-    }
-
-    @Test
-    public void niceTry() {
-        Scene myscene = new Scene.SceneBuilder("Test scene")
-                .setAmbientLight(new AmbientLight(new Color(WHITE), new Double3(0.15d)))
-                .build();
-
-        myscene.geometries.add(
-                sphere,
-                new Triangle(
-                        new Point(-70, -40, 0),
-                        new Point(-40, -70, 0),
-                        new Point(-68, -68, -4))
-                        .setEmission(new Color(BLUE))
-                        .setMaterial(trMaterial));
-
-        myscene.lights.add( //
-                new SpotLight(new Color(400, 240, 0),
-                        new Point(-96, -96, 182),
-                        new Vector(1, 1, -3)) //
-                        .setkL(1E-5).setkQ(1.5E-7));
-
-        Camera mycamera = new Camera(
-                new Point(0, 0, 1000),
-                new Vector(0, 0, -1),
-                new Vector(0, 1, 0))   //
-                .setVPSize(200, 200)
-                .setVPDistance(1000)                                                                       //
-                .setRayTracer(new RayTracerBasic(myscene))
-                .setImageWriter(new ImageWriter("shadowSphereTriangleSpotwoua", 400, 400))
-                .renderImage();
-
-        mycamera.writeToImage();
-
     }
 
 }

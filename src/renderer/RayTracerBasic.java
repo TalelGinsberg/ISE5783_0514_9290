@@ -46,17 +46,41 @@ public class RayTracerBasic extends RayTracerBase {
      * @param n
      * @return
      */
+
     private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nl) {
         try {
             Vector lightDirection = l.scale(-1); // from point to light source
-            Vector epsVector = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA);
+            Vector epsVector = n.scale((n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA));
+            Point point = gp.point.add(epsVector);
+            Ray lightRay = new Ray(point, lightDirection);
+            List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
+
+            if (intersections == null)
+                return true;
+            for (GeoPoint intersectionPoint : intersections) {
+                if (lightSource.getDistance(gp.point) > point.distance(intersectionPoint.point))
+                    //if (lightSource.getDistance(intersectionPoint.point)>0)
+                        return false;
+            }
+            return true;
+
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
+
+    /**
+    private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nl) {
+        try {
+            Vector lightDirection = l.scale(-1); // from point to light source
+            Vector epsVector = n.scale(nl < 0 ? DELTA : -DELTA);
             Point point = gp.point.add(epsVector);
             Ray lightRay = new Ray(point, lightDirection);
             List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
             if (intersections == null)
                 return true;
             for (GeoPoint intersectionPoint : intersections) {
-                if (lightSource.getDistance(intersectionPoint.point) > gp.point.distance(intersectionPoint.point))
+                if (lightSource.getDistance(gp.point) >= point.distance(gp.point))
                     return false;
             }
             return true;
@@ -64,7 +88,7 @@ public class RayTracerBasic extends RayTracerBase {
             return false;
         }
     }
-
+    */
     /**
      * Calculates the color of the given intersection point by considering the ambient light and local effects
      * such as diffuse and specular reflections.
