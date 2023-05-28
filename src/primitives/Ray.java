@@ -61,7 +61,9 @@ public class Ray {
 
         return intersections == null ? null :
                 findClosestGeoPoint(intersections.stream()
-                        .map(point ->  new GeoPoint(null, point)).toList()).point;
+                        .map(point ->  new GeoPoint(null, point))
+                        .toList())
+                        .point;
 
     }
 
@@ -105,7 +107,7 @@ public class Ray {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ray ray = (Ray) o;
-        return Objects.equals(p0, ray.p0) && Objects.equals(drr, ray.drr);
+        return p0.equals(ray.p0) && drr.equals(ray.drr);
     }
 
     @Override
