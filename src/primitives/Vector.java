@@ -109,7 +109,7 @@ public class Vector extends Point{
      */
     public Vector normalize() {
         //return scale(1/length());
-        return new Vector(xyz.reduce(length());
+        return new Vector(xyz.reduce(length()));
 
     }
 

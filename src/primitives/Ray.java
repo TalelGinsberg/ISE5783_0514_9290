@@ -93,12 +93,12 @@ public class Ray {
             distance = p0.distance(points.get(index).point);
             if (distance < minDistance) {
                 minDistance = distance;
-                closestPoint = points.get(index);
+                closestGeoPoint = points.get(index);
             }
         }
 
         // return the closest geo point
-        return closestPoint;
+        return closestGeoPoint;
 
     }
 
