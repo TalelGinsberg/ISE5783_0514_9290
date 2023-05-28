@@ -18,13 +18,12 @@ import java.util.List;
  */
 public class Scene {
 
-    //----------------------------fields--------------------------
-    private final String name;
     public final Color background;
     public final Geometries geometries;
-    public final  AmbientLight ambientLight;
-
+    public final AmbientLight ambientLight;
     public final List<LightSource> lights;
+    //----------------------------fields--------------------------
+    private final String name;
 
 
     //-----------------------------constructor-------------------------
@@ -52,8 +51,6 @@ public class Scene {
     public String getName() {
         return name;
     }
-
-
 
 
     //-------------------------------builder--------------------------------

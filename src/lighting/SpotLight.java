@@ -14,7 +14,7 @@ import static primitives.Util.isZero;
  *
  * @author Noa Harel and Talel Ginsberg
  */
-public class SpotLight extends PointLight{
+public class SpotLight extends PointLight {
 
     //----------------------------fields--------------------------
 
@@ -30,7 +30,7 @@ public class SpotLight extends PointLight{
      * Constructs a new SpotLight object with the specified intensity, position and direction.
      *
      * @param intensity The intensity of the spot light.
-     * @param position The position of the spot light.
+     * @param position  The position of the spot light.
      * @param direction The direction of the spotlight.
      */
     public SpotLight(Color intensity, Point position, Vector direction) {
@@ -45,10 +45,10 @@ public class SpotLight extends PointLight{
     public Color getIntensity(Point p) {
         Color baseIntensity = super.getIntensity();
         double proj = getL(p).dotProduct(direction);
-        if (isZero(proj)){
+        if (isZero(proj)) {
             return Color.BLACK;
         }
-        Color result = baseIntensity.scale(Math.max(0,proj));
+        Color result = baseIntensity.scale(Math.max(0, proj));
 
         return (result);
 

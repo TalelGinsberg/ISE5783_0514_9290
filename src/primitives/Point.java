@@ -1,4 +1,5 @@
 package primitives;
+
 import java.lang.Math;
 import java.util.Objects;
 
@@ -11,23 +12,25 @@ public class Point {
 
     //----------------------------fields--------------------------
 
-    public static final Point ZERO = new Point(0,0,0);
+    public static final Point ZERO = new Point(0, 0, 0);
 
-    /** Numbers representing the point */
+    /**
+     * Numbers representing the point
+     */
     Double3 xyz;
 
 
     //-----------------------------constructor-------------------------
 
     /**
-     *  Constructor to initialize Point based on three number values
+     * Constructor to initialize Point based on three number values
      *
      * @param x first sent double for point
      * @param y second sent double for point
      * @param z third sent double for point
      */
     public Point(double x, double y, double z) {
-        xyz=new Double3(x,y,z);
+        xyz = new Double3(x, y, z);
     }
 
 
@@ -69,19 +72,20 @@ public class Point {
      * @param p sent point to calculate distance to
      * @return distance between current point and sent point
      */
-    public double distance(Point p){
+    public double distance(Point p) {
         return Math.sqrt(distanceSquared(p));
     }
+
     /**
      * distance between current point and sent point, squared
      *
      * @param p sent point to calculate squared distance to
      * @return distance between current point and sent point,squared
      */
-    public double distanceSquared(Point p){
-        return (p.xyz.d1-this.xyz.d1)*(p.xyz.d1-this.xyz.d1)+
-                (p.xyz.d2-this.xyz.d2)*(p.xyz.d2-this.xyz.d2)+
-                (p.xyz.d3-this.xyz.d3)*(p.xyz.d3-this.xyz.d3);
+    public double distanceSquared(Point p) {
+        return (p.xyz.d1 - this.xyz.d1) * (p.xyz.d1 - this.xyz.d1) +
+                (p.xyz.d2 - this.xyz.d2) * (p.xyz.d2 - this.xyz.d2) +
+                (p.xyz.d3 - this.xyz.d3) * (p.xyz.d3 - this.xyz.d3);
 
 
     }
@@ -109,6 +113,7 @@ public class Point {
 
     /**
      * getter for x of xyz
+     *
      * @return the value x of the point
      */
     public double getX() {
@@ -117,6 +122,7 @@ public class Point {
 
     /**
      * getter for y of xyz
+     *
      * @return the value y of the point
      */
     public double getY() {
@@ -125,6 +131,7 @@ public class Point {
 
     /**
      * getter for z of xyz
+     *
      * @return the value z of the point
      */
     public double getZ() {

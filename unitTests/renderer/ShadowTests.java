@@ -176,7 +176,7 @@ public class ShadowTests {
                 .setImageWriter(new ImageWriter("shadowSphereTriangleSpotwoua", 400, 400))
                 .renderImage();
 
-                mycamera.writeToImage();
+        mycamera.writeToImage();
 
     }
 

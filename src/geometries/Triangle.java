@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Noa Harel and Talel Ginsberg
  */
-public class Triangle extends Polygon{
+public class Triangle extends Polygon {
 
     //-----------------------------constructor-------------------------
 
@@ -23,8 +23,8 @@ public class Triangle extends Polygon{
      * @param y second sent point for triangle
      * @param z third sent point for triangle
      */
-    public Triangle(Point x,Point y, Point z) {
-        super(x,y,z);
+    public Triangle(Point x, Point y, Point z) {
+        super(x, y, z);
     }
 
     //---------------------------override functions-------------------------
@@ -57,23 +57,23 @@ public class Triangle extends Polygon{
         Point C = this.vertices.get(2);
 
         // the magnitude of the cross product can be interpreted as the area of the parallelogram, divided by 2 - the triangle area
-        double AreaTriangleABC = (((B.subtract(A)).crossProduct(C.subtract(A))).length())/2;
+        double AreaTriangleABC = (((B.subtract(A)).crossProduct(C.subtract(A))).length()) / 2;
 
         // if the area of the triangle CAP is zero, it means u is zero - the point is on the side of the triangle
         // which is something we are not considering as an intersection point - so we'll return null
         double AreaTriangleCAP;
-        try{
-            AreaTriangleCAP = (((A.subtract(C)).crossProduct(P.subtract(C))).length())/2;
-        }
-        catch(IllegalArgumentException e) {
+        try {
+            AreaTriangleCAP = (((A.subtract(C)).crossProduct(P.subtract(C))).length()) / 2;
+        } catch (IllegalArgumentException e) {
             return null;
         }
 
         // if the area of the triangle ABP is zero, it means u is zero - the point is on the side of the triangle
         // which is something we are not considering as an intersection point - so we'll return null
         double AreaTriangleABP;
-        try{ AreaTriangleABP = (((B.subtract(A)).crossProduct(P.subtract(A))).length())/2;}
-        catch(IllegalArgumentException e){
+        try {
+            AreaTriangleABP = (((B.subtract(A)).crossProduct(P.subtract(A))).length()) / 2;
+        } catch (IllegalArgumentException e) {
             return null;
         }
 
@@ -81,19 +81,18 @@ public class Triangle extends Polygon{
         // which is something we are not considering as an intersection point - so we'll return null
         double AreaTriangleBCP;
         try {
-            AreaTriangleBCP = (((C.subtract(B)).crossProduct(P.subtract(B))).length())/2;
-        }
-        catch(IllegalArgumentException e){
+            AreaTriangleBCP = (((C.subtract(B)).crossProduct(P.subtract(B))).length()) / 2;
+        } catch (IllegalArgumentException e) {
             return null;
         }
 
         // after we calculated the areas we can calculate u,v,w
-        double u = AreaTriangleCAP/AreaTriangleABC;
-        double v = AreaTriangleABP/AreaTriangleABC;
-        double w = AreaTriangleBCP/AreaTriangleABC;
+        double u = AreaTriangleCAP / AreaTriangleABC;
+        double v = AreaTriangleABP / AreaTriangleABC;
+        double w = AreaTriangleBCP / AreaTriangleABC;
 
         // now we check if P is actually inside the area of the triangle - if so, we'll return P
-        if (Util.isZero(u+v+w-1))
+        if (Util.isZero(u + v + w - 1))
             return List.of(new GeoPoint(this, P));
         else
             return null;

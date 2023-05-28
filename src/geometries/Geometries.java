@@ -6,11 +6,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *  class that represents Geometries
+ * class that represents Geometries
  *
  * @author Noa Harel and Talel Ginsberg
  */
-public class Geometries extends Intersectable{
+public class Geometries extends Intersectable {
 
     //----------------------------fields--------------------------
 
@@ -42,10 +42,11 @@ public class Geometries extends Intersectable{
 
     /**
      * add geometries to the list of the geometries
+     *
      * @param geometries get a list of unknown number of geometries to add to the list
      */
-    public void add(Intersectable... geometries){
-        for (Intersectable var:geometries) {
+    public void add(Intersectable... geometries) {
+        for (Intersectable var : geometries) {
             list.add(var);
         }
     }
@@ -58,24 +59,23 @@ public class Geometries extends Intersectable{
 
 
         //counter for amount of points that intersected
-        int count=0;
+        int count = 0;
         int z = 0;
 
 
         //go through each geometry in geometries and sum up length of points that were received in find intersection
-        for (Intersectable var : list)
-        {
-            if(var.findGeoIntersectionsHelper(ray)!= null)
+        for (Intersectable var : list) {
+            if (var.findGeoIntersectionsHelper(ray) != null)
                 count += var.findGeoIntersectionsHelper(ray).size();
         }
         //System.out.println(ray.toString());
-        if(count==0)
+        if (count == 0)
             return null;
-        List<GeoPoint> points=new LinkedList<GeoPoint>();
+        List<GeoPoint> points = new LinkedList<GeoPoint>();
         //go through each geometry in geometries and add all points to list of points that were received in find intersection
-        for (Intersectable var: list) {
-            if(var.findGeoIntersectionsHelper(ray)!= null)
-                var.findGeoIntersectionsHelper(ray).forEach((x)->points.add(x));
+        for (Intersectable var : list) {
+            if (var.findGeoIntersectionsHelper(ray) != null)
+                var.findGeoIntersectionsHelper(ray).forEach((x) -> points.add(x));
         }
         return points;
     }

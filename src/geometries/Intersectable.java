@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Objects;
 
 
-
 /**
  * The Intersectable class represents an abstract 3D
  * object that can be intersected by a ray.
@@ -21,14 +20,15 @@ import java.util.Objects;
 public abstract class Intersectable {
 
 
-
     /**
      * Finds the intersection points between this object and a given ray, in the form of GeoPoints.
      *
      * @param ray The ray to intersect with.
      * @return A list of GeoPoints representing the intersection points, or null if there are no intersections.
      */
-    public final List<GeoPoint> findGeoIntersections(Ray ray){return findGeoIntersectionsHelper(ray);}
+    public final List<GeoPoint> findGeoIntersections(Ray ray) {
+        return findGeoIntersectionsHelper(ray);
+    }
 
     /**
      * A helper method for finding the intersection points between this object and a given ray,
@@ -49,7 +49,7 @@ public abstract class Intersectable {
     public final List<Point> findIntersections(Ray ray) {
         List<GeoPoint> geoList = findGeoIntersections(ray);
         return geoList == null ? null
-                : geoList.stream().map(geoPoint ->  geoPoint.point).toList();
+                : geoList.stream().map(geoPoint -> geoPoint.point).toList();
     }
 
 
@@ -77,7 +77,7 @@ public abstract class Intersectable {
          * Constructs a new GeoPoint with the specified Geometry object and Point.
          *
          * @param geometry The Geometry object at which the Ray intersects.
-         * @param point The Point at which the Ray intersects the Geometry object.
+         * @param point    The Point at which the Ray intersects the Geometry object.
          */
         public GeoPoint(Geometry geometry, Point point) {
             this.geometry = geometry;

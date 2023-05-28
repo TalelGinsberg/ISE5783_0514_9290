@@ -1,4 +1,3 @@
-
 package geometries;
 
 import primitives.Point;
@@ -70,7 +69,7 @@ public class Plane extends Geometry {
 
     @Override
     public Vector getNormal(Point p) {
-       //according to  Software engineering conventions
+        //according to  Software engineering conventions
         // return getNormal();
         // but for better performance we use the following
         return normal;
@@ -80,7 +79,7 @@ public class Plane extends Geometry {
     protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         Point p0 = ray.getP0();
         Vector v = ray.getDir();
-        if (this.q0.equals(p0)){
+        if (this.q0.equals(p0)) {
             return null;
         }
         Vector n = this.normal;
@@ -89,21 +88,21 @@ public class Plane extends Geometry {
         // numerator
         double nP0Q0 = alignZero(n.dotProduct(p0_q0));
         // t should be greater than zero
-        if (isZero(nP0Q0)){
+        if (isZero(nP0Q0)) {
             return null;
         }
 
         // denominator
         double nv = alignZero(n.dotProduct(v));
         // ray is lying in the plane axis
-        if (isZero(nv)){
+        if (isZero(nv)) {
             return null;
         }
 
-        double t = alignZero(nP0Q0/nv);
+        double t = alignZero(nP0Q0 / nv);
 
         // t need to be greater than zero
-        if (t <= 0){
+        if (t <= 0) {
             return null;
         }
         Point point = ray.getPoint(t);

@@ -7,7 +7,7 @@ import primitives.Vector;
 import java.util.List;
 
 /**
- *  class that represents Cylinder
+ * class that represents Cylinder
  *
  * @author Noa Harel and Talel Ginsberg
  */
@@ -65,8 +65,7 @@ public class Cylinder extends Tube {
         double t = this.axisRay.getDir().dotProduct(v);
 
         //the point is on the bottom
-        if (v.dotProduct(this.axisRay.getDir()) == 0)
-        {
+        if (v.dotProduct(this.axisRay.getDir()) == 0) {
             return this.axisRay.getDir();
         }
 

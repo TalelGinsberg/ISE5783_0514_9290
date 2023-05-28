@@ -8,7 +8,6 @@ import java.util.Objects;
 import static primitives.Util.isZero;
 
 
-
 /**
  * This class represents a ray in 3D space,
  * defined by a starting point and a direction vector.
@@ -27,9 +26,9 @@ public class Ray {
     //-----------------------------constructor-------------------------
 
     /**
-     *  Constructor to initialize a Ray object with a starting point and a direction vector.
+     * Constructor to initialize a Ray object with a starting point and a direction vector.
      *
-     * @param sentP0 The starting point of the ray.
+     * @param sentP0  The starting point of the ray.
      * @param sentDrr The direction vector of the ray.
      */
     public Ray(Point sentP0, Vector sentDrr) {
@@ -46,7 +45,7 @@ public class Ray {
      * @param t A scalar value representing the distance from the starting point to the desired point.
      * @return The point that is t units away from the starting point in the direction of the ray.
      */
-    public Point getPoint(double t){
+    public Point getPoint(double t) {
         return p0.add(drr.scale(t));
     }
 
@@ -55,13 +54,13 @@ public class Ray {
      *
      * @param intersections A list of points to search from.
      * @return The closest point to the given point on the ray.
-     *         If the list is empty, returns null.
+     * If the list is empty, returns null.
      */
-    public Point findClosestPoint(List<Point> intersections){
+    public Point findClosestPoint(List<Point> intersections) {
 
         return intersections == null ? null :
                 findClosestGeoPoint(intersections.stream()
-                        .map(point ->  new GeoPoint(null, point))
+                        .map(point -> new GeoPoint(null, point))
                         .toList())
                         .point;
 
@@ -73,19 +72,19 @@ public class Ray {
      *
      * @param points A list of GeoPoints to search from.
      * @return The closest GeoPoint to the given point on the ray.
-     *         If the list is empty, returns null.
+     * If the list is empty, returns null.
      */
-    public GeoPoint findClosestGeoPoint(List<GeoPoint> points){
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> points) {
 
         if (points == null || isZero(points.size()))
             return null;
 
-         // Initialize the closest geo point to be the first geo point in the list
+        // Initialize the closest geo point to be the first geo point in the list
         GeoPoint closestGeoPoint = points.get(0);
-        
-       // Initialize the minimum distance to be the distance from p0 to the first geo point in the list
+
+        // Initialize the minimum distance to be the distance from p0 to the first geo point in the list
         double minDistance = p0.distance(closestGeoPoint.point);
-        
+
         double distance;
 
         // Iterate over the rest of the points and update the minimum distance and closest point if necessary

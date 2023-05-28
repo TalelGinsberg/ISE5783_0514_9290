@@ -6,7 +6,7 @@ package primitives;
  *
  * @author Noa Harel and Talel Ginsberg
  */
-public class Vector extends Point{
+public class Vector extends Point {
 
     //-----------------------------constructor-------------------------
 
@@ -16,23 +16,21 @@ public class Vector extends Point{
      * @param x sent first double
      * @param y sent first double
      * @param z sent first double
-     *
-     * @throws IllegalArgumentException  get the zero vector - send an exception
+     * @throws IllegalArgumentException get the zero vector - send an exception
      */
     public Vector(double x, double y, double z) {
 //   DRY
 //        super(x,y,z);
 //        if (xyz.equals(Double3.ZERO)) /*exception for the zero vector*/
 //            throw new IllegalArgumentException("Doesn't support zero vector");
-        this(new Double3(x,y,z));
+        this(new Double3(x, y, z));
     }
 
     /**
      * parameters constructor
      *
      * @param sentXyz for vector
-     *
-     * @throws IllegalArgumentException  get the zero vector - send an exception
+     * @throws IllegalArgumentException get the zero vector - send an exception
      */
     Vector(Double3 sentXyz) {
         super(sentXyz);
@@ -47,7 +45,7 @@ public class Vector extends Point{
      * add function - add two vectors
      *
      * @param vector the other vector
-     * @return      new vector
+     * @return new vector
      */
     public Vector add(Vector vector) {
         return new Vector(vector.xyz.add(this.xyz));
@@ -56,11 +54,11 @@ public class Vector extends Point{
     /**
      * scalar multiplication
      *
-     * @param u  vector
-     * @return  the result
+     * @param u vector
+     * @return the result
      */
     public double dotProduct(Vector u) {
-        double result = xyz.d1*u.xyz.d1+ xyz.d2*u.xyz.d2+ xyz.d3*u.xyz.d3;
+        double result = xyz.d1 * u.xyz.d1 + xyz.d2 * u.xyz.d2 + xyz.d3 * u.xyz.d3;
         if (result == -0.0)
             return 0;
         return result;
@@ -70,21 +68,21 @@ public class Vector extends Point{
      * Vector multiplication
      *
      * @param u vector
-     * @return     the result
+     * @return the result
      */
     public Vector crossProduct(Vector u) {
-        if ((xyz.d1/u.xyz.d1==xyz.d2/u.xyz.d2) && (xyz.d1/u.xyz.d1==xyz.d2/u.xyz.d2))
+        if ((xyz.d1 / u.xyz.d1 == xyz.d2 / u.xyz.d2) && (xyz.d1 / u.xyz.d1 == xyz.d2 / u.xyz.d2))
             //return crossProduct(new Vector(u.xyz.d1+1,u.xyz.d2,u.xyz.d3));
             throw new IllegalArgumentException("for parallel vectors ");
 
-        return new Vector(xyz.d2*u.xyz.d3 - xyz.d3*u.xyz.d2, xyz.d3*u.xyz.d1 - xyz.d1*u.xyz.d3, xyz.d1*u.xyz.d2 - xyz.d2*u.xyz.d1);
+        return new Vector(xyz.d2 * u.xyz.d3 - xyz.d3 * u.xyz.d2, xyz.d3 * u.xyz.d1 - xyz.d1 * u.xyz.d3, xyz.d1 * u.xyz.d2 - xyz.d2 * u.xyz.d1);
 
     }
 
     /**
      * A function that calculates the length of the vector
      *
-     * @return      the result
+     * @return the result
      */
     public double length() {
         return Math.sqrt(lengthSquared());
@@ -94,7 +92,7 @@ public class Vector extends Point{
     /**
      * A function that calculates the squared length of the vector
      *
-     * @return      the result
+     * @return the result
      */
     public double lengthSquared() {
         return xyz.d1 * xyz.d1 + xyz.d2 * xyz.d2 + xyz.d3 * xyz.d3;
@@ -105,7 +103,7 @@ public class Vector extends Point{
     /**
      * Normalize the vector - turning the vector into the unit vector
      *
-     * @return      the unit vector
+     * @return the unit vector
      */
     public Vector normalize() {
         //return scale(1/length());
@@ -116,10 +114,10 @@ public class Vector extends Point{
     /**
      * scale function - multiple vector in number
      *
-     * @param i  the number
-     * @return      the result
+     * @param i the number
+     * @return the result
      */
-    public Vector scale(double i){
+    public Vector scale(double i) {
         return new Vector(xyz.scale(i));
     }
 
@@ -133,15 +131,13 @@ public class Vector extends Point{
                 '}';
     }
 
-       @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vector vector = (Vector) o;
         return xyz.equals(vector.xyz);
     }
-
-
 
 
 }
