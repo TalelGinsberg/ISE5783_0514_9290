@@ -77,18 +77,20 @@ public class Ray {
      */
     public GeoPoint findClosestGeoPoint(List<GeoPoint> points){
 
-        if (isZero(points.size()))
+        if (points == null || isZero(points.size()))
             return null;
 
-        // Initialize the minimum distance to be the distance from p0 to the first geo point in the list
-        double minDistance = p0.distance(points.get(0).point);
+         // Initialize the closest geo point to be the first geo point in the list
+        GeoPoint closestGeoPoint = points.get(0);
+        
+       // Initialize the minimum distance to be the distance from p0 to the first geo point in the list
+        double minDistance = p0.distance(closestGeoPoint.point);
+        
+        double distance;
 
-        // Initialize the closest geo point to be the first geo point in the list
-        GeoPoint closestPoint = points.get(0);
-
-        // Iterate over the rest of the points and update the minimum distance and closest point as necessary
+        // Iterate over the rest of the points and update the minimum distance and closest point if necessary
         for (int index = 1; index < points.size(); index++) {
-            double distance = p0.distance(points.get(index).point);
+            distance = p0.distance(points.get(index).point);
             if (distance < minDistance) {
                 minDistance = distance;
                 closestPoint = points.get(index);
