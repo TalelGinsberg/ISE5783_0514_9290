@@ -137,8 +137,8 @@ public class Vector extends Point{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Vector point = (Vector) o;
-        return xyz.equals(point.xyz);
+        Vector vector = (Vector) o;
+        return xyz.equals(vector.xyz);
     }
 
 
