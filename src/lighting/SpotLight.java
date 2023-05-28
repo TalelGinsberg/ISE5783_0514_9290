@@ -5,6 +5,7 @@ import primitives.Point;
 import primitives.Vector;
 
 import static java.lang.Math.max;
+import static primitives.Util.isZero;
 
 
 /**
@@ -42,7 +43,14 @@ public class SpotLight extends PointLight{
 
     @Override
     public Color getIntensity(Point p) {
-        return (super.getIntensity(p)).scale(Math.max(0,getL(p).dotProduct(direction)));
+        Color baseIntensity = super.getIntensity();
+        double proj = getL(p).dotProduct(direction);
+        if (isZero(proj)){
+            return Color.BLACK;
+        }
+        Color result = baseIntensity.scale(Math.max(0,proj));
+
+        return (result);
 
     }
 }
