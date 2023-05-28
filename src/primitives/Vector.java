@@ -77,7 +77,7 @@ public class Vector extends Point{
             //return crossProduct(new Vector(u.xyz.d1+1,u.xyz.d2,u.xyz.d3));
             throw new IllegalArgumentException("for parallel vectors ");
 
-        return new Vector(xyz.d2*u.xyz.d3-xyz.d3*u.xyz.d2,xyz.d3*u.xyz.d1-xyz.d1*u.xyz.d3,xyz.d1*u.xyz.d2-xyz.d2*u.xyz.d1);
+        return new Vector(xyz.d2*u.xyz.d3 - xyz.d3*u.xyz.d2, xyz.d3*u.xyz.d1 - xyz.d1*u.xyz.d3, xyz.d1*u.xyz.d2 - xyz.d2*u.xyz.d1);
 
     }
 
@@ -108,7 +108,8 @@ public class Vector extends Point{
      * @return      the unit vector
      */
     public Vector normalize() {
-        return scale(1/length());
+        //return scale(1/length());
+        return new Vector(xyz.reduce(length());
 
     }
 
