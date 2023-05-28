@@ -133,10 +133,14 @@ public class Vector extends Point{
                 '}';
     }
 
-    @Override
+       @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector point = (Vector) o;
+        return xyz.equals(point.xyz);
     }
+
 
 
 
