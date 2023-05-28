@@ -20,9 +20,11 @@ public class Vector extends Point{
      * @throws IllegalArgumentException  get the zero vector - send an exception
      */
     public Vector(double x, double y, double z) {
-        super(x,y,z);
-        if (xyz.equals(Double3.ZERO)) /*exception for the zero vector*/
-            throw new IllegalArgumentException("Doesn't support zero vector");
+//   DRY
+//        super(x,y,z);
+//        if (xyz.equals(Double3.ZERO)) /*exception for the zero vector*/
+//            throw new IllegalArgumentException("Doesn't support zero vector");
+        this(new Double3(x,y,z));
     }
 
     /**
