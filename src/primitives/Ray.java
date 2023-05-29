@@ -17,6 +17,10 @@ import static primitives.Util.isZero;
 public class Ray {
 
     //----------------------------fields--------------------------
+    /**
+     * Constant for head of ray offset size for shading rays
+     */
+    private static final double DELTA = 0.1;
 
     /* point for which the ray starts*/
     private Point p0;
@@ -34,6 +38,22 @@ public class Ray {
     public Ray(Point sentP0, Vector sentDrr) {
         this.p0 = sentP0;
         this.drr = sentDrr.normalize();
+    }
+
+    /**
+     * Constructor for ray deflected by DELTA
+     *
+     * @param p origin
+     * @param n   normal vector
+     * @param drr direction
+     */
+    public Ray(Point p, Vector n, Vector drr) {
+        this.drr = drr.normalize();
+        double nv = n.dotProduct(this.drr);
+        Vector delta  =n.scale(DELTA);
+        if (nv < 0)
+            delta = delta.scale(-1);
+        this.p0 = p.add(delta);
     }
 
     //------------------------------functions---------------------------

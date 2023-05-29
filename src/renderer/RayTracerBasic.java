@@ -20,10 +20,7 @@ public class RayTracerBasic extends RayTracerBase {
 
     //----------------------------fields--------------------------
 
-    /**
-     * Constant for head of ray offset size for shading rays
-     */
-    private static final double DELTA = 0.1;
+
 
     /**
      * The maximum level of color calculation recursion.
@@ -65,19 +62,21 @@ public class RayTracerBasic extends RayTracerBase {
      * @return {@code true} if the point is unshaded, {@code false} otherwise
      */
     private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nl) {
+
         try {
             // Calculate the direction vector from the point to the light source
             Vector lightDirection = l.scale(-1);
 
             // Calculate an offset vector to slightly move the point away from the surface
             // This helps avoid self-intersections with the surface itself
-            Vector epsVector = n.scale((n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA));
+            //Vector epsVector = n.scale((n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA));
+
 
             // Move the point slightly away from the surface in the direction of the light source
-            Point point = gp.point.add(epsVector);
+            //Point point = gp.point.add(epsVector);
 
             // Create a ray from the point towards the light source
-            Ray lightRay = new Ray(point, lightDirection);
+            Ray lightRay = new Ray(gp.point,n, lightDirection);
 
             // Find intersections between the ray and the geometry in the scene
             List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
@@ -88,7 +87,7 @@ public class RayTracerBasic extends RayTracerBase {
 
             // Check if any intersection point is closer to the light source than the current point
             for (GeoPoint intersectionPoint : intersections) {
-                if (lightSource.getDistance(gp.point) < point.distance(intersectionPoint.point)) {
+                if (lightSource.getDistance(gp.point) < gp.point.distance(intersectionPoint.point)) {
                     // Remove intersection points that are farther away from the light source than the current point
                     intersections.remove(intersectionPoint);
                 }
@@ -126,7 +125,7 @@ public class RayTracerBasic extends RayTracerBase {
      * Calculates the color of the given intersection point by considering the ambient light and local effects
      * such as diffuse and specular reflections.
      *
-     * @param point The intersection point on the geometry
+     * @param intersection The intersection point on the geometry
      * @param ray   The ray that intersected with the geometry
      * @return The color at the intersection point
      */
@@ -283,6 +282,8 @@ public class RayTracerBasic extends RayTracerBase {
      */
     private Ray constructRefractedRay(Point point, Vector v, Vector n) {
 
+        return new Ray(point,n,v);
+        /*
         double nv = alignZero(v.dotProduct(n.normalize()));
 
         // Compute the scaled offset vector to prevent self-intersections and shadow acne.
@@ -300,6 +301,8 @@ public class RayTracerBasic extends RayTracerBase {
         // Create a new ray with the refracted direction starting from the given point with the offset applied.
         return new Ray(point.add(delta), refractedDirection);
 
+         */
+
     }
 
 
@@ -313,6 +316,7 @@ public class RayTracerBasic extends RayTracerBase {
      */
     private Ray constructReflectedRay(Point pointGeo, Vector v, Vector n) {
         //r = v - 2.(v.n).n
+
         double vn = alignZero(v.dotProduct(n));
 
         // If the dot product of v and n is zero, the incident vector is parallel to the surface normal,
@@ -325,7 +329,7 @@ public class RayTracerBasic extends RayTracerBase {
         Vector r = v.subtract(n.scale(2 * vn));
 
         // Create a new ray with the reflected direction starting from the given point.
-        return new Ray(pointGeo, r);
+        return new Ray(pointGeo,n, r);
     }
 
 
