@@ -17,12 +17,20 @@ import java.util.List;
  * @author Noa Harel and Talel Ginsberg
  */
 public class Scene {
-
-    public final Color background;
-    public final Geometries geometries;
-    public final AmbientLight ambientLight;
-    public final List<LightSource> lights;
     //----------------------------fields--------------------------
+    /**The background color of the scene*/
+    public final Color background;
+    /**The collection of geometries in the scene*/
+
+    public final Geometries geometries;
+
+    /**The ambient light in the scene*/
+    public final AmbientLight ambientLight;
+
+    /**The light sources in the scene*/
+    public final List<LightSource> lights;
+
+    /**The name of the scene*/
     private final String name;
 
 

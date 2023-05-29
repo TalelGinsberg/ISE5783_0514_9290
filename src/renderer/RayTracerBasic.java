@@ -39,56 +39,52 @@ public class RayTracerBasic extends RayTracerBase {
     //------------------------------functions---------------------------
 
     /**
-     * Checking the absence of shading between a point and the light source
+     * Checks if a point on a surface is unshaded by other objects in the scene, given a light source.
      *
-     * @param gp
-     * @param l
-     * @param n
-     * @return
+     * @param gp          The geometric point on the surface to check for shading
+     * @param lightSource The light source illuminating the scene
+     * @param l           The direction vector from the point towards the light source
+     * @param n           The surface normal at the point
+     * @param nl          The dot product between the surface normal and the light direction
+     * @return {@code true} if the point is unshaded, {@code false} otherwise
      */
-
     private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nl) {
         try {
-            Vector lightDirection = l.scale(-1); // from point to light source
+            // Calculate the direction vector from the point to the light source
+            Vector lightDirection = l.scale(-1);
+
+            // Calculate an offset vector to slightly move the point away from the surface
+            // This helps avoid self-intersections with the surface itself
             Vector epsVector = n.scale((n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA));
+
+            // Move the point slightly away from the surface in the direction of the light source
             Point point = gp.point.add(epsVector);
+
+            // Create a ray from the point towards the light source
             Ray lightRay = new Ray(point, lightDirection);
+
+            // Find intersections between the ray and the geometry in the scene
             List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
 
+            // If no intersections found, the point is unshaded
             if (intersections == null)
                 return true;
+
+            // Check if any intersection point is closer to the light source than the current point
             for (GeoPoint intersectionPoint : intersections) {
                 if (lightSource.getDistance(gp.point) > point.distance(intersectionPoint.point))
-                    //if (lightSource.getDistance(intersectionPoint.point)>0)
-                        return false;
-            }
-            return true;
-
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
-    }
-
-    /**
-    private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nl) {
-        try {
-            Vector lightDirection = l.scale(-1); // from point to light source
-            Vector epsVector = n.scale(nl < 0 ? DELTA : -DELTA);
-            Point point = gp.point.add(epsVector);
-            Ray lightRay = new Ray(point, lightDirection);
-            List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
-            if (intersections == null)
-                return true;
-            for (GeoPoint intersectionPoint : intersections) {
-                if (lightSource.getDistance(gp.point) >= point.distance(gp.point))
                     return false;
             }
+
+            // If no closer intersection found, the point is unshaded
             return true;
         } catch (IllegalArgumentException e) {
+            // In case of an exception, consider the point as shaded to be on the safe side
             return false;
         }
     }
-    */
+
+
     /**
      * Calculates the color of the given intersection point by considering the ambient light and local effects
      * such as diffuse and specular reflections.
@@ -199,7 +195,6 @@ public class RayTracerBasic extends RayTracerBase {
         // Return the calculated diffuse color
         return diffuseColor;
     }
-
 
     //---------------------------override functions-------------------------
 
