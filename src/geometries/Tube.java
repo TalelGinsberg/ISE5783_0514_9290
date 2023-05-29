@@ -38,7 +38,6 @@ public class Tube extends RadialGeometry {
 
 
     //---------------------------override functions-------------------------
-
     @Override
     public String toString() {
         return "Tube{" +

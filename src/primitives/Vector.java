@@ -16,13 +16,8 @@ public class Vector extends Point {
      * @param x sent first double
      * @param y sent first double
      * @param z sent first double
-     * @throws IllegalArgumentException get the zero vector - send an exception
      */
     public Vector(double x, double y, double z) {
-//   DRY
-//        super(x,y,z);
-//        if (xyz.equals(Double3.ZERO)) /*exception for the zero vector*/
-//            throw new IllegalArgumentException("Doesn't support zero vector");
         this(new Double3(x, y, z));
     }
 
@@ -106,7 +101,6 @@ public class Vector extends Point {
      * @return the unit vector
      */
     public Vector normalize() {
-        //return scale(1/length());
         return new Vector(xyz.reduce(length()));
 
     }

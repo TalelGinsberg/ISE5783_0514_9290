@@ -1,5 +1,13 @@
 package primitives;
 
+
+/**
+ * The Material class represents the properties of a material used for rendering.
+ * It defines the diffuse reflection coefficient, specular reflection coefficient,
+ * and shininess exponent of the material.
+ *
+ * @author Noa Harel and Talel Ginsberg
+ */
 public class Material {
 
     //----------------------------fields--------------------------
