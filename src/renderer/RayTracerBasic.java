@@ -21,7 +21,6 @@ public class RayTracerBasic extends RayTracerBase {
     //----------------------------fields--------------------------
 
 
-
     /**
      * The maximum level of color calculation recursion.
      * Higher values allow for more accurate shading but increase computation time.
@@ -51,6 +50,40 @@ public class RayTracerBasic extends RayTracerBase {
 
     //------------------------------functions---------------------------
 
+    private Double3 transparency(GeoPoint geoPoint, LightSource ls, Vector l, Vector n) {
+        // Pay attention to your method of distance screening
+        Vector lightDirection = l.scale(-1); // from point to light source
+        Point point = geoPoint.point;
+        Ray lightRay = new Ray(point, n, lightDirection);
+
+        double maxdistance = ls.getDistance(point);
+        List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
+        if (intersections == null)
+            return Double3.ONE;
+
+        for (GeoPoint intersectionPoint : intersections) {
+            if (ls.getDistance(geoPoint.point) <= geoPoint.point.distance(intersectionPoint.point)) {
+                // Remove intersection points that are farther away from the light source than the current point
+                intersections.remove(intersectionPoint);
+            }
+        }
+        Double3 ktr = Double3.ONE;
+//        loop over intersections and for each intersection which is closer to the
+//        point than the light source multiply ktr by 𝒌𝑻 of its geometry.
+//        Performance:
+//        if you get close to 0 –it’s time to get out( return 0)
+        for (var geo : intersections) {
+            if (ls.getDistance(geoPoint.point) >= geoPoint.point.distance(geo.point)) {
+                ktr = ktr.product(geo.geometry.getMaterial().kT);
+                if (ktr.lowerThan(MIN_CALC_COLOR_K)) {
+                    return Double3.ZERO;
+                }
+            }
+        }
+        return ktr;
+    }
+
+
     /**
      * Checks if a point on a surface is unshaded by other objects in the scene, given a light source.
      *
@@ -76,7 +109,7 @@ public class RayTracerBasic extends RayTracerBase {
             //Point point = gp.point.add(epsVector);
 
             // Create a ray from the point towards the light source
-            Ray lightRay = new Ray(gp.point,n, lightDirection);
+            Ray lightRay = new Ray(gp.point, n, lightDirection);
 
             // Find intersections between the ray and the geometry in the scene
             List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
@@ -126,7 +159,7 @@ public class RayTracerBasic extends RayTracerBase {
      * such as diffuse and specular reflections.
      *
      * @param intersection The intersection point on the geometry
-     * @param ray   The ray that intersected with the geometry
+     * @param ray          The ray that intersected with the geometry
      * @return The color at the intersection point
      */
     /*
@@ -154,7 +187,7 @@ public class RayTracerBasic extends RayTracerBase {
 
     */
     private Color calcColor(GeoPoint intersection, Ray ray, int level, Double3 k) {
-        Color color = calcLocalEffects(intersection, ray);
+        Color color = calcLocalEffects(intersection, ray, k);
         return 1 == level ? color
                 : color.add(calcGlobalEffects(intersection, ray, level, k));
     }
@@ -172,7 +205,7 @@ public class RayTracerBasic extends RayTracerBase {
      * @param ray The ray that intersected with the geometry
      * @return The color of the local effects at the intersection point
      */
-    private Color calcLocalEffects(GeoPoint gp, Ray ray) {
+    private Color calcLocalEffects(GeoPoint gp, Ray ray, Double3 k) {
         Color color = gp.geometry.getEmission(); // Start with the emission color of the geometry
 
         Vector v = ray.getDir(); // View direction vector
@@ -194,8 +227,11 @@ public class RayTracerBasic extends RayTracerBase {
 
             // Check if the light is on the same side as the view direction
             if (nl * nv > 0) {
-                if (unshaded(gp, lightSource, l, n, nl)) {
-                    Color iL = lightSource.getIntensity(gp.point); // Intensity of the light source at the intersection point
+                //if (unshaded(gp, lightSource, l, n, nl)){
+                Double3 ktr = transparency(gp, lightSource, l, n);
+                if (!ktr.product(k).lowerThan(MIN_CALC_COLOR_K)) {
+
+                    Color iL = lightSource.getIntensity(gp.point).scale(ktr); // Intensity of the light source at the intersection point
 
                     // Calculate the contributions of diffuse and specular reflections
                     color = color.add(
@@ -282,7 +318,7 @@ public class RayTracerBasic extends RayTracerBase {
      */
     private Ray constructRefractedRay(Point point, Vector v, Vector n) {
 
-        return new Ray(point,n,v);
+        return new Ray(point, n, v);
         /*
         double nv = alignZero(v.dotProduct(n.normalize()));
 
@@ -329,7 +365,7 @@ public class RayTracerBasic extends RayTracerBase {
         Vector r = v.subtract(n.scale(2 * vn));
 
         // Create a new ray with the reflected direction starting from the given point.
-        return new Ray(pointGeo,n, r);
+        return new Ray(pointGeo, n, r);
     }
 
 
