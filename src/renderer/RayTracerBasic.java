@@ -87,13 +87,15 @@ public class RayTracerBasic extends RayTracerBase {
                 return true;
 
             // Check if any intersection point is closer to the light source than the current point
-            for (GeoPoint intersectionPoint : intersections) {
-                if (lightSource.getDistance(gp.point) < point.distance(intersectionPoint.point)) {
+            /**for (GeoPoint intersectionPoint : intersections) {
+                if (lightSource.getDistance(gp.point) <= point.distance(intersectionPoint.point)) {
                     // Remove intersection points that are farther away from the light source than the current point
                     intersections.remove(intersectionPoint);
                 }
             }
-
+            if (intersections == null)
+                return true;
+*/
             Double3 tr = Double3.ONE;
             for (var geo : intersections) {
                 // Calculate the transmission coefficient (tr) for each intersection point
@@ -101,7 +103,7 @@ public class RayTracerBasic extends RayTracerBase {
 
                 // Check if the transmission coefficient is below the minimum threshold (MIN_CALC_COLOR_K)
                 if (tr.lowerThan(MIN_CALC_COLOR_K)) {
-                    // If the transmission coefficient is below the threshold, the point is considered fully transparent
+                // If the transmission coefficient is below the threshold, the point is considered fully transparent
                     // and further calculations are not required
                     return false;
                 }
@@ -336,17 +338,23 @@ public class RayTracerBasic extends RayTracerBase {
      * @return The closest intersection point, or null if no intersection is found.
      */
     private GeoPoint findClosestIntersection(Ray ray) {
+        try {
 
-        // Find all intersections between the ray and the geometries in the scene.
-        List<GeoPoint> intersections = scene.geometries.findGeoIntersections(ray);
 
-        // If there are no intersections, return null to indicate no intersection found.
-        if (intersections == null) {
+            // Find all intersections between the ray and the geometries in the scene.
+            List<GeoPoint> intersections = scene.geometries.findGeoIntersections(ray);
+
+            // If there are no intersections, return null to indicate no intersection found.
+            if (intersections == null) {
+                return null;
+            }
+
+            // Find the closest intersection point from the ray's origin among all the intersections.
+            return ray.findClosestGeoPoint(intersections);
+        }
+        catch (IllegalArgumentException e ){
             return null;
         }
-
-        // Find the closest intersection point from the ray's origin among all the intersections.
-        return ray.findClosestGeoPoint(intersections);
     }
 
 
