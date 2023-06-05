@@ -18,7 +18,7 @@ public class Sphere extends RadialGeometry {
 
     //----------------------------fields--------------------------
 
-    /*center point for sphere*/
+    /* center point for sphere */
     private Point center;
 
     //-----------------------------constructor-------------------------
