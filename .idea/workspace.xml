@@ -7,11 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="stage 7 doc">
-      <change afterPath="$PROJECT_DIR$/images/DONUT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unitTests/MinProj1.java" afterDir="false" />
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="end of stage 7 + my pic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/renderer/ReflectionRefractionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/renderer/ReflectionRefractionTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +92,6 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
       <recent name="renderer" />
       <recent name="lighting" />
     </key>
@@ -105,7 +102,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MinProj1.minProj1">
+  <component name="RunManager" selected="JUnit.All in ISE5783_0514_9290">
     <configuration name="All in ISE5783_0514_9290" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <option name="PACKAGE_NAME" value="" />
@@ -114,21 +111,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MinProj1.minProj1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_0514_9290" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MinProj1" />
-      <option name="METHOD_NAME" value="minProj1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ReflectionRefractionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value=".*" />
+          <option name="PATTERN" value="renderer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,7 +130,7 @@
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value=".*" />
+          <option name="PATTERN" value="renderer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -155,11 +142,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReflectionRefractionTests.twoSpheres" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_0514_9290" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.ReflectionRefractionTests" />
+      <option name="METHOD_NAME" value="twoSpheres" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ReflectionRefractionTests.twoSpheresOnMirrors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value=".*" />
+          <option name="PATTERN" value="renderer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -172,19 +175,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.MinProj1.minProj1" />
       <item itemvalue="JUnit.ReflectionRefractionTests.multipleObjects" />
       <item itemvalue="JUnit.ReflectionRefractionTests" />
+      <item itemvalue="JUnit.ReflectionRefractionTests.twoSpheres" />
       <item itemvalue="JUnit.ReflectionRefractionTests.twoSpheresOnMirrors" />
       <item itemvalue="JUnit.All in ISE5783_0514_9290" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MinProj1.minProj1" />
         <item itemvalue="JUnit.All in ISE5783_0514_9290" />
         <item itemvalue="JUnit.ReflectionRefractionTests.multipleObjects" />
         <item itemvalue="JUnit.ReflectionRefractionTests" />
         <item itemvalue="JUnit.ReflectionRefractionTests.twoSpheresOnMirrors" />
+        <item itemvalue="JUnit.ReflectionRefractionTests.twoSpheres" />
       </list>
     </recent_temporary>
   </component>
@@ -196,6 +199,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677389103502</updated>
+    </task>
+    <task id="LOCAL‎-00006" summary="final tag">
+      <created>1677584033208</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1677584033208</updated>
     </task>
     <task id="LOCAL‎-00007" summary="Stage2">
       <created>1679988193844</created>
@@ -533,14 +543,7 @@
       <option name="project" value="LOCAL" />
       <updated>1685987464773</updated>
     </task>
-    <task id="LOCAL-00055" summary="stage 7 doc">
-      <created>1685989188068</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1685989188068</updated>
-    </task>
-    <option name="localTasksCounter" value="56" />
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -556,6 +559,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="sync" />
     <MESSAGE value="FINAL CHANGES 20.4" />
     <MESSAGE value="final stage3 without warnnigs" />
     <MESSAGE value="after check in class" />
@@ -580,8 +584,7 @@
     <MESSAGE value="stage 7 first step" />
     <MESSAGE value="first step duc stage 7" />
     <MESSAGE value="end of stage 7 + my pic" />
-    <MESSAGE value="stage 7 doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage 7 doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="end of stage 7 + my pic" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

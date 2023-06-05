@@ -72,7 +72,9 @@ public class Cylinder extends Tube {
         Point o = this.axisRay.getPoint(t);
 
         Vector test = o.subtract(this.axisRay.getP0()).normalize();
-        if ((t == this.getHeight()) && (test.equals(this.axisRay.getDir())))//the point is on the top - need to check the direction to confirm that it's not on the opposite side
+
+        //the point is on the top - need to check the direction to confirm that it's not on the opposite side
+        if ((t == this.getHeight()) && (test.equals(this.axisRay.getDir())))
         {
             return this.axisRay.getDir();
         }

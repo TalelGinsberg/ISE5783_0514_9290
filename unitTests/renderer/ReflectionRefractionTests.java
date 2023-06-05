@@ -5,7 +5,9 @@ package renderer;
 
 import static java.awt.Color.*;
 
+import geometries.Geometries;
 import org.junit.jupiter.api.Test;
+
 
 import geometries.Sphere;
 import geometries.Triangle;
@@ -18,13 +20,11 @@ import scene.Scene;
 /** Tests for reflection and transparency functionality, test for partial
  * shadows
  * (with transparency)
- * @author dzilb */
+ * @author dzilb and last function Noa and Talel */
 public class ReflectionRefractionTests {
-   private Scene scene = new Scene.SceneBuilder("Test scene")
+   private Scene scene = new Scene.SceneBuilder("Test scene").build();
 
-           .build();
-
-   /** Produce a picture of a sphere lighted by a spot light */
+   /** Produce a picture of a sphere lighted by a spotlight */
    @Test
    public void twoSpheres() {
       Camera camera = new Camera(
@@ -113,6 +113,7 @@ public class ReflectionRefractionTests {
          .renderImage()
               .writeToImage();
    }
+
    /** Produce a picture of a two triangles lighted by a spot light with a
     * partially
     * transparent Sphere producing partial shadow */
