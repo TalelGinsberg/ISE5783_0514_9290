@@ -20,15 +20,15 @@ public class PointLight extends Light implements LightSource {
     /**
      * The constant attenuation coefficient
      */
-    private double kC;
+    private double kC = 1d;
     /**
      * The linear attenuation coefficient
      */
-    private double kL;
+    private double kL = 0d;
     /**
      * The quadratic attenuation coefficient
      */
-    private double kQ;
+    private double kQ = 0d;
 
     //-----------------------------constructor-------------------------
 
@@ -41,17 +41,13 @@ public class PointLight extends Light implements LightSource {
     public PointLight(Color intensity, Point position) {
         super(intensity);
         this.position = position;
-        kC = 1d;
-        kL = 0d;
-        kQ = 0d;
     }
 
     //---------------------------override functions-------------------------
     @Override
     public Color getIntensity(Point p) {
-        double distance = position.distance(p);
-        double distanceSquared = position.distanceSquared(p);
-        return intensity.scale(1 / (kC + kL * distance + kQ * distanceSquared));
+        double d = position.distance(p);
+        return intensity.reduce(kC + kL * d + kQ * d * d );
     }
 
     @Override
@@ -61,7 +57,7 @@ public class PointLight extends Light implements LightSource {
 
     @Override
     public double getDistance(Point point) {
-        return (position.distance(point));
+        return position.distance(point);
     }
 
     //--------------------------------getters----------------------------
@@ -72,7 +68,7 @@ public class PointLight extends Light implements LightSource {
      * @param kC The constant attenuation coefficient
      * @return The updated PointLight object
      */
-    public PointLight setkC(double kC) {
+    public PointLight setKc(double kC) {
         this.kC = kC;
         return this;
     }
@@ -84,7 +80,7 @@ public class PointLight extends Light implements LightSource {
      * @param kL The linear attenuation coefficient
      * @return The updated PointLight object
      */
-    public PointLight setkL(double kL) {
+    public PointLight setKl(double kL) {
         this.kL = kL;
         return this;
     }
@@ -96,7 +92,7 @@ public class PointLight extends Light implements LightSource {
      * @param kQ The quadratic attenuation coefficient
      * @return The updated PointLight object
      */
-    public PointLight setkQ(double kQ) {
+    public PointLight setKq(double kQ) {
         this.kQ = kQ;
         return this;
     }

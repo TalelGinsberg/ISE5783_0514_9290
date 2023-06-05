@@ -97,6 +97,7 @@ public class Camera {
     public Camera(Point position, Vector vTo, Vector vUp) {
         // initialize place, vUp and vTo
         this.position = position;
+
         this.vUp = vUp.normalize();
         this.vTo = vTo.normalize();
 
@@ -104,7 +105,7 @@ public class Camera {
         // the vectors are orthogonal
         if (isZero(alignZero(vTo.dotProduct(vUp)))) {
             // create vRight - cross product between vUp and vTo
-            vRight = vTo.crossProduct(vUp).normalize();
+            vRight = this.vTo.crossProduct(this.vUp);
         }
 
         // the vectors aren't orthogonal
@@ -205,7 +206,7 @@ public class Camera {
             int nX = imageWriter.getNx();
             for (int row = 0; row < nY; row++) {
                 for (int column = 0; column < nX; column++) {
-                    castRay(nX, nY, column, row);
+                    castRay(nX, nY, row, column);
                 }
             }
         }
