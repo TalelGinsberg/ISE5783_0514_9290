@@ -110,7 +110,40 @@ public class ReflectionRefractionTests {
       ImageWriter imageWriter = new ImageWriter("refractionShadow", 600, 600);
       camera.setImageWriter(imageWriter) //
          .setRayTracer(new RayTracerBasic(scene3)) //
-         .renderImage() //
-         .writeToImage();
+         .renderImage()
+              .writeToImage();
+   }
+   /** Produce a picture of a two triangles lighted by a spot light with a
+    * partially
+    * transparent Sphere producing partial shadow */
+   @Test
+   public void multipleObjects() {
+      Camera camera = new Camera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
+              .setVPSize(200, 200).setVPDistance(1000);
+      Scene scene4 = new Scene.SceneBuilder("Test scene").setAmbientLight(new AmbientLight(new Color(WHITE), 0.15)).build();
+
+
+      scene4.geometries.add( //
+              new Sphere(new Point(6, 10, 150), 9d).setEmission(new Color(47, 97,   14)) //
+                      .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),
+              new Sphere(new Point(0, 23, 150), 9d).setEmission(new Color (129, 59, 9)) //
+                      .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),
+
+              new Triangle(new Point(0, -33, -50), new Point(14, 5, -70), new Point(-14, 5, -70)) //
+                      .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(50, 20, 20)), //
+
+              new Sphere(new Point(-6, 10, 150), 9d).setEmission(new Color(yellow)) //
+                      .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)));
+      scene4.lights.add( //
+              new SpotLight(new Color(500, 600, 400),
+                      new Point(-100, -100, 500),
+                      new Vector(-1, -1, -2)) //
+                      .setKl(0.0004).setKq(0.0000006));
+
+      ImageWriter imageWriter = new ImageWriter("iceCream", 600, 600);
+      camera.setImageWriter(imageWriter) //
+              .setRayTracer(new RayTracerBasic(scene4)) //
+              .renderImage() //
+              .writeToImage();
    }
 }
