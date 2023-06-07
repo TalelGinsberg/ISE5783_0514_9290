@@ -1,4 +1,5 @@
-import geometries.Sphere;
+package MiniProj1;
+
 import geometries.Triangle;
 import lighting.AmbientLight;
 import lighting.SpotLight;
@@ -13,13 +14,14 @@ import renderer.RayTracerBasic;
 import scene.Scene;
 
 import static java.awt.Color.WHITE;
-import static java.awt.Color.yellow;
 
-public class MinProj1 {
+public class donuts {
     @Test
     public void minProj1() {
 
         /*   נקודות רגילות מהאפליקציה
+
+         */
         double scalingFactor = 20.0;
 
         Point A = new Point(0 * scalingFactor, 2 * scalingFactor, 0);
@@ -49,7 +51,7 @@ public class MinProj1 {
         Point A1 = new Point(-0.14 * scalingFactor, 0.3 * scalingFactor, 0);
         Point B1 = new Point(-0.17 * scalingFactor, 0.28 * scalingFactor, 0.06 * scalingFactor);
 
-         */
+
 
 
 /* ההזה של האלכסון, אבל נמרח
@@ -86,7 +88,7 @@ public class MinProj1 {
 
  */
         //היפוך Xו Z, רואים ממש מהצד
-
+        /*
         double scalingFactor = 20.0;
 
         Point A = new Point(0, 0, 2 * scalingFactor);
@@ -117,6 +119,8 @@ public class MinProj1 {
         Point B1 = new Point(0.06 * scalingFactor, 0.28 * scalingFactor, -0.17 * scalingFactor);
 
 
+
+         */
         Camera camera = new Camera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
                 .setVPSize(200, 200).setVPDistance(1000);
         Scene scene4 = new Scene.SceneBuilder("Test scene").setAmbientLight(new AmbientLight(new Color(WHITE), 0.15)).build();
