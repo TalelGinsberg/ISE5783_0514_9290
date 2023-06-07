@@ -252,7 +252,7 @@ public class donuts {
 
                 new Triangle(T,U,O) //
                         .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(50, 20, 20)));
-        A = new Point(-A.getX(), A.getY(), A.getZ());
+       /* A = new Point(-A.getX(), A.getY(), A.getZ());
         B = new Point(-B.getX(), B.getY(), B.getZ());
         C = new Point(-C.getX(), C.getY(), C.getZ());
         D = new Point(-D.getX(), D.getY(), D.getZ());
@@ -279,6 +279,8 @@ public class donuts {
         A1 = new Point(-A1.getX(), A1.getY(), A1.getZ());
 
 
+
+        */
         scene4.geometries.add( //
 
                 new Triangle(D, L, E) //
