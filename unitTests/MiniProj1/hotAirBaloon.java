@@ -270,17 +270,7 @@ public class hotAirBaloon {
                         .setEmission(new Color(WHITE)) //
                         .setMaterial(new Material().setkD(0.4).setkS(0.3).setnShininess(100).setkT(0.3)),
 
-                //CLOUD LOWER RIGHT BIG
 
-                new Sphere(new Point(40, -40, -50), 8d)
-                        .setEmission(new Color(WHITE)) //
-                        .setMaterial(new Material().setkD(0.4).setkS(0.3).setnShininess(100).setkT(0.3)),
-                new Sphere(new Point(47, -42, -50), 6d)
-                        .setEmission(new Color(WHITE)) //
-                        .setMaterial(new Material().setkD(0.4).setkS(0.3).setnShininess(100).setkT(0.3)),
-                new Sphere(new Point(33, -42, -50), 6d)
-                        .setEmission(new Color(WHITE)) //
-                        .setMaterial(new Material().setkD(0.4).setkS(0.3).setnShininess(100).setkT(0.3)),
                 //CLOUD MIDDLE RIGHT LITTLE
 
                 new Sphere(new Point(40, 0, -50), 5d)
@@ -436,17 +426,32 @@ public class hotAirBaloon {
                 new Sphere(new Point(70, -36, -50), 3.5d)
                         .setEmission(new Color(WHITE)) //
                         .setMaterial(new Material().setkD(0.4).setkS(0.3).setnShininess(100).setkT(0.3))
-                        .setMaterial(new Material().setkD(0.4).setkS(0.3).setnShininess(100).setkT(0.3))
+                        .setMaterial(new Material().setkD(0.4).setkS(0.3).setnShininess(100).setkT(0.3)),
 
 
 
+                //CLOUD LOWER RIGHT BIG
 
+                new Sphere(new Point(40, -40, -50), 8d)
+                .setEmission(new Color(gray)) //
+                .setMaterial(new Material().setkD(0.700004).setkS(0.003).setnShininess(100).setkT(0)),
+                new Sphere(new Point(47, -42, -50), 6d)
+                        .setEmission(new Color(gray)) //
+                        .setMaterial(new Material().setkD(0.700004).setkS(0.03).setnShininess(100).setkT(0)),
+                new Sphere(new Point(33, -42, -50), 6d)
+                        .setEmission(new Color(gray)) //
+                        .setMaterial(new Material().setkD(0.700004).setkS(0.03).setnShininess(100).setkT(0.00003))
 
         );
         scene4.lights.add(new SpotLight(new Color(500, 600, 400),
                 new Point(-100, -100, 500),
                 new Vector(-1, -1, -2)) //
                 .setKl(0.0004).setKq(0.0000006));
+        scene4.lights.add(new DirectionalLight(new Color(200,300,100),new Vector(1,-1,0)));
+        scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(40, -40, -50), new Vector(1,-1,0)));
+        scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(47, -42, -50), new Vector(1,-1,0)));
+        scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(33, -42, -50), new Vector(1,-1,0)));
+
         ///scene4.lights.add(new PointLight(new Color(BLUE), new Point(0,-10,0)));
         ImageWriter imageWriter = new ImageWriter("TRY", 600, 600);
         camera.setImageWriter(imageWriter) //
