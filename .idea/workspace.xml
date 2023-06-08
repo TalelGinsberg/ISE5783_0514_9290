@@ -7,12 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="end of stage 7 + my pic">
-      <change afterPath="$PROJECT_DIR$/images/air.png" afterDir="false" />
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="stage 8 fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/DONUT.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/DONUT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/hotAirBaloon.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/hotAirBaloon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/donuts.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/donuts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/TRY.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/TRY.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,13 +200,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677389103502</updated>
-    </task>
-    <task id="LOCAL‎-00007" summary="Stage2">
-      <created>1679988193844</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL‎-00007" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1679988193844</updated>
     </task>
     <task id="LOCAL‎-00008" summary="final documentation stage2">
       <created>1679999476058</created>
@@ -547,7 +537,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1686219141206</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL‎-00056" summary="stage 8 fix">
+      <created>1686219211194</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL‎-00056" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1686219211194</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
