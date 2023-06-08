@@ -8,10 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="end of stage 7 + my pic">
+      <change afterPath="$PROJECT_DIR$/images/TRY.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/images/air.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images/DONUT.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/DONUT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/TRY.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/TRY.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images/hotAirBaloon.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/hotAirBaloon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/donuts.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/donuts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" afterDir="false" />

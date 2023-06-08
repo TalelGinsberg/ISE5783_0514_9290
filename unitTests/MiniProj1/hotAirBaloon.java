@@ -4,7 +4,6 @@ import geometries.Sphere;
 import geometries.Triangle;
 import lighting.AmbientLight;
 import lighting.DirectionalLight;
-import lighting.PointLight;
 import lighting.SpotLight;
 import org.junit.jupiter.api.Test;
 import primitives.Color;
@@ -167,23 +166,17 @@ public class hotAirBaloon {
         C=new Point(C.getY()-2,C.getZ()-50,C.getX());
         Point C1=new Point(C.getX()-0.5,C.getY(),C.getZ());
         Point C2=new Point(C.getX(),C.getY(),C.getZ());
-        Point CBorderSide = new Point(C.getX()+0.3, C.getY(), C.getZ());
 
         D=new Point(D.getY(),D.getZ()-50,D.getX());
         Point D1=new Point(D.getX()+0.5,D.getY(),D.getZ());
-        Point DBorderSide = new Point(D.getX()-0.3, D.getY(), D.getZ());
 
-
-        F=new Point(F.getY(),F.getZ()-50.5, F.getX());
+        F=new Point(F.getY(),F.getZ()-50, F.getX());
         Point F1=new Point(F.getX()-0.5,F.getY(),F.getZ());
-        Point FBorder=new Point(F.getX(),F.getY()+0.4,F.getZ());
-        Point FBorderSide = new Point(F.getX()+0.3, F.getY(), F.getZ());
+        Point FBorder=new Point(F.getX(),F.getY()+0.5,F.getZ());
 
         G=new Point(G.getY(),G.getZ()-50, G.getX());
         Point G1=new Point(G.getX()+0.5,G.getY(),G.getZ());
-        Point GBorder=new Point(G.getX(),G.getY()+0.4,G.getZ());
-        Point GBorderSide = new Point(G.getX()-0.3, G.getY(), G.getZ());
-
+        Point GBorder=new Point(G.getX(),G.getY()+0.5,G.getZ());
 
 
         //FRONT RIGHT
@@ -201,42 +194,35 @@ public class hotAirBaloon {
         Triangle rLittle2T=new Triangle(rLittle2,F1,rLittle1);
         Triangle lLittle1T=new Triangle(lLittle1,lLittle2,G1);
         Triangle lLittle2T=new Triangle(G,G1,lLittle2);
-
-        Triangle borderR1=new Triangle(CBorderSide,C1,FBorderSide);
-        Triangle borderR2=new Triangle(F1,C1,FBorderSide);
-
-        Triangle borderL1=new Triangle(GBorderSide,G1,D1);
-        Triangle borderL2=new Triangle(GBorderSide,DBorderSide,D1);
-
+        Triangle borderR1=new Triangle(C,C1,F);
+        Triangle borderR2=new Triangle(F1,C1,F);
+        Triangle borderL1=new Triangle(G,G1,D1);
+        Triangle borderL2=new Triangle(G,D,D1);
         Triangle borderBack1=new Triangle(G,GBorder,F);
         Triangle borderBack2=new Triangle(F,FBorder,GBorder);
 
 
+
+
+
         scene4.geometries.add( //
-                T1.setMaterial(new Material().setkD(0.7).setkS(0.5).setnShininess(100)).setEmission(new Color(500, 20, 30)), //
-                T2.setMaterial(new Material().setkD(0.7).setkS(0.5).setnShininess(100)).setEmission(new Color(520, 40, 50)), //
+                T1.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(500, 20, 30)), //
 
-                T3.setMaterial(new Material().setkD(0.4).setkS(0.5).setnShininess(100)).setEmission(new Color(550, 70, 80)), //
-                T4.setMaterial(new Material().setkD(0.4).setkS(0.5).setnShininess(100)).setEmission(new Color(500, 20, 30)),
-
+                T2.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(520, 40, 50)), //
+                T3.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(550, 70, 80)), //
+                T4.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(500, 20, 30)),
                 L1.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
                 L2.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
-
                 R1.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
                 R2.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
-
-                borderR1.setMaterial(new Material().setkD(1.2).setkS(0.5).setnShininess(100)).setEmission(new Color(YELLOW)), //
-                borderR2.setMaterial(new Material().setkD(1.2).setkS(0.5).setnShininess(100)).setEmission(new Color(YELLOW)), //
-
-                borderL1.setMaterial(new Material().setkD(1.2).setkS(0.5).setnShininess(100)).setEmission(new Color(YELLOW)), //
-                borderL2.setMaterial(new Material().setkD(1.2).setkS(0.5).setnShininess(100)).setEmission(new Color(YELLOW)), //
-
-                borderBack1.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(YELLOW)), //
-                borderBack2.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(YELLOW)), //
-
+                borderR1.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(BLACK)), //
+                borderR2.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(BLACK)), //
+                borderL1.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(BLACK)), //
+                borderL2.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(BLACK)), //
+                borderBack1.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(BLACK)), //
+                borderBack2.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(BLACK)), //
                 rLittle1T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
                 rLittle2T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
-
                 lLittle1T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
                 lLittle2T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
 
@@ -245,17 +231,10 @@ public class hotAirBaloon {
                         .setMaterial(new Material().setkD(0.3).setkS(0.05).setnShininess(100).setkT(0.3))
 
                 );
-        scene4.lights.add(
-                new  SpotLight(new Color(500, 600, 400),
+        scene4.lights.add(new  SpotLight(new Color(500, 600, 400),
                         new Point(-100, -100, 500),
                         new Vector(-1, -1, -2)) //
-                        .setKl(0.0004).setKq(0.00000006));
-        scene4.lights.add(
-                new PointLight(new Color(BLUE), new Point(0,-20,0))
-        );
-
-
-
+                        .setKl(0.0004).setKq(0.0000006));
         ImageWriter imageWriter = new ImageWriter("TRY", 600, 600);
         camera.setImageWriter(imageWriter) //
                 .setRayTracer(new RayTracerBasic(scene4)) //
