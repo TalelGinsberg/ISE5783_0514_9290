@@ -10,7 +10,9 @@
     <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="stage 8 fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images/TRY.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/TRY.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/iceCream.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/iceCream.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTests/renderer/ReflectionRefractionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/renderer/ReflectionRefractionTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,10 +187,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.hotAirBaloon.air" />
+        <item itemvalue="JUnit.ReflectionRefractionTests.multipleObjects" />
         <item itemvalue="JUnit.donuts.minProj1" />
         <item itemvalue="JUnit.hotAirBaloon" />
         <item itemvalue="JUnit.All in ISE5783_0514_9290" />
-        <item itemvalue="JUnit.ReflectionRefractionTests.multipleObjects" />
       </list>
     </recent_temporary>
   </component>
