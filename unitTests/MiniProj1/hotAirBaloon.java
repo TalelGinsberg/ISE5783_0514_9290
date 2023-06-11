@@ -147,11 +147,16 @@ public class hotAirBaloon {
         Point D = new Point(-16 * k, -29.36 * k, -16 * k);
         //Point F = new Point(10.2 * k, -26 * k, -16 * k);
         //Point G = new Point(-10.2 * k, -26 * k, -16 * k);
-        Point sideLeft1 = new Point(-35, 24, -50);
-        Point sideLeft2 = new Point(-34.5, 24, -50);
+        Point sideLeft1 = new Point(-22, -1, -50);
+        Point sideLeft2 = new Point(-21.5, -1, -50);
+        Point sideLeft1Back = new Point(-28, 5, -60);
+        Point sideLeft2Back = new Point(-27.5, 5, -60);
 
-        Point right1 = new Point(35, 24, -50);
-        Point right2 = new Point(34.5, 24, -50);
+        Point right1 = new Point(20, 2, -50);
+        Point right2 = new Point(19.5, 2, -50);
+        Point right1Back = new Point(13, -4, -60);
+        Point right2Back = new Point(12.5, -4, -60);
+
         Point rLittle1 = new Point(14.5, -3, -50);
         Point rLittle2 = new Point(14, -3, -50);
         Point lLittle1 = new Point(-14, -3, -50);
@@ -205,10 +210,10 @@ public class hotAirBaloon {
         Triangle L2 = new Triangle(D1, D, sideLeft2);
         Triangle R1 = new Triangle(right1, right2, C2);
         Triangle R2 = new Triangle(C1, right2, C2);
-        Triangle rLittle1T = new Triangle(CBack, F1, right2);
-        Triangle rLittle2T = new Triangle(right1, F1, right2);
-        Triangle lLittle1T = new Triangle(sideLeft1, sideLeft2, G1);
-        Triangle lLittle2T = new Triangle(DBack, G1, sideLeft2);
+        Triangle rLittle1T = new Triangle(CBack, F1, right2Back);
+        Triangle rLittle2T = new Triangle(right1Back, F1, right2Back);
+        Triangle lLittle1T = new Triangle(sideLeft1Back, sideLeft2Back, G1);
+        Triangle lLittle2T = new Triangle(DBack, G1, sideLeft2Back);
 
         Triangle borderR1 = new Triangle(CBorderSide, C1, FBorderSide);
         Triangle borderR2 = new Triangle(F1, C1, FBorderSide);
@@ -272,7 +277,7 @@ public class hotAirBaloon {
                 lLittle1T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
                 lLittle2T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
                 //the balloon
-                new Sphere(new Point(0, 28, -50), 35d)
+                new Sphere(new Point(-2, 28, -50), 35d)
                         .setEmission(new Color(150, 0, 0)) //
                         .setMaterial(new Material().setkD(0.3).setkS(0.05).setnShininess(100).setkT(0.3)),
 //CLOUD UPPER LEFT BIG
@@ -487,8 +492,34 @@ public class hotAirBaloon {
                         .setEmission(new Color(gray)) //
                         .setMaterial(new Material().setkD(0.800004).setkS(0.03).setnShininess(100).setkT(0.00003)),
                 new Sphere(new Point(5,-50,-100),2).setEmission(new Color(RED)),
+                  /*
+                  //back pyramid
+                new Triangle(new Point(50,-40,60),
+                        new Point(-70,-200,150),
+                        new Point(150,-180,150))
+                        .setEmission(new Color(red))
+                        .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(30)),
+
+                   */
+                //front pyramid
+/*
+                new Triangle(new Point(50,-40,60),
+                        new Point(-70,-200,150),
+                        new Point(-80,-150,80))
+                        .setEmission(new Color(red))
+                        .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100).setkT(0)),
+
+                new Triangle(new Point(50,-40,60),
+                        new Point(150,-180,150),
+                        new Point(-80,-150,80))
+                        .setEmission(new Color(red))
+                        .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100).setkT(0)),
 
 
+
+
+ */
+                new Plane(new Point(50,-60,-100),new Vector(0,1,0)).setEmission(Color.BLACK).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),
 
                 new Plane(new Point(5,-50,-100), new Vector(5,-240,-20))
                         .setEmission(new Color(135, 206, 500).scale(0.35))//
@@ -505,7 +536,7 @@ public class hotAirBaloon {
                 new Vector(-1, -1, -2)) //
                 .setKl(0.0004).setKq(0.0000006));
 
-        scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(1,-1,0)));
+        scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(1,-2,4)));
 
         /*
         //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(40, -40, -50), new Vector(1,-1,0)));

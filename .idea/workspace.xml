@@ -7,11 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="stage 8 fix">
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="making pic 3d">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images/TRY.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/TRY.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +103,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ISE5783_0514_9290">
+  <component name="RunManager" selected="JUnit.hotAirBaloon.air">
     <configuration name="All in ISE5783_0514_9290" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <option name="PACKAGE_NAME" value="" />
@@ -186,8 +184,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in ISE5783_0514_9290" />
         <item itemvalue="JUnit.hotAirBaloon.air" />
+        <item itemvalue="JUnit.All in ISE5783_0514_9290" />
         <item itemvalue="JUnit.ReflectionRefractionTests.multipleObjects" />
         <item itemvalue="JUnit.donuts.minProj1" />
         <item itemvalue="JUnit.hotAirBaloon" />
@@ -202,13 +200,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677389103502</updated>
-    </task>
-    <task id="LOCAL‎-00009" summary="FINAL STAGE2">
-      <created>1681593274501</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL‎-00009" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1681593274501</updated>
     </task>
     <task id="LOCAL-00010" summary="start STAGE3">
       <created>1681661007942</created>
@@ -546,7 +537,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1686222750170</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="making pic 3d">
+      <created>1686507100820</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1686507100820</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -562,7 +560,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="FINAL CHANGES 20.4" />
     <MESSAGE value="final stage3 without warnnigs" />
     <MESSAGE value="after check in class" />
     <MESSAGE value="sync before start 4" />
@@ -587,14 +584,15 @@
     <MESSAGE value="first step duc stage 7" />
     <MESSAGE value="end of stage 7 + my pic" />
     <MESSAGE value="stage 8 fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage 8 fix" />
+    <MESSAGE value="making pic 3d" />
+    <option name="LAST_COMMIT_MESSAGE" value="making pic 3d" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java</url>
-          <line>180</line>
+          <line>185</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
