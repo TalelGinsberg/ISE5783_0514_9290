@@ -138,15 +138,15 @@ public class hotAirBaloon {
                 .setVPSize(150, 150)
                 .setVPDistance(1000);
         Scene scene4 = new Scene.SceneBuilder("Test scene").setAmbientLight(new AmbientLight(new Color(WHITE), 0.15)).setBackground(new Color(135, 206, 250)).build();
-        double k = 12; // Scaling factor
+        double k = 1; // Scaling factor
 
-        Point A = new Point(-1.34 * k, 0.74 * k, 0 * k);
+        Point A = new Point(10* k, -50 * k, -16 * k);
 
-        Point B = new Point(-1.34 * k, -1.1 * k, 0 * k);
-        Point C = new Point(-1.34 * k, 1.5 * k, 1.72 * k);
-        Point D = new Point(-1.41 * k, -1.44 * k, 1.72 * k);
-        Point F = new Point(-2.31 * k, 0.85 * k, 2 * k);
-        Point G = new Point(-1.83 * k, -0.85 * k, 2 * k);
+        Point B = new Point(-10 * k, -50 * k, -16 * k);
+        Point C = new Point(16 * k, -29.36 * k, -16 * k);
+        Point D = new Point(-16 * k, -29.36 * k, -16 * k);
+        //Point F = new Point(10.2 * k, -26 * k, -16 * k);
+        //Point G = new Point(-10.2 * k, -26 * k, -16 * k);
         Point sideLeft1 = new Point(-35, 24, -50);
         Point sideLeft2 = new Point(-34.5, 24, -50);
 
@@ -157,47 +157,58 @@ public class hotAirBaloon {
         Point lLittle1 = new Point(-14, -3, -50);
         Point lLittle2 = new Point(-14.5, -3, -50);
 
-        A = new Point(A.getY(), A.getZ() - 50, A.getX());
-        B = new Point(B.getY() + 3, B.getZ() - 50, B.getX());
 
-        C = new Point(C.getY() - 2, C.getZ() - 50, C.getX());
         Point C1 = new Point(C.getX() - 0.5, C.getY(), C.getZ());
         Point C2 = new Point(C.getX(), C.getY(), C.getZ());
         Point CBorderSide = new Point(C.getX()+0.3, C.getY(), C.getZ());
 
 
-        D = new Point(D.getY(), D.getZ() - 50, D.getX());
         Point D1 = new Point(D.getX() + 0.5, D.getY(), D.getZ());
         Point DBorderSide = new Point(D.getX()-0.3, D.getY(), D.getZ());
+        Point ABack=new Point(A.getX()-5,A.getY(),A.getZ()-100);
+        Point BBack=new Point(B.getX()-5,B.getY(),B.getZ()-100);
+        Point CBack=new Point(C.getX()-5,C.getY(),C.getZ()-100);
+        Point DBack=new Point(D.getX()-5,D.getY(),D.getZ()-100);
 
 
-        F = new Point(F.getY(), F.getZ() - 50, F.getX());
-        Point F1 = new Point(F.getX() - 0.5, F.getY(), F.getZ());
-        Point FBorder = new Point(F.getX(), F.getY() + 0.3, F.getZ());
-        Point FBorderSide = new Point(F.getX()+0.3, F.getY(), F.getZ());
+        Point F1 = new Point(CBack.getX() - 0.5, CBack.getY(), CBack.getZ());
+        Point FBorder = new Point(CBack.getX(), CBack.getY() + 0.3, CBack.getZ());
+        Point FBorderSide = new Point(CBack.getX()+0.3, CBack.getY(), CBack.getZ());
 
 
-        G = new Point(G.getY(), G.getZ() - 50, G.getX());
-        Point G1 = new Point(G.getX() + 0.5, G.getY(), G.getZ());
-        Point GBorder = new Point(G.getX(), G.getY() + 0.3, G.getZ());
-        Point GBorderSide = new Point(G.getX()-0.3, G.getY(), G.getZ());
+        Point G1 = new Point(DBack.getX() + 0.5, DBack.getY(), DBack.getZ());
+        Point GBorder = new Point(DBack.getX(), DBack.getY() + 0.3, DBack.getZ());
+        Point GBorderSide = new Point(DBack.getX()-0.3, DBack.getY(),DBack.getZ());
 
+        //BOTTOM
+        Triangle Bottom1=new Triangle(A,B,ABack);
+        Triangle Bottom2=new Triangle(B,BBack,ABack);
 
         //FRONT RIGHT
         Triangle T1 = new Triangle(C, A, D);
+        Triangle T1Back = new Triangle(CBack, ABack, DBack);
+
         //FRONT LEFT
         Triangle T2 = new Triangle(A, D, B);
-        Triangle T3 = new Triangle(C, F, D);
-        Triangle T4 = new Triangle(F, G, D);
+        Triangle T2Back = new Triangle(ABack, DBack, BBack);
+
+        Triangle LeftSideBase1 = new Triangle(A, C, ABack);
+        Triangle LeftSideBase2 = new Triangle(C, CBack, ABack);
+        Triangle RightSideBase1 = new Triangle(B, D, BBack);
+        Triangle RightSideBase2 = new Triangle(D, DBack, BBack);
+
+        Triangle T3 = new Triangle(C, CBack, D);
+
+        Triangle T4 = new Triangle(CBack, DBack, D);
 
         Triangle L1 = new Triangle(sideLeft1, sideLeft2, D1);
         Triangle L2 = new Triangle(D1, D, sideLeft2);
         Triangle R1 = new Triangle(right1, right2, C2);
         Triangle R2 = new Triangle(C1, right2, C2);
-        Triangle rLittle1T = new Triangle(F, F1, rLittle1);
-        Triangle rLittle2T = new Triangle(rLittle2, F1, rLittle1);
-        Triangle lLittle1T = new Triangle(lLittle1, lLittle2, G1);
-        Triangle lLittle2T = new Triangle(G, G1, lLittle2);
+        Triangle rLittle1T = new Triangle(CBack, F1, right2);
+        Triangle rLittle2T = new Triangle(right1, F1, right2);
+        Triangle lLittle1T = new Triangle(sideLeft1, sideLeft2, G1);
+        Triangle lLittle2T = new Triangle(DBack, G1, sideLeft2);
 
         Triangle borderR1 = new Triangle(CBorderSide, C1, FBorderSide);
         Triangle borderR2 = new Triangle(F1, C1, FBorderSide);
@@ -205,8 +216,8 @@ public class hotAirBaloon {
         Triangle borderL1 = new Triangle(GBorderSide, G1, D1);
         Triangle borderL2 = new Triangle(GBorderSide, DBorderSide, D1);
 
-        Triangle borderBack1 = new Triangle(G, GBorder, F);
-        Triangle borderBack2 = new Triangle(F, FBorder, GBorder);
+        Triangle borderBack1 = new Triangle(DBack, GBorder, CBack);
+        Triangle borderBack2 = new Triangle(DBack, FBorder, GBorder);
 
 
         /////////////////////////////////////////////////////////////////
@@ -216,12 +227,28 @@ public class hotAirBaloon {
 
         scene4.geometries.add( //
                 //basket
+                //bottom
+                Bottom1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
+                Bottom2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
+
                 //front
                 T1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
                 T2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
+                //back
+                T1Back.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
+                T2Back.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
+
+                //Left side
+                LeftSideBase1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
+                LeftSideBase2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
+
+                //Right side
+                RightSideBase1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
+                RightSideBase2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
+
                 //top
-                T3.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(550, 20, 30)), //
-                T4.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(1000)).setEmission(new Color(500, 20, 30)),
+                //T3.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(550, 20, 30)), //
+                //T4.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(1000)).setEmission(new Color(500, 20, 30)),
 
                 //for long lines between balloon and basket
                 L1.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
@@ -230,13 +257,16 @@ public class hotAirBaloon {
                 R2.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
 
                 //back border for basket
+                /*
                 borderR1.setMaterial(new Material().setkD(2.9).setkS(0.5).setnShininess(100)).setEmission(new Color(255, 255, 100)), //
                 borderR2.setMaterial(new Material().setkD(2.9).setkS(0.5).setnShininess(100)).setEmission(new Color(255, 255, 100)), //
                 borderL1.setMaterial(new Material().setkD(0.9).setkS(0.5).setnShininess(100)).setEmission(new Color(255, 255, 100)), //
                 borderL2.setMaterial(new Material().setkD(0.9).setkS(0.5).setnShininess(100)).setEmission(new Color(255,255,100)), //
                 borderBack1.setMaterial(new Material().setkD(0.9).setkS(0.5).setnShininess(100)).setEmission(new Color(500, 20, 30)), //
                 borderBack2.setMaterial(new Material().setkD(0.9).setkS(0.5).setnShininess(100)).setEmission(new Color(500, 20, 30)), //
+                */
                 //for small lines between baloon and basket
+
                 rLittle1T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
                 rLittle2T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),
                 lLittle1T.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(WHITE)),

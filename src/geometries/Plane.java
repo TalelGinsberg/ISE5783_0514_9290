@@ -55,6 +55,7 @@ public class Plane extends Geometry {
         Vector v2 = x.subtract(z);
 
         normal = v1.crossProduct(v2);
+
     }
 
     //---------------------------override functions-------------------------
