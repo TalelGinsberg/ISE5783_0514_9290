@@ -380,17 +380,19 @@ public class hotAirBaloon {
                 new Plane(new Point(5,-80,-300), new Vector(5,-240,-20))
                         .setEmission(new Color(185, 266, 500).scale(0.35))//
                         .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),
+
+
                 //little ball
-                new Sphere(new Point(-8,-35,-16),2).setEmission(new Color(yellow)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
+                new Sphere(new Point(-8,-35,-16),2).setEmission(new Color(139, 69, 19)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
                 new Triangle(new Point(-7.5,-29.36,-15),new Point(-8.5,-29.36,-15),new Point(-8.5,-35,-15)).setEmission(new Color(black)),
                 new Triangle(new Point(-7.5,-29.36,-15),new Point(-7.5,-35,-15),new Point(-8.5,-35,-15)).setEmission(new Color(black)),
 
 
-                new Sphere(new Point(-0,-35,-16),2).setEmission(new Color(yellow)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
+                new Sphere(new Point(-0,-35,-16),2).setEmission(new Color(139, 69, 19)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
                 new Triangle(new Point(-0.5,-29.36,-15),new Point(0.5,-29.36,-15),new Point(0.5,-35,-15)).setEmission(new Color(black)),
                 new Triangle(new Point(-0.5,-29.36,-15),new Point(-0.5,-35,-15),new Point(0.5,-35,-15)).setEmission(new Color(black)),
 
-                new Sphere(new Point(8,-35,-16),2).setEmission(new Color(yellow)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
+                new Sphere(new Point(8,-35,-16),2).setEmission(new Color(139, 69, 19)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
                 new Triangle(new Point(7.5,-29.36,-15),new Point(8.5,-29.36,-15),new Point(8.5,-35,-15)).setEmission(new Color(black)),
                 new Triangle(new Point(7.5,-29.36,-15),new Point(7.5,-35,-15),new Point(8.5,-35,-15)).setEmission(new Color(black))
 
@@ -415,7 +417,7 @@ public class hotAirBaloon {
         //scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(20,-18,20)));
 
         scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(-1,-2,-8)));
-        scene4.lights.add(new PointLight( new Color(100,100,100),new Point( -8,-35,-16)));
+        //scene4.lights.add(new PointLight( new Color(100,100,100),new Point( -8,-35,-16)));
 
         /*
         //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(40, -40, -50), new Vector(1,-1,0)));
