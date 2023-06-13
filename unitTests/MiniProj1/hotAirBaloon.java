@@ -231,6 +231,9 @@ public class hotAirBaloon {
         Point p3 = new Point(100, -50, -100);
 
         scene4.geometries.add( //
+
+                new Plane(new Point(0,-55,-750),new Vector(0,0.5,0)).setEmission(Color.BLACK)
+                        .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),
                 //basket
                 //bottom
                 Bottom1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
@@ -467,13 +470,13 @@ public class hotAirBaloon {
 //CLOUD bottom right  LITTLE
                 new Sphere(new Point(75, -35, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.1)),
                 new Sphere(new Point(80, -36, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.1)),
                 new Sphere(new Point(70, -36, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.1)),
 
 
 
@@ -482,16 +485,19 @@ public class hotAirBaloon {
 
                 //CLOUD LOWER RIGHT BIG
 
+                /*
                 new Sphere(new Point(40, -40, -50), 8d)
                 .setEmission(new Color(gray)) //
-                .setMaterial(new Material().setkD(0.800004).setkS(0.003).setnShininess(100).setkT(0)),
+                .setMaterial(new Material().setkD(0.800004).setkS(0.003).setnShininess(100).setkT(0.5)),
                 new Sphere(new Point(47, -42, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.800004).setkS(0.03).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.800004).setkS(0.03).setnShininess(100).setkT(0.5)),
                 new Sphere(new Point(33, -42, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.800004).setkS(0.03).setnShininess(100).setkT(0.00003)),
+                        .setMaterial(new Material().setkD(0.800004).setkS(0.03).setnShininess(100).setkT(0.5)),
                 new Sphere(new Point(5,-50,-100),2).setEmission(new Color(RED)),
+
+                 */
                   /*
                   //back pyramid
                 new Triangle(new Point(50,-40,60),
@@ -519,11 +525,14 @@ public class hotAirBaloon {
 
 
  */
-                new Plane(new Point(50,-60,-100),new Vector(0,1,0)).setEmission(Color.BLACK).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),
 
-                new Plane(new Point(5,-50,-100), new Vector(5,-240,-20))
+
+
+                new Plane(new Point(5,-80,-300), new Vector(5,-240,-20))
                         .setEmission(new Color(135, 206, 500).scale(0.35))//
                         .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100))
+
+
 
 
 
@@ -531,23 +540,31 @@ public class hotAirBaloon {
                 //new Plane(p1, p2, p3).setEmission(new Color(white)).setMaterial(new Material().setkD(0.4).setkS(0.3).setnShininess(100))
 
         );
-        scene4.lights.add(new SpotLight(new Color(500, 600, 400),
-                new Point(-100, -100, 500),
-                new Vector(-1, -1, -2)) //
-                .setKl(0.0004).setKq(0.0000006));
+        ///scene4.lights.add(new SpotLight(new Color(500, 600, 400),
+           //     new Point(-100, -100, 500),
+             //   new Vector(-1, -1, -2)) //
+        // .setKl(0.0004).setKq(0.0000006));
 
-        scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(1,-2,4)));
+        //scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(20,-18,20)));
+
+        scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(-1,-2,-8)));
 
         /*
         //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(40, -40, -50), new Vector(1,-1,0)));
         //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(47, -42, -50), new Vector(1,-1,0)));
         //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(33, -42, -50), new Vector(1,-1,0)));
+        */
 
 
-        //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(75, -35, -50), new Vector(1,-1,0)));
-        //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(80, -36, -50), new Vector(1,-1,0)));
-        //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(70, -36, -50), new Vector(1,-1,0)));
+        //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(20, 68, -50), new Vector(1,-1,0)));
+        //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(25, 67, -50), new Vector(1,-1,0)));
+        //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(15, 67, -50), new Vector(1,-1,0)));
 
+        //scene4.lights.add(new PointLight(new Color(255,255,20),new Point(20, 68, -50)));
+        //scene4.lights.add(new PointLight(new Color(255,255,20),new Point(25, 67, -50)));
+        //scene4.lights.add(new PointLight(new Color(255,255,20),new Point(15, 67, -50)));
+
+        /*
         //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(30, -75, -50), new Vector(1,-1,0)));
         //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(35, -76, -50), new Vector(1,-1,0)));
         //scene4.lights.add(new SpotLight(new Color(255,255,20),new Point(25, -76, -50), new Vector(1,-1,0)));
