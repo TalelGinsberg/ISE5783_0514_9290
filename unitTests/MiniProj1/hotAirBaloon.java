@@ -384,17 +384,17 @@ public class hotAirBaloon {
 
                 //little ball
                 new Sphere(new Point(-8,-35,-16),2).setEmission(new Color(139, 69, 19)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
-                new Triangle(new Point(-7.5,-29.36,-15),new Point(-8.5,-29.36,-15),new Point(-8.5,-35,-15)).setEmission(new Color(black)),
-                new Triangle(new Point(-7.5,-29.36,-15),new Point(-7.5,-35,-15),new Point(-8.5,-35,-15)).setEmission(new Color(black)),
+                new Triangle(new Point(-7.75,-29.36,-15),new Point(-8.25,-29.36,-15),new Point(-8.25,-35,-15)).setEmission(new Color(black)),
+                new Triangle(new Point(-7.75,-29.36,-15),new Point(-7.75,-35,-15),new Point(-8.25,-35,-15)).setEmission(new Color(black)),
 
 
                 new Sphere(new Point(-0,-35,-16),2).setEmission(new Color(139, 69, 19)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
-                new Triangle(new Point(-0.5,-29.36,-15),new Point(0.5,-29.36,-15),new Point(0.5,-35,-15)).setEmission(new Color(black)),
-                new Triangle(new Point(-0.5,-29.36,-15),new Point(-0.5,-35,-15),new Point(0.5,-35,-15)).setEmission(new Color(black)),
+                new Triangle(new Point(-0.25,-29.36,-15),new Point(0.25,-29.36,-15),new Point(0.25,-35,-15)).setEmission(new Color(black)),
+                new Triangle(new Point(-0.25,-29.36,-15),new Point(-0.25,-35,-15),new Point(0.25,-35,-15)).setEmission(new Color(black)),
 
                 new Sphere(new Point(8,-35,-16),2).setEmission(new Color(139, 69, 19)).setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),//,
-                new Triangle(new Point(7.5,-29.36,-15),new Point(8.5,-29.36,-15),new Point(8.5,-35,-15)).setEmission(new Color(black)),
-                new Triangle(new Point(7.5,-29.36,-15),new Point(7.5,-35,-15),new Point(8.5,-35,-15)).setEmission(new Color(black))
+                new Triangle(new Point(7.75,-29.36,-15),new Point(8.25,-29.36,-15),new Point(8.25,-35,-15)).setEmission(new Color(black)),
+                new Triangle(new Point(7.75,-29.36,-15),new Point(7.75,-35,-15),new Point(8.25,-35,-15)).setEmission(new Color(black))
 
 
 
