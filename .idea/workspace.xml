@@ -8,6 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="making pic 3d">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/TRY.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/TRY.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,10 +185,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.hotAirBaloon.air" />
+        <item itemvalue="JUnit.hotAirBaloon" />
         <item itemvalue="JUnit.All in ISE5783_0514_9290" />
         <item itemvalue="JUnit.ReflectionRefractionTests.multipleObjects" />
         <item itemvalue="JUnit.donuts.minProj1" />
-        <item itemvalue="JUnit.hotAirBaloon" />
       </list>
     </recent_temporary>
   </component>
@@ -558,7 +560,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="final stage3 without warnnigs" />
     <MESSAGE value="after check in class" />
     <MESSAGE value="sync before start 4" />
     <MESSAGE value="start 4" />
@@ -583,7 +584,8 @@
     <MESSAGE value="end of stage 7 + my pic" />
     <MESSAGE value="stage 8 fix" />
     <MESSAGE value="making pic 3d" />
-    <option name="LAST_COMMIT_MESSAGE" value="making pic 3d" />
+    <MESSAGE value="3d" />
+    <option name="LAST_COMMIT_MESSAGE" value="3d" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
