@@ -232,7 +232,7 @@ public class hotAirBaloon {
 
         scene4.geometries.add( //
 
-                new Plane(new Point(0,-55,-750),new Vector(0,0.5,0)).setEmission(Color.BLACK)
+                new Plane(new Point(0,-55,-750),new Vector(0,0.5,0)).setEmission(new Color(34,70,34))
                         .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)),
                 //basket
                 //bottom
@@ -240,19 +240,19 @@ public class hotAirBaloon {
                 Bottom2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
 
                 //front
-                T1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
-                T2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
+                T1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 50, 40)), //
+                T2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 50, 40)), //
                 //back
                 T1Back.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
                 T2Back.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
 
                 //Left side
-                LeftSideBase1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
-                LeftSideBase2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
+                LeftSideBase1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 140, 40)), //
+                LeftSideBase2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 140, 40)), //
 
                 //Right side
-                RightSideBase1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 40, 40)), //
-                RightSideBase2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 40, 40)), //
+                RightSideBase1.setMaterial(new Material().setkD(0.5).setkS(0.3).setnShininess(100)).setEmission(new Color(500, 140, 40)), //
+                RightSideBase2.setMaterial(new Material().setkD(0.5).setkS(1.4).setnShininess(100)).setEmission(new Color(520, 140, 40)), //
 
                 //top
                 //T3.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100)).setEmission(new Color(550, 20, 30)), //
@@ -286,158 +286,181 @@ public class hotAirBaloon {
 //CLOUD UPPER LEFT BIG
                 new Sphere(new Point(-55, 20, -50), 8d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-62, 18, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-48, 18, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 //CLOUD UPPER RIGHT BIG upper
 
                 new Sphere(new Point(50, 58, -50), 8d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(57, 56, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(43, 56, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
+
+
+
+
+
                 //CLOUD UPPER RIGHT BIG lower
 
                 new Sphere(new Point(60, 25, -50), 8d)
-                        .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setEmission(new Color(gray
+                        )) //
+                        .setMaterial(new Material().setkD(0.74).setkS(0.93).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(67, 23, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.93).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(53, 23, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.93).setnShininess(100).setkT(0.15)),
 
 
-                //CLOUD MIDDLE RIGHT LITTLE
+
+
+
+
+
+
+        //CLOUD MIDDLE RIGHT LITTLE
 
                 new Sphere(new Point(40, 0, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(45, -1, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(35, -1, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
 //CLOUD MIDDLE RIGHT LITTLE
 
                 new Sphere(new Point(60, -10, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.64).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(65, -11, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.64).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(55, -11, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.64).setkS(0.003).setnShininess(100).setkT(0.15)),
                 //CLOUD LOWER LEFT BIG
-
+/*
                 new Sphere(new Point(-45, -75, -50), 8d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-52, -77, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-38, -77, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
-//CLOUD MIDDLE LEFT BIG
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
 
+ */
+//CLOUD MIDDLE LEFT BIG
+/*
                 new Sphere(new Point(-35, -25, -50), 8d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-42, -27, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-28, -27, -50), 6d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
+
+ */
                 //CLOUD LEFT MIDDLE LITTLE UPPER
+
                 new Sphere(new Point(-60, -10, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-65, -11, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-55, -11, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
 //CLOUD LEFT MIDDLE LITTLE LOWER
+                /*
                 new Sphere(new Point(-60, -50, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-65, -51, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-55, -51, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
+
+                 */
 
 //CLOUD LEFT TOP LITTLE
                 new Sphere(new Point(-60, 50, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-65, 49, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-55, 49, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
 
 //CLOUD LEFT TOP LITTLE
                 new Sphere(new Point(-30, 65, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-35, 64, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-25, 64, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
 
 //CLOUD LEFT TOP LITTLE
                 new Sphere(new Point(-75, 74, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-80, 73, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-70, 73, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
 
 
 //CLOUD LEFT TOP LITTLE
                 new Sphere(new Point(20, 68, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(25, 67, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(15, 67, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
 
 
 //CLOUD bottom middle  LITTLE
+                /*
                 new Sphere(new Point(0, -65, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.64).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(-5, -66, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.64).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(5, -66, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.64).setkS(0.003).setnShininess(100).setkT(0)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
+
+                 */
 
 /*
 //CLOUD bottom right  LITTLE
@@ -468,15 +491,18 @@ public class hotAirBaloon {
  */
 
 //CLOUD bottom right  LITTLE
+                /*
                 new Sphere(new Point(75, -35, -50), 5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.1)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(80, -36, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.1)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
                 new Sphere(new Point(70, -36, -50), 3.5d)
                         .setEmission(new Color(gray)) //
-                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.1)),
+                        .setMaterial(new Material().setkD(0.74).setkS(0.003).setnShininess(100).setkT(0.15)),
+
+                 */
 
 
 
@@ -484,6 +510,7 @@ public class hotAirBaloon {
 
 
                 //CLOUD LOWER RIGHT BIG
+
 
                 /*
                 new Sphere(new Point(40, -40, -50), 8d)
@@ -498,6 +525,8 @@ public class hotAirBaloon {
                 new Sphere(new Point(5,-50,-100),2).setEmission(new Color(RED)),
 
                  */
+
+
                   /*
                   //back pyramid
                 new Triangle(new Point(50,-40,60),
@@ -529,7 +558,7 @@ public class hotAirBaloon {
 
 
                 new Plane(new Point(5,-80,-300), new Vector(5,-240,-20))
-                        .setEmission(new Color(135, 206, 500).scale(0.35))//
+                        .setEmission(new Color(185, 266, 500).scale(0.35))//
                         .setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(100))
 
 
