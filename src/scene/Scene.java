@@ -32,6 +32,11 @@ public class Scene {
 
     /**The name of the scene*/
     private final String name;
+    public double delta;
+    public int softShadow;
+    public boolean adaptiveSuperSampling;
+
+
 
 
     //-----------------------------constructor-------------------------
@@ -47,6 +52,10 @@ public class Scene {
         ambientLight = builder.ambientLight;
         geometries = builder.geometries;
         lights = builder.lights;
+        delta=builder.delta;
+        softShadow=builder.softShadow;
+        adaptiveSuperSampling=builder.adaptiveSuperSampling;
+
     }
 
     //--------------------------------getters----------------------------
@@ -73,6 +82,10 @@ public class Scene {
         private Color background = Color.BLACK;
         private AmbientLight ambientLight = AmbientLight.NONE;
         private Geometries geometries = new Geometries();
+        private double delta=0;
+        private int softShadow=0;
+        private boolean adaptiveSuperSampling;
+
 
         /**
          * Constructs a new SceneBuilder object with the given name.
@@ -82,7 +95,28 @@ public class Scene {
         public SceneBuilder(String name) {
             this.name = name;
         }
-
+        /**
+         * set the number of rays in soft shadow
+         * @param rayNum number of rays in a row
+         * @return scene
+         */
+        public SceneBuilder setSoftShadow(int rayNum) {
+            softShadow=rayNum;
+            return this;
+        }
+        public SceneBuilder setDelta(double d) {
+            delta = d;
+            return this;
+        }
+        /**
+         * set if the scene use adaptive Super-sampling
+         * @param a
+         * @return scene
+         */
+        public SceneBuilder setAdaptiveSuperSampling(boolean a) {
+            this.adaptiveSuperSampling=a;
+            return this;
+        }
 
         /**
          * Sets the background color of the scene and returns the updated SceneBuilder object.

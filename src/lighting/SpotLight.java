@@ -2,7 +2,10 @@ package lighting;
 
 import primitives.Color;
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.ArrayList;
 
 import static java.lang.Math.max;
 import static primitives.Util.isZero;
@@ -40,6 +43,11 @@ public class SpotLight extends PointLight {
 
 
     //---------------------------override functions-------------------------
+    @Override
+    public ArrayList<Ray> softShadow(Point p, int rayNum, double d)
+    {
+        return super.softShadow(p, rayNum, d);
+    }
 
     @Override
     public Color getIntensity(Point p) {

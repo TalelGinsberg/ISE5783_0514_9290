@@ -250,8 +250,13 @@ public class RayTracerBasic extends RayTracerBase {
                 //if (unshaded(gp, lightSource, l, n, nl)){
 
                 // Calculate the transparency coefficient
-                Double3 ktr = transparency(gp, lightSource, l, n);
-
+                Double3 ktr;// = transparency(gp, lightSource, l, n);
+                if(scene.softShadow!=0) {//if the image use soft shadow
+                    ktr = transparencySoftSahdow(gp, lightSource, n, scene.softShadow);
+                }
+                else {
+                    ktr = transparency(gp, lightSource,l, n);
+                }
                 // If the transparency coefficient is not too small
                 if (!ktr.product(k).lowerThan(MIN_CALC_COLOR_K)) {
                     // Intensity of the light source at the intersection point
@@ -453,6 +458,46 @@ public class RayTracerBasic extends RayTracerBase {
         // Find the closest intersection point from the ray's origin among all the intersections.
         return ray.findClosestGeoPoint(intersections);
     }
+    /**
+     * Calculate the effect of all the intersections before the point(between the point and the light)
+     * Calculate more than one rays towards the light to the point to achieve more realistic shading
+     * @param geoPoint
+     * @param ls- light source
+     * @param n- normal
+     * @return the level of transparency
+     */
+
+    private Double3 transparencySoftSahdow(GeoPoint geoPoint, LightSource ls, Vector n, int rayNum) {
+        Double3 ktr;
+        Double3 shadow = Double3.ZERO;
+        List<Ray> softShadow = ls.softShadow(geoPoint.point, rayNum, scene.delta);//list of all the rays from the light to the point
+        for (Ray r:softShadow) //go over all the rays from the light
+        {
+            ktr = new Double3(1.0);
+            Vector lightDirection = r.getDir().scale(-1); // from point to light source
+            Ray lightRay = new Ray(geoPoint.point, lightDirection, n);//ray from point to the light source
+            double maxDistance = ls.getDistance(geoPoint.point);
+
+            List<GeoPoint> lst = scene.geometries.findGeoIntersections(lightRay); //find the list of intersection points
+            for(var geo:lst) {
+                if (geoPoint.point.distance(geo.point) > maxDistance)
+                    lst.remove(geo);
+            }
+
+                if (lst==null) shadow=shadow.add(new Double3(1.0));//if there are no points between the point and the light- the geometry is transparent and does'nt effect the color of the point
+            else {
+                for (GeoPoint gp: lst) //go over every intersection point in the list
+                {
+                    ktr = gp.geometry.getMaterial().kT.product(ktr);
+                }
+                shadow=shadow.add(ktr);
+            }
+        }
+        shadow=shadow.reduce(softShadow.size());
+        return shadow;
+
+    }
+
 
     //---------------------------override functions-------------------------
 

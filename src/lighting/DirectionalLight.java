@@ -1,9 +1,8 @@
 package lighting;
 
-import primitives.Color;
-import primitives.Double3;
-import primitives.Point;
-import primitives.Vector;
+import primitives.*;
+
+import java.util.ArrayList;
 
 
 /**
@@ -53,5 +52,14 @@ public class DirectionalLight extends Light implements LightSource {
     @Override
     public double getDistance(Point point) {
         return Double.POSITIVE_INFINITY;
+    }
+    public ArrayList<Ray> softShadow(Point p, int rayNum, double d)
+    {
+        ArrayList<Ray> ans = new ArrayList<Ray>();
+        double temp=Double.POSITIVE_INFINITY;
+        Ray ray=new Ray(new Point(temp,temp,temp),this.getL(p).normalize());
+        ans.add(0,ray);
+        return ans;
+
     }
 }

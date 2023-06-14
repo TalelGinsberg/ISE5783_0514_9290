@@ -137,7 +137,8 @@ public class hotAirBaloon {
                 new Vector(0, 1, 0)) //
                 .setVPSize(150, 150)
                 .setVPDistance(1000);
-        Scene scene4 = new Scene.SceneBuilder("Test scene").setAmbientLight(new AmbientLight(new Color(WHITE), 0.15)).setBackground(new Color(135, 206, 250)).build();
+               // .setAdaptiveSuperSampling(4);
+        Scene scene4 = new Scene.SceneBuilder("Test scene").setAmbientLight(new AmbientLight(new Color(WHITE), 0.15)).setBackground(new Color(135, 206, 250)).setSoftShadow(9).setDelta(12.5).build();
         double k = 1; // Scaling factor
 
         Point A = new Point(10* k, -50 * k, -16 * k);
@@ -396,6 +397,10 @@ public class hotAirBaloon {
                 new Triangle(new Point(7.75,-29.36,-15),new Point(8.25,-29.36,-15),new Point(8.25,-35,-15)).setEmission(new Color(black)),
                 new Triangle(new Point(7.75,-29.36,-15),new Point(7.75,-35,-15),new Point(8.25,-35,-15)).setEmission(new Color(black))
 
+
+                //new Triangle(new Point(-20,-60,10),new Point(-25,-60,10),new Point(-22.5,-40,10)).setEmission(new Color(black))
+
+
                 //new Sphere(new Point(72,45,0),8).setEmission(new Color(yellow)).setMaterial(new Material().setkD(0.1).setkS(0).setnShininess(100))
 
         );
@@ -405,8 +410,14 @@ public class hotAirBaloon {
         // .setKl(0.0004).setKq(0.0000006));
 
         //scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(20,-18,20)));
+        scene4.lights.add(new SpotLight(new Color(600,700,400),new Point(-2, 28, -50),new Vector(0,1,0)));
+        //scene4.lights.add(new SpotLight(new Color(200,300,50),new Point(-2, -50, -50),new Vector(0,1,0)));
 
+        //the good one
         scene4.lights.add(new DirectionalLight(new Color(200,300,100).scale(0.8),new Vector(-1,-2,-8)));
+        scene4.lights.add(new PointLight(new Color(200,100,100),new Point(0,-40,-50)));
+        //noa's light
+        //scene4.lights.add(new PointLight(new Color(105,100,100).scale(0.5),new Point(10,10,10)).setKq(0).setKl(0));
         //scene4.lights.add(new PointLight(new Color(orange),new Point(72,45,0)));
         //scene4.lights.add(new PointLight( new Color(100,100,100),new Point( -8,-35,-16)));
 
