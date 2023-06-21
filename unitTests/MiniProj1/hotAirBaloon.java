@@ -843,26 +843,26 @@ public class hotAirBaloon {
         // ---------------------------------------lights--------------------------------------------------------------
 
         //light for balloon coloring
-        scene4.lights.add(new SpotLight(new Color(600, 700, 400), new Point(-2, 28, -50), new Vector(0, 1, 0)).setSize(30));
+        scene4.lights.add(new SpotLight(new Color(600, 700, 400), new Point(-2, 28, -50), new Vector(0, 1, 0)).setSize(0));
 
         //inside basket light
-        scene4.lights.add(new PointLight(new Color(200, 100, 100), new Point(0, -40, -50)).setSize(40));
+        scene4.lights.add(new PointLight(new Color(200, 100, 100), new Point(0, -40, -50)).setSize(0));
 
         //the second shadow for baloon
-        scene4.lights.add(new PointLight(new Color(105, 100, 100).scale(0.5), new Point(10, 10, 10)).setKq(0).setKl(0).setSize(45));
+        scene4.lights.add(new PointLight(new Color(105, 100, 100).scale(0.5), new Point(10, 10, 10)).setKq(0).setKl(0).setSize(0));
 
         //the sunlight
         scene4.lights.add(new DirectionalLight(new Color(200, 300, 100).scale(0.8), new Vector(-1, -2, -8)));
 
         //street light for pinwheel
-        scene4.lights.add(new PointLight(new Color(10,10,10), new Point(-40,-20,0)).setSize(30));
+        scene4.lights.add(new PointLight(new Color(10,10,10), new Point(-40,-20,0)).setSize(0));
         //th light for the baloon decoration
-        scene4.lights.add(new PointLight(new Color(40,40,40), new Point(-20,0,1001)).setSize(30));
+        scene4.lights.add(new PointLight(new Color(40,40,40), new Point(-20,0,1001)).setSize(0));
 
 
 
 
-        ImageWriter imageWriter = new ImageWriter("TRY", 1000, 1000);
+        ImageWriter imageWriter = new ImageWriter("finalImageWithoutSoftShadow3000X3000", 3000, 3000);
         camera.setImageWriter(imageWriter) //
                 .renderImage() //
                 .writeToImage();
