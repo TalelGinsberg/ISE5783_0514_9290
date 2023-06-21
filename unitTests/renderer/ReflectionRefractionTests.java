@@ -154,11 +154,11 @@ public class ReflectionRefractionTests {
               new SpotLight(new Color(500, 600, 400),
                       new Point(-100, -100, 500),
                       new Vector(-1, -1, -2)) //
-                      .setKl(0.004).setKq(0.0000006));
+                      .setKl(0.004).setKq(0.0000006).setSize(30));
 
       ImageWriter imageWriter = new ImageWriter("iceCream", 600, 600);
       camera.setImageWriter(imageWriter) //
-              .setRayTracer(new RayTracerBasic(scene4)) //
+              .setRayTracer(new RayTracerBasic(scene4).setNumOfRays(1000)) //
               .renderImage() //
               .writeToImage();
    }

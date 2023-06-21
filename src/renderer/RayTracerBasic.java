@@ -1,7 +1,9 @@
 package renderer;
 
 import geometries.Intersectable.GeoPoint;
+import lighting.DirectionalLight;
 import lighting.LightSource;
+import lighting.PointLight;
 import primitives.*;
 import scene.Scene;
 
@@ -38,6 +40,11 @@ public class RayTracerBasic extends RayTracerBase {
      * It represents no attenuation, resulting in full color contribution at the initial level.
      */
     private static final Double3 INITIAL_K = Double3.ONE;
+
+    /**
+     * The number of rays to be used for ray tracing.
+     */
+    private double numOfRays;
 
     //-----------------------------constructor-------------------------
 
@@ -207,7 +214,6 @@ public class RayTracerBasic extends RayTracerBase {
         return color;
     }
 
-
     /**
      * Calculates the local effects at a given intersection point, such as diffuse and specular reflections.
      *
@@ -217,61 +223,84 @@ public class RayTracerBasic extends RayTracerBase {
      * @return The color of the local effects at the intersection point
      */
     private Color calcLocalEffects(GeoPoint gp, Ray ray, Double3 k) {
-        // Start with the emission color of the geometry
         Color color = gp.geometry.getEmission();
-
-        // View direction vector
         Vector v = ray.getDir();
-
-        // Normal vector at the intersection point
         Vector n = gp.geometry.getNormal(gp.point);
-
-        // Dot product between the normal and view direction vectors
         double nv = alignZero(n.dotProduct(v));
 
-        // If the dot product is close to zero, the view direction and normal are orthogonal,
-        // so there is no contribution from local effects
+        // If the view direction is perpendicular to the surface, return the emission color
         if (nv == 0)
             return color;
 
-        // Material of the intersected geometry
         Material material = gp.geometry.getMaterial();
 
         // Iterate over all light sources in the scene
         for (LightSource lightSource : scene.lights) {
-            // Light direction vector at the intersection point
             Vector l = lightSource.getL(gp.point);
-
-            // Dot product between the normal and light direction vectors
             double nl = alignZero(n.dotProduct(l));
 
-            // Check if the light is on the same side as the view direction
-            if (nl * nv > 0) {
-                //if (unshaded(gp, lightSource, l, n, nl)){
+            // Check if the light source and the view direction are on the same side of the surface
+            if (nl * nv > 0) { // sign(nl) == sign(nv)
+                Double3 ktr;
 
-                // Calculate the transparency coefficient
-                Double3 ktr;// = transparency(gp, lightSource, l, n);
-                if(scene.softShadow!=0) {//if the image use soft shadow
-                    ktr = transparencySoftSahdow(gp, lightSource, n, scene.softShadow);
+                // Determine the type of light source and calculate transparency accordingly
+                if (lightSource instanceof DirectionalLight || (lightSource instanceof PointLight && ((PointLight) lightSource).getSize() == 0)) {
+                    ktr = transparency(gp, lightSource, l, n);
+                } else {
+                    ktr = calcLocalEffectsSoftShadows((PointLight) lightSource, gp, n, nv, v, material);
                 }
-                else {
-                    ktr = transparency(gp, lightSource,l, n);
-                }
-                // If the transparency coefficient is not too small
-                if (!ktr.product(k).lowerThan(MIN_CALC_COLOR_K)) {
-                    // Intensity of the light source at the intersection point
+
+                // Check if the product of transparency values is greater than a minimum threshold
+                if (!(k.product(ktr).lowerThan(MIN_CALC_COLOR_K))) {
                     Color iL = lightSource.getIntensity(gp.point).scale(ktr);
 
-                    // Calculate the contributions of diffuse and specular reflections
-                    color = color.add(
-                            calcDiffusive(material.kD, nl, iL),
-                            calcSpecular(material.kS, n, l, nl, v, iL, material.nShininess)
-                    );
+                    // Add the diffuse and specular components to the color
+                    color = color.add(calcDiffusive(material.kD, nl, iL))
+                            .add(calcSpecular(material.kS, n, l, nl, v, iL, material.nShininess));
+                }
+            }
+        }
+        return color;
+    }
+
+    /**
+     * Calculates the local effects of soft shadows for a given point on a surface.
+     * Soft shadows are created by sampling multiple rays from the light source to determine the shadow intensity.
+     * The number of rays used is determined by the value of {@code numOfRays}.
+     *
+     * @param lightSource the light source casting the shadows
+     * @param gp          the geometric point on the surface
+     * @param n           the surface normal at the point
+     * @param nv          the dot product of the surface normal and the view direction
+     * @param v           the view direction
+     * @param material    the material of the surface
+     * @return the calculated local effects as a Double3 object representing the combined transparency values
+     */
+    private Double3 calcLocalEffectsSoftShadows(PointLight lightSource, GeoPoint gp, Vector n, double nv, Vector v, Material material) {
+        Vector l = lightSource.getL(gp.point);
+        Blackboard blackBoard = new Blackboard((int) Math.round(Math.sqrt(numOfRays)), lightSource.getSize(), l, new Vector(0, -l.getZ(), l.getY()), lightSource.getPosition());
+        Ray ray;
+        int rays = 0;
+        Double3 ktr = Double3.ZERO;
+
+        // Iterate over the rays for soft shadows
+        for (int i = 1; i < Math.round(Math.sqrt(numOfRays)); i++) {
+            for (int j = 1; j < Math.round(Math.sqrt(numOfRays)); j++) {
+                // Construct a ray from the blackboard for the current iteration
+                ray = blackBoard.constructRay(j, i, gp.point);
+                if (ray != null) {
+                    rays++;
+                    // Add the transparency value of the intersection point to the accumulated ktr value
+                    ktr = ktr.add(transparency(gp, lightSource, ray.getDir(), n));
                 }
             }
         }
 
-        return color;
+        // Reduce the combined transparency values by the number of rays to obtain the average transparency
+        ktr = ktr.reduce(rays);
+
+        return ktr;
+
     }
 
 
@@ -458,47 +487,18 @@ public class RayTracerBasic extends RayTracerBase {
         // Find the closest intersection point from the ray's origin among all the intersections.
         return ray.findClosestGeoPoint(intersections);
     }
+    //---------------------------setters-------------------------
+
     /**
-     * Calculate the effect of all the intersections before the point(between the point and the light)
-     * Calculate more than one rays towards the light to the point to achieve more realistic shading
-     * @param geoPoint
-     * @param ls- light source
-     * @param n- normal
-     * @return the level of transparency
+     * Sets the number of rays to be used for ray tracing.
+     *
+     * @param numOfRays the number of rays to be used
+     * @return the updated RayTracerBasic object
      */
-
-    private Double3 transparencySoftSahdow(GeoPoint geoPoint, LightSource ls, Vector n, int rayNum) {
-        Double3 ktr;
-        Double3 shadow = Double3.ZERO;
-        List<Ray> softShadow = ls.softShadow(geoPoint.point, rayNum, scene.delta);//list of all the rays from the light to the point
-        for (Ray r:softShadow) //go over all the rays from the light
-        {
-            ktr = new Double3(1.0);
-            Vector lightDirection = r.getDir().scale(-1); // from point to light source
-            Ray lightRay = new Ray(geoPoint.point, lightDirection, n);//ray from point to the light source
-            double maxDistance = ls.getDistance(geoPoint.point);
-
-            List<GeoPoint> lst = scene.geometries.findGeoIntersections(lightRay); //find the list of intersection points
-            for(var geo:lst) {
-                if (geoPoint.point.distance(geo.point) > maxDistance)
-                    lst.remove(geo);
-            }
-
-                if (lst==null) shadow=shadow.add(new Double3(1.0));//if there are no points between the point and the light- the geometry is transparent and does'nt effect the color of the point
-            else {
-                for (GeoPoint gp: lst) //go over every intersection point in the list
-                {
-                    ktr = gp.geometry.getMaterial().kT.product(ktr);
-                }
-                shadow=shadow.add(ktr);
-            }
-        }
-        shadow=shadow.reduce(softShadow.size());
-        return shadow;
-
+    public RayTracerBasic setNumOfRays(double numOfRays) {
+        this.numOfRays = numOfRays;
+        return this;
     }
-
-
     //---------------------------override functions-------------------------
 
     @Override

@@ -28,7 +28,7 @@ public class ShadowTests {
             new Vector(0, 1, 0))   //
             .setVPSize(200, 200)
             .setVPDistance(1000)                                                                       //
-            .setRayTracer(new RayTracerBasic(scene));
+            .setRayTracer(new RayTracerBasic(scene).setNumOfRays(1000));
 
     /**
      * Helper function for the tests in this module
@@ -42,7 +42,7 @@ public class ShadowTests {
                 new SpotLight(new Color(400, 240, 0),
                         spotLocation,
                         new Vector(1, 1, -3)) //
-                        .setKl(1E-5).setKq(1.5E-7));
+                        .setKl(1E-5).setKq(1.5E-7).setSize(60));
 
         camera.setImageWriter(new ImageWriter(pictName, 400, 400)) //
                 .renderImage() //
@@ -113,6 +113,13 @@ public class ShadowTests {
         Scene scene2 = new Scene.SceneBuilder("Test scene")
                 .setAmbientLight(new AmbientLight(new Color(WHITE), 0.15))
                 .build();
+        Camera camera2 = new Camera(
+                new Point(0, 0, 1000),
+                new Vector(0, 0, -1),
+                new Vector(0, 1, 0))   //
+                .setVPSize(200, 200)
+                .setVPDistance(1000)                                                                       //
+                .setRayTracer(new RayTracerBasic(scene2).setNumOfRays(1000));
 
         scene2.geometries.add( //
                 new Triangle(new Point(-150, -150, -115), new Point(150, -150, -135),
@@ -126,10 +133,9 @@ public class ShadowTests {
         );
         scene2.lights.add( //
                 new SpotLight(new Color(700, 400, 400), new Point(40, 40, 115), new Vector(-1, -1, -4)) //
-                        .setKl(4E-4).setKq(2E-5));
+                        .setKl(4E-4).setKq(2E-5).setSize(40));
 
-        camera.setImageWriter(new ImageWriter("shadowTrianglesSphere", 600, 600)) //
-                .setRayTracer(new RayTracerBasic(scene2))
+        camera2.setImageWriter(new ImageWriter("shadowTrianglesSphere", 600, 600)) //
                 .renderImage() //
                 .writeToImage();
     }

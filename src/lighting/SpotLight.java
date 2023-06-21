@@ -43,11 +43,6 @@ public class SpotLight extends PointLight {
 
 
     //---------------------------override functions-------------------------
-    @Override
-    public ArrayList<Ray> softShadow(Point p, int rayNum, double d)
-    {
-        return super.softShadow(p, rayNum, d);
-    }
 
     @Override
     public Color getIntensity(Point p) {
