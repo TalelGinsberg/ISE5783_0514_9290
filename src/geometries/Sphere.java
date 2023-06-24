@@ -30,6 +30,11 @@ public class Sphere extends RadialGeometry {
      * @param radius radius of sphere
      */
     public Sphere(Point center, double radius) {
+        //if bvh improvement is used
+        if (BVH){
+            //create bounding box
+            createBoundingBox();
+        }
         this.center = center;
         this.radius = radius;
     }
@@ -82,6 +87,20 @@ public class Sphere extends RadialGeometry {
     @Override
     public Vector getNormal(Point p) {
         return p.subtract(center).normalize();
+    }
+    @Override
+    public void createBoundingBox() {
+        if (center != null) {
+            double minX = center.getX() - radius;
+            double minY = center.getY() - radius;
+            double minZ = center.getZ() - radius;
+            double maxX = center.getX() + radius;
+            double maxY = center.getY() + radius;
+            double maxZ = center.getZ() + radius;
+
+            // Create a new BoundingBox object using the calculated minimum and maximum coordinates
+            box = new BoundingBox(new Point(minX, minY, minZ), new Point(maxX, maxY, maxZ));
+        }
     }
 
 

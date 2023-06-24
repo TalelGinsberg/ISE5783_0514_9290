@@ -37,6 +37,11 @@ public class Plane extends Geometry {
      * @param sentNormal sent normal for plane
      */
     public Plane(Point sentQ0, Vector sentNormal) {
+        //if bvh improvement is used
+        if (BVH){
+            //create bounding box
+            createBoundingBox();
+        }
         this.q0 = sentQ0;
         this.normal = sentNormal.normalize();
     }
@@ -49,6 +54,11 @@ public class Plane extends Geometry {
      * @param z third point
      */
     public Plane(Point x, Point y, Point z) {
+        //if bvh improvement is used
+        if (BVH){
+            //create bounding box
+            createBoundingBox();
+        }
         q0 = x;
 
         Vector v1 = x.subtract(y);
@@ -75,6 +85,13 @@ public class Plane extends Geometry {
         // but for better performance we use the following
         return normal;
     }
+
+    @Override
+    public void createBoundingBox() {
+        //not implemented because plane is never ending so can't be bound in box
+    }
+
+
 
     @Override
     protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {

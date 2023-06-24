@@ -66,6 +66,11 @@ public abstract class Geometry extends Intersectable {
         return this;
     }
 
+    public Geometry setBVH(boolean bvh) {
+        BVH = bvh;
+        return this;
+    }
+
     /**
      * Sets the emission color of this geometry to the specified color and returns this geometry.
      *

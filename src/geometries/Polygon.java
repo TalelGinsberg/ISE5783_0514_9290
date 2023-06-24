@@ -85,6 +85,11 @@ public class Polygon extends Geometry {
             if (positive != (edge1.crossProduct(edge2).dotProduct(n) > 0))
                 throw new IllegalArgumentException("All vertices must be ordered and the polygon must be convex");
         }
+        //if bvh improvement is used
+        if (BVH){
+            //create bounding box
+            createBoundingBox();
+        }
     }
 
     //---------------------------override functions-------------------------
@@ -98,6 +103,35 @@ public class Polygon extends Geometry {
     public Vector getNormal(Point point) {
         return plane.getNormal().normalize();
     }
+    @Override
+    public void createBoundingBox() {
+        if (vertices == null)
+            return;
+        // Initialize the minimum X coordinate
+        double minX = Double.POSITIVE_INFINITY;
+        // Initialize the minimum Y coordinate
+        double minY = Double.POSITIVE_INFINITY;
+        // Initialize the minimum Z coordinate
+        double minZ = Double.POSITIVE_INFINITY;
+        // Initialize the maximum X coordinate
+        double maxX = Double.NEGATIVE_INFINITY;
+        // Initialize the maximum Y coordinate
+        double maxY = Double.NEGATIVE_INFINITY;
+        // Initialize the maximum Z coordinate
+        double maxZ = Double.NEGATIVE_INFINITY;
 
+        // Iterate over each vertex to find the minimum and maximum coordinates
+        for (Point ver : vertices) {
+            minX = Math.min(minX, ver.getX());
+            minY = Math.min(minY, ver.getY());
+            minZ = Math.min(minZ, ver.getZ());
+            maxX = Math.max(maxX, ver.getX());
+            maxY = Math.max(maxY, ver.getY());
+            maxZ = Math.max(maxZ, ver.getZ());
+        }
+
+        // Create a new BoundingBox object using the calculated minimum and maximum coordinates
+        box = new BoundingBox(new Point(minX, minY, minZ), new Point(maxX, maxY, maxZ));
+    }
 
 }

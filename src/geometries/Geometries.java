@@ -1,5 +1,6 @@
 package geometries;
 
+import primitives.Point;
 import primitives.Ray;
 
 import java.util.LinkedList;
@@ -26,6 +27,11 @@ public class Geometries extends Intersectable {
      * default constructor for geometries
      */
     public Geometries() {
+        //if bvh improvement is used
+        if (BVH){
+            //create bounding box around geometries
+            createBoundingBox();
+        }
         this.list = new LinkedList<Intersectable>();
     }
 
@@ -35,7 +41,15 @@ public class Geometries extends Intersectable {
      * @param geometries get a list of unknown number of geometries
      */
     public Geometries(Intersectable... geometries) {
-        this.list = List.of(geometries);
+        //if bvh improvement is used
+        if (BVH){
+            //create bounding box around geometries
+            createBoundingBox();
+        }
+        this.list = new LinkedList<Intersectable>();
+        for (Intersectable intersectable:geometries){
+            list.add(intersectable);
+        }
     }
 
     //------------------------------functions---------------------------
@@ -79,6 +93,33 @@ public class Geometries extends Intersectable {
         }
         return points;
     }
+    @Override
+    public void createBoundingBox() {
+        if (list == null)
+            return;
 
+        // Initialize minimum and maximum coordinates to infinity and negative infinity respectively
+        double minX = Double.POSITIVE_INFINITY;
+        double minY = Double.POSITIVE_INFINITY;
+        double minZ = Double.POSITIVE_INFINITY;
+        double maxX = Double.NEGATIVE_INFINITY;
+        double maxY = Double.NEGATIVE_INFINITY;
+        double maxZ = Double.NEGATIVE_INFINITY;
 
+        // Iterate over the geometries in the list
+        for (Intersectable geo : list) {
+            if (geo.box != null) {
+                // Update minimum and maximum coordinates based on the bounding box of each geometry
+                minX = Math.min(minX, geo.box._minimums.getX());
+                minY = Math.min(minY, geo.box._minimums.getY());
+                minZ = Math.min(minZ, geo.box._minimums.getZ());
+                maxX = Math.max(maxX, geo.box._maximums.getX());
+                maxY = Math.max(maxY, geo.box._maximums.getY());
+                maxZ = Math.max(maxZ, geo.box._maximums.getZ());
+            }
+        }
+
+        // Create a new bounding box using the minimum and maximum coordinates
+        box = new BoundingBox(new Point(minX, minY, minZ), new Point(maxX, maxY, maxZ));
+    }
 }

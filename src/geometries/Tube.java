@@ -31,6 +31,11 @@ public class Tube extends RadialGeometry {
      * @param newRadius sent radius for tube
      */
     public Tube(Ray axisRay, double newRadius) {
+        //if bvh improvement is used
+        if (BVH){
+            //create bounding box
+            createBoundingBox();
+        }
         this.radius = newRadius;
         this.axisRay = axisRay;
 
@@ -58,6 +63,11 @@ public class Tube extends RadialGeometry {
         double t = this.axisRay.getDir().dotProduct(v);
         Point o = this.axisRay.getPoint(t);
         return (p.subtract(o)).normalize();
+    }
+
+    @Override
+    public void createBoundingBox() {
+        //we never fully implemented tube, so this is never used
     }
 
     @Override

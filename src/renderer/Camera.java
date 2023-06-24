@@ -83,6 +83,10 @@ public class Camera {
      */
     private RayTracerBase rayTracer;
 
+    /**
+     * Amount of threads for multi threading, if not set is 0, so no multi threading is done
+     */
+    private int threads = 0;
 
     //-----------------------------constructor-------------------------
 
@@ -161,7 +165,7 @@ public class Camera {
      * @throws MissingResourceException      if any of the required camera settings are missing
      * @throws UnsupportedOperationException if the method has not been implemented yet
      */
-    public Camera renderImage() {
+    public ImageWriter renderImage() {
         try {
 
             //place has not been set
@@ -201,20 +205,38 @@ public class Camera {
             if (distance == 0.0)
                 throw new MissingResourceException("missing distance place for camera", "Camera", "distance");
 
-            //goes through every pixel in view plane  and casts ray, meaning creates a ray for every pixel and sets the color
             int nY = imageWriter.getNy();
             int nX = imageWriter.getNx();
-            for (int row = 0; row < nY; row++) {
-                for (int column = 0; column < nX; column++) {
-                    castRay(nX, nY, row, column);
+            //if not using multi threads
+            if (threads < 1) {
+                //goes through every pixel in view plane  and casts ray, meaning creates a ray for every pixel and sets the color
+                for (int row = 0; row < nY; row++) {
+                    for (int column = 0; column < nX; column++) {
+                        castRay(nX, nY, row, column);
+                    }
                 }
+                return imageWriter;
+
             }
+            //if using multi threads
+            Pixel.initialize(nY, nX, 1);
+            while (threads-- > 0) {
+                new Thread(() ->
+                {
+                    for (Pixel pixel = new Pixel();
+                         pixel.nextPixel();
+                         Pixel.pixelDone()) {
+                        imageWriter.writePixel(pixel.col, pixel.row, castRay(nX, nY, pixel.row, pixel.col));
+                    }
+                }).start();
+            }
+            Pixel.waitToFinish();
+            return imageWriter;
         }
         //if one of the resources was not set
         catch (MissingResourceException e) {
             throw new UnsupportedOperationException("renderImage - value not set yet" + e.getKey());
         }
-        return this;
     }
 
     /**
@@ -227,7 +249,7 @@ public class Camera {
      * @param row    the row number of the pixel to cast the ray through
      * @throws MissingResourceException if the imageWriter or rayTracerBase have not been set
      */
-    private void castRay(int nX, int nY, int column, int row) {
+    private Color castRay(int nX, int nY, int column, int row) {
 
         //create the ray
         Ray ray = constructRay(nX, nY, row, column);
@@ -235,6 +257,7 @@ public class Camera {
         Color pixelColor = rayTracer.traceRay(ray);
         //writes the color of the pixel to image
         imageWriter.writePixel(row, column, pixelColor);
+        return pixelColor;
     }
 
     /**
@@ -389,6 +412,17 @@ public class Camera {
      */
     public Camera setRayTracer(RayTracerBase rayTracer) {
         this.rayTracer = rayTracer;
+        return this;
+    }
+
+    /**
+     * set function for thread - builder design pattern
+     *
+     * @param threads sent threads to set
+     * @return this camera that function was called from
+     */
+    public Camera setThreads(int threads) {
+        this.threads = threads;
         return this;
     }
 }
