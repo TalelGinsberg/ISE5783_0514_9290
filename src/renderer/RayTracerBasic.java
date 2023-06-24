@@ -278,7 +278,11 @@ public class RayTracerBasic extends RayTracerBase {
      */
     private Double3 calcLocalEffectsSoftShadows(PointLight lightSource, GeoPoint gp, Vector n, double nv, Vector v, Material material) {
         Vector l = lightSource.getL(gp.point);
-        Blackboard blackBoard = new Blackboard((int) Math.round(Math.sqrt(numOfRays)), lightSource.getSize(), l, new Vector(0, -l.getZ(), l.getY()), lightSource.getPosition());
+        Blackboard blackBoard = new Blackboard((int) Math.round(Math.sqrt(numOfRays)),
+                lightSource.getSize(),
+                l,
+                new Vector(0, -l.getZ(), l.getY()),
+                lightSource.getPosition());
         Ray ray;
         int rays = 0;
         Double3 ktr = Double3.ZERO;

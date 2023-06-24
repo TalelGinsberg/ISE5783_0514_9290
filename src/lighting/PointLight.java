@@ -37,16 +37,9 @@ public class PointLight extends Light implements LightSource {
      * The quadratic attenuation coefficient
      */
     private double kQ = 0d;
-
-    public double getSize() {
-        return size;
-    }
-
-    public PointLight setSize(double size) {
-        this.size = size;
-        return this;
-    }
-
+    /**
+     * size for soft shadow, how soft it will be
+     */
     private double size=0;
     //-----------------------------constructor-------------------------
 
@@ -81,6 +74,16 @@ public class PointLight extends Light implements LightSource {
     //--------------------------------getters----------------------------
 
     /**
+     * gets the constant representing soft shadow for the point light
+     *
+     * @return size of soft shadow of this point light
+     */
+    public double getSize() {
+        return size;
+    }
+    //--------------------------------setters----------------------------
+
+    /**
      * Sets the constant attenuation coefficient of the point light.
      *
      * @param kC The constant attenuation coefficient
@@ -112,6 +115,17 @@ public class PointLight extends Light implements LightSource {
      */
     public PointLight setKq(double kQ) {
         this.kQ = kQ;
+        return this;
+    }
+
+    /**
+     * Sets the size of soft shadow of the point light
+     *
+     * @param size representing the size of soft shadow for this point lght
+     * @return The updated PointLight object
+     */
+    public PointLight setSize(double size) {
+        this.size = size;
         return this;
     }
 }
