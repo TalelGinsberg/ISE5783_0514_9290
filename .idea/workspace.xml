@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="sync for end">
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="end of project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" afterDir="false" />
     </list>
@@ -102,23 +102,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.hotAirBaloon">
-    <configuration name="ReflectionRefractionTests.multipleObjects" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_0514_9290" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.ReflectionRefractionTests" />
-      <option name="METHOD_NAME" value="multipleObjects" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.hotAirBaloon.air">
     <configuration name="ShadowTests.sphereTriangleInitial" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_0514_9290" />
       <extension name="coverage">
@@ -147,6 +131,21 @@
       <option name="MAIN_CLASS_NAME" value="renderer.ShadowTests" />
       <option name="METHOD_NAME" value="trianglesSphere" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeapotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_0514_9290" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MiniProj2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MiniProj2" />
+      <option name="MAIN_CLASS_NAME" value="MiniProj2.TeapotTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,19 +182,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.TeapotTest" />
       <item itemvalue="JUnit.hotAirBaloon" />
       <item itemvalue="JUnit.ShadowTests.sphereTriangleInitial" />
       <item itemvalue="JUnit.ShadowTests.trianglesSphere" />
       <item itemvalue="JUnit.hotAirBaloon.air" />
-      <item itemvalue="JUnit.ReflectionRefractionTests.multipleObjects" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.hotAirBaloon.air" />
+        <item itemvalue="JUnit.TeapotTest" />
         <item itemvalue="JUnit.hotAirBaloon" />
         <item itemvalue="JUnit.ShadowTests.sphereTriangleInitial" />
-        <item itemvalue="JUnit.hotAirBaloon.air" />
         <item itemvalue="JUnit.ShadowTests.trianglesSphere" />
-        <item itemvalue="JUnit.ReflectionRefractionTests.multipleObjects" />
       </list>
     </recent_temporary>
   </component>
@@ -207,13 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677389103502</updated>
-    </task>
-    <task id="LOCAL‎-00013" summary="sync">
-      <created>1681991726056</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL‎-00013" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1681991726056</updated>
     </task>
     <task id="LOCAL‎-00014" summary="sync">
       <created>1681993424340</created>
@@ -551,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687640574147</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="end of project">
+      <created>1687679663842</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1687679663843</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -567,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="sync before start 4" />
     <MESSAGE value="start 4" />
     <MESSAGE value="Stage 4 before doc" />
     <MESSAGE value="mid doc stage 4" />
@@ -592,7 +590,8 @@
     <MESSAGE value="making pic 3d" />
     <MESSAGE value="3d" />
     <MESSAGE value="sync for end" />
-    <option name="LAST_COMMIT_MESSAGE" value="sync for end" />
+    <MESSAGE value="end of project" />
+    <option name="LAST_COMMIT_MESSAGE" value="end of project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -606,6 +605,11 @@
           <url>file://$PROJECT_DIR$/unitTests/renderer/ShadowTests.java</url>
           <line>137</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/renderer/Camera.java</url>
+          <line>297</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -561,7 +561,7 @@ public class hotAirBaloon {
 
 
 
-        ImageWriter imageWriter = new ImageWriter("final,noSoftShadows,500x500", 500, 500);
+        ImageWriter imageWriter = new ImageWriter("final,noSoftShadows,9000,9000", 9000, 9000);
         camera.setImageWriter(imageWriter) //
                 .renderImage() //
                 .writeToImage();
