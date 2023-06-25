@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="making pic 3d">
+    <list default="true" id="545dd678-e1ca-4db5-b832-ec4eb374157d" name="Changes" comment="sync for end">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/MiniProj1/hotAirBaloon.java" afterDir="false" />
     </list>
@@ -207,13 +207,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677389103502</updated>
-    </task>
-    <task id="LOCAL-00012" summary="SphereTest STAGE3">
-      <created>1681669097634</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1681669097634</updated>
     </task>
     <task id="LOCAL‎-00013" summary="sync">
       <created>1681991726056</created>
@@ -551,7 +544,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1686689786253</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="sync for end">
+      <created>1687640574147</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1687640574147</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -567,7 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="after check in class" />
     <MESSAGE value="sync before start 4" />
     <MESSAGE value="start 4" />
     <MESSAGE value="Stage 4 before doc" />
@@ -592,7 +591,8 @@
     <MESSAGE value="stage 8 fix" />
     <MESSAGE value="making pic 3d" />
     <MESSAGE value="3d" />
-    <option name="LAST_COMMIT_MESSAGE" value="3d" />
+    <MESSAGE value="sync for end" />
+    <option name="LAST_COMMIT_MESSAGE" value="sync for end" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

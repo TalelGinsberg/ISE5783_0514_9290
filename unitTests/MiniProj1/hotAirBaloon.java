@@ -508,6 +508,7 @@ public class hotAirBaloon {
 
         //the sunlight
         scene4.lights.add(new DirectionalLight(new Color(200, 300, 100).scale(0.8), new Vector(-1, -2, -8)));
+
 /*
 // with soft shadow featre
         //light for balloon coloring
@@ -522,13 +523,15 @@ public class hotAirBaloon {
         //street light for pinwheel
         scene4.lights.add(new PointLight(new Color(10,10,10), new Point(-40,-20,0)).setSize(30));
         //th light for the baloon decoration
-        scene4.lights.add(new PointLight(new Color(40,40,40), new Point(-20,0,1001)).setSize(30));
-
-
-
+        scene4.lights.add(new PointLight(new Color(40,40,40), new Point(-20,0,1001)).setSize(0));
 
 
  */
+
+
+
+
+
 
         //without soft shadows
         //light for balloon coloring
@@ -556,7 +559,9 @@ public class hotAirBaloon {
                 .setSize(0));
 
 
-        ImageWriter imageWriter = new ImageWriter("with all functions", 500, 500);
+
+
+        ImageWriter imageWriter = new ImageWriter("final,noSoftShadows,500x500", 500, 500);
         camera.setImageWriter(imageWriter) //
                 .renderImage() //
                 .writeToImage();
